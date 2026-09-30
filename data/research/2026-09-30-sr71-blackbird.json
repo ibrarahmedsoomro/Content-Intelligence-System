@@ -1,0 +1,52 @@
+{
+  "topic_name": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
+  "main_keyword": "SR-71 Blackbird fuel leak",
+  "related_keywords": [
+    "Lockheed SR-71 Blackbird",
+    "JP-7 fuel",
+    "thermal expansion supersonic",
+    "Skunk Works engineering"
+  ],
+  "search_demand_score": 88.0,
+  "trend_momentum": 82.0,
+  "competitor_examples": [
+    {
+      "title": "SR-71 Blackbird: The Plane That Leaked Fuel",
+      "views": 1200000,
+      "upload_date": "2023-08-15",
+      "channel_authority": "VERY_HIGH",
+      "angle_used": "General fun fact"
+    }
+  ],
+  "competitor_saturation_level": 65.0,
+  "audience_signals": [
+    "Why didn't engineers just seal the fuel tanks properly?",
+    "How did Mach 3.2 friction heat solve the fuel leak problem mid-air?"
+  ],
+  "content_gaps": [
+    "Technical explanation of thermal skin expansion at 500°F and chemical properties of JP-7 requiring triethylborane ignition"
+  ],
+  "existing_angles": [
+    "The intentional design flaw that saved the world's fastest jet."
+  ],
+  "topic_category": "Aviation Engineering / Cold War",
+  "related_topics": [
+    "Titanium procurement from USSR",
+    "Mach 3 heat barrier physics",
+    "U-2 vs SR-71"
+  ],
+  "potential_series_ideas": [
+    "Genius Engineering Flaws That Worked",
+    "Secret Skunk Works Inventions"
+  ],
+  "source_links": [
+    "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
+    "https://airandspace.si.edu/collection-objects/lockheed-sr-71-blackbird"
+  ],
+  "research_confidence": 95.0,
+  "curiosity_factor": 96.0,
+  "audience_fit_score": 94.0,
+  "depth_score": 88.0,
+  "visual_packaging_score": 98.0,
+  "is_factually_verified": true
+}

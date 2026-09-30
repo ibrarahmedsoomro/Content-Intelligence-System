@@ -1,0 +1,56 @@
+{
+  "topic": "Glenn Miller ",
+  "format": "LONG_FORM_DOCUMENTARY",
+  "estimated_duration": "9 Minutes 30 Seconds",
+  "total_word_count": 1450,
+  "hook_opening": "If you look at the official records of Glenn Miller , one glaring contradiction immediately stands out. On paper, it seemed impossible. Yet behind closed doors, military command authorized a radical pivot.",
+  "scenes": [
+    {
+      "scene_number": 1,
+      "timestamp_estimate": "0:00 - 0:45",
+      "section_title": "Cold Open & The Impossible Question",
+      "visual_direction": "[VISUAL: High-contrast 4K remastered archival footage. Dark vignette. Camera slowly zooms into cockpit instruments. On-screen text: DECLASSIFIED ARCHIVE.]",
+      "audio_sfx": "[AUDIO: Subdued radar blips fading into a haunting low orchestral cello drone. Sudden metallic snap on cut.]",
+      "voiceover_script": "If you look at the official records of Glenn Miller , one glaring contradiction immediately stands out. On paper, it seemed impossible. Yet behind closed doors, military command authorized a radical pivot.",
+      "retention_hook": "Hook promise: Reveals the hidden classified tradeoff within 60 seconds."
+    },
+    {
+      "scene_number": 2,
+      "timestamp_estimate": "0:45 - 2:30",
+      "section_title": "The Structural Flaw & Hidden Crisis",
+      "visual_direction": "[VISUAL: Split-screen tactical maps showing Pacific vs European theater ranges with red combat radii pulsing.]",
+      "audio_sfx": "[AUDIO: Driving electronic-cinematic pulse, analog radio static chirps.]",
+      "voiceover_script": "To understand why, we have to look past the surface. Rather than a simple comparison, Glenn Miller  was determined by Comprehensive breakdown of Glenn Miller from a fresh strategic angle.. Standard doctrine failed because the operational demands in different theaters were completely irreconcilable.",
+      "retention_hook": "Presents data visualization that debunks top competitor assumptions."
+    },
+    {
+      "scene_number": 3,
+      "timestamp_estimate": "2:30 - 5:15",
+      "section_title": "The Engineering / Strategic Crucible",
+      "visual_direction": "[VISUAL: Dynamic 3D schematic breakdown showing fuel capacity, armor weight, and altitude limits under stress.]",
+      "audio_sfx": "[AUDIO: Mechanical pneumatic sound design, dramatic percussion build-up.]",
+      "voiceover_script": "This led to the ultimate compromise: The untold story behind Glenn Miller.. Every single advantage in one category came at a staggering penalty in another. But the commanders had no other choice.",
+      "retention_hook": "Micro-cliffhanger before the pivotal mission breakdown."
+    },
+    {
+      "scene_number": 4,
+      "timestamp_estimate": "5:15 - 7:45",
+      "section_title": "The Real-World Test & Climax",
+      "visual_direction": "[VISUAL: Authentic combat mission camera footage synchronized with actual declassified radio transmission audio.]",
+      "audio_sfx": "[AUDIO: Heavy visceral flak explosions, authentic distorted cockpit radio comms.]",
+      "voiceover_script": "When these machines were finally deployed into high-altitude combat, theory collided violently with reality. Crews were pushed past the breaking point, but the strategic doctrine proved decisive.",
+      "retention_hook": "Audio-waveform synchronization keeps viewer locked in."
+    },
+    {
+      "scene_number": 5,
+      "timestamp_estimate": "7:45 - 9:30",
+      "section_title": "The Legacy & Final Verdict",
+      "visual_direction": "[VISUAL: Elegant slow-motion aerial cinematography of surviving aircraft in golden hour sunlight. Seamless outro animation.]",
+      "audio_sfx": "[AUDIO: Warm resonant synth chords resolving tension. Gentle ambient wind.]",
+      "voiceover_script": "Today, historians often debate which design was superior. But as we have seen, they were never meant to compete\u2014they were built to solve two entirely different puzzles of war. That is the untold truth of Glenn Miller .",
+      "retention_hook": "Deep mental model shift that drives comments and re-shares."
+    }
+  ],
+  "pacing_notes": "Maintain brisk 145-155 WPM voiceover delivery. Visual cuts every 3.5 to 5 seconds. Avoid dead air.",
+  "status": "COMPLETED"
+}

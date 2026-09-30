@@ -1,0 +1,35 @@
+{
+  "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
+  "decision": "MAKE",
+  "score": 77.2,
+  "confidence": 88.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 78.0,
+    "curiosity": 89.0,
+    "audience_fit": 86.0,
+    "competition_opportunity": 40.0,
+    "content_gap": 65.0,
+    "series_potential": 100.0,
+    "format_fit": 90.0,
+    "timing": 80.0,
+    "feasibility": 85.0,
+    "packaging": 90.0
+  },
+  "topic_type": "Aviation Mystery / Human Factor",
+  "recommended_format": "BOTH",
+  "primary_angle": "The 45-minute radio transcript that reveals why no one spoke up.",
+  "alternative_angles": [
+    "Why Flight 19 Bermuda Triangle solved a crisis everyone ignored",
+    "The hidden truth behind Flight 19 Bermuda Triangle",
+    "How one fatal design flaw redefined Flight 19 Bermuda Triangle"
+  ],
+  "viewer_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+  "content_gap_reason": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "timing_action": "EVERGREEN",
+  "production_effort": "MEDIUM",
+  "risk_status": "CAUTION",
+  "reason": "Scored 77.2/100 across demand, curiosity, and differentiation.",
+  "next_action": "HANDOFF_TO_SCRIPT_AGENT",
+  "handoff_agent": "Script Agent"
+}

@@ -1,0 +1,43 @@
+{
+  "approved_topic": "Glenn Miller ",
+  "approved_angle": "The untold story behind Glenn Miller.",
+  "viewer_question": "Why is Glenn Miller so significant?",
+  "format": "BOTH",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "content_gap": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
+  "core_facts": [
+    "Main entity: Glenn Miller",
+    "Category: Aviation History",
+    "Key keywords: Glenn Miller, Glenn Miller explained, Glenn Miller mystery"
+  ],
+  "sources": [
+    "https://wikipedia.org"
+  ],
+  "hook_direction": "Open with the immediate contrast between expectation and reality in Glenn Miller.",
+  "series_context": {
+    "pillar": "Aviation History",
+    "ideas": [
+      "The Aviation History Chronicles"
+    ],
+    "related": []
+  },
+  "risk_notes": "Ensure balanced factual presentation and avoid superficial spec debates.",
+  "suggested_length": "8-12 minutes",
+  "confidence": 92.0,
+  "next_agent": "Script Agent"
+}

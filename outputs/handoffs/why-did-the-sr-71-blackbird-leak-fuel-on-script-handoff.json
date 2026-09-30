@@ -1,0 +1,49 @@
+{
+  "approved_topic": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
+  "approved_angle": "The intentional design flaw that saved the world's fastest jet.",
+  "viewer_question": "Why didn't engineers just seal the fuel tanks properly?",
+  "format": "BOTH",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "content_gap": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "core_facts": [
+    "Main entity: SR-71 Blackbird fuel leak",
+    "Category: Aviation Engineering / Cold War",
+    "Key keywords: Lockheed SR-71 Blackbird, JP-7 fuel, thermal expansion supersonic, Skunk Works engineering"
+  ],
+  "sources": [
+    "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
+    "https://airandspace.si.edu/collection-objects/lockheed-sr-71-blackbird"
+  ],
+  "hook_direction": "Open with the immediate contrast between expectation and reality in SR-71 Blackbird fuel leak.",
+  "series_context": {
+    "pillar": "Aviation Engineering / Cold War",
+    "ideas": [
+      "Genius Engineering Flaws That Worked",
+      "Secret Skunk Works Inventions"
+    ],
+    "related": [
+      "Titanium procurement from USSR",
+      "Mach 3 heat barrier physics",
+      "U-2 vs SR-71"
+    ]
+  },
+  "risk_notes": "Ensure balanced factual presentation and avoid superficial spec debates.",
+  "suggested_length": "8-12 minutes",
+  "confidence": 95.0,
+  "next_agent": "Script Agent"
+}

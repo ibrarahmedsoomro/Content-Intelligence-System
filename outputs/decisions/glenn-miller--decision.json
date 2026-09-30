@@ -1,0 +1,35 @@
+{
+  "topic": "Glenn Miller ",
+  "decision": "MAKE",
+  "score": 69.6,
+  "confidence": 92.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 60.0,
+    "curiosity": 90.0,
+    "audience_fit": 85.0,
+    "competition_opportunity": 57.5,
+    "content_gap": 65.0,
+    "series_potential": 35.0,
+    "format_fit": 90.0,
+    "timing": 80.0,
+    "feasibility": 85.0,
+    "packaging": 85.0
+  },
+  "topic_type": "Aviation History",
+  "recommended_format": "BOTH",
+  "primary_angle": "The untold story behind Glenn Miller.",
+  "alternative_angles": [
+    "Why Glenn Miller solved a crisis everyone ignored",
+    "The hidden truth behind Glenn Miller",
+    "How one fatal design flaw redefined Glenn Miller"
+  ],
+  "viewer_question": "Why is Glenn Miller so significant?",
+  "content_gap_reason": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
+  "timing_action": "EVERGREEN",
+  "production_effort": "MEDIUM",
+  "risk_status": "CAUTION",
+  "reason": "Scored 69.6/100 across demand, curiosity, and differentiation.",
+  "next_action": "HANDOFF_TO_SCRIPT_AGENT",
+  "handoff_agent": "Script Agent"
+}

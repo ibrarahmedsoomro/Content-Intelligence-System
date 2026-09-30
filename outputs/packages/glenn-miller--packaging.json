@@ -1,0 +1,75 @@
+{
+  "topic": "Glenn Miller ",
+  "titles": [
+    {
+      "title": "Why America Had to Build the Plane Everyone Hated",
+      "formula_type": "Curiosity / Paradox",
+      "predicted_ctr": "High (11-14%)",
+      "rationale": "Creates immediate curiosity tension around an unexpected conflict."
+    },
+    {
+      "title": "The Hidden Flaw That Saved Glenn Miller",
+      "formula_type": "Contradiction",
+      "predicted_ctr": "Very High (13-16%)",
+      "rationale": "Hooks viewers with a counter-intuitive engineering secret."
+    },
+    {
+      "title": "Glenn Miller : The Untold Military Doctrine",
+      "formula_type": "Authority / Documentary",
+      "predicted_ctr": "Steady (8-10%)",
+      "rationale": "Attracts high-intent search and documentary enthusiasts."
+    },
+    {
+      "title": "The 1 Decision That Changed Glenn Miller Forever",
+      "formula_type": "Pivotal Moment",
+      "predicted_ctr": "High (10-12%)",
+      "rationale": "Singular focal point creates a powerful narrative hook."
+    },
+    {
+      "title": "Why Nobody Talks About the Glenn Miller explained Crisis",
+      "formula_type": "Forbidden Knowledge",
+      "predicted_ctr": "Very High (14-17%)",
+      "rationale": "Appeals to mystery and insider historical insight."
+    }
+  ],
+  "thumbnails": [
+    {
+      "concept_name": "Concept A: The Stark Split-Contradiction",
+      "visual_layout": "Split screen: Left side shows dark stormy combat skies with damaged bomber; Right side shows glowing golden blueprint schematics.",
+      "text_overlay": "WHY BOTH?",
+      "color_contrast": "High contrast between cold steel blue and warning amber/cyan.",
+      "ai_image_prompt": "Cinematic 8k shot of Glenn Miller , dark dramatic lighting, volumetric clouds, photorealistic archival style, extreme detail, octane render --ar 16:9"
+    },
+    {
+      "concept_name": "Concept B: The Classified Redaction",
+      "visual_layout": "Close-up of pilot looking intensely at cockpit dial with huge glowing red emergency stamp.",
+      "text_overlay": "THE SECRET FLAW",
+      "color_contrast": "Deep black vignette with blinding crimson and neon yellow accents.",
+      "ai_image_prompt": "Photorealistic 1940s cockpit interior, military pilot silhouette illuminated by glowing instruments, high drama, cinematic depth of field, 8k --ar 16:9"
+    },
+    {
+      "concept_name": "Concept C: The Giant Scale Contrast",
+      "visual_layout": "Massive formation of bombers dwarfing an ominous low-angle cloud layer with striking typography.",
+      "text_overlay": "TOO RISKY?",
+      "color_contrast": "Emerald green radar glow contrasting against pitch-black void.",
+      "ai_image_prompt": "Epic wide angle view of military bomber fleet flying through sunset clouds, cinematic lighting, ultra-realistic, national geographic documentary quality --ar 16:9"
+    }
+  ],
+  "seo_description": "In this documentary breakdown, we uncover the untold truth behind Glenn Miller .\n\n\ud83d\udd0d WHY THIS MATTERS:\nThe untold story behind Glenn Miller.\n\n\u23f1\ufe0f TIMESTAMPS:\n0:00 - The Impossible Contradiction\n0:45 - The Hidden Crisis & Theater Demands\n2:30 - The Compromise Engineers Had to Make\n5:15 - Combat Deployment: Theory Meets Reality\n7:45 - The Final Verdict & Modern Legacy\n\n\ud83d\udccc Subscribe to Vanished Skies Aviation for deep-dive aviation, military history, and high-curiosity documentary investigations.\n\n#AviationHistory #Documentary #MilitaryStrategy #UntoldStories",
+  "tags": [
+    "military aviation",
+    "ww2 bombers",
+    "aviation history",
+    "skunk works",
+    "documentary",
+    "military strategy",
+    "cold war",
+    "flight mystery",
+    "b17 flying fortress",
+    "b24 liberator",
+    "sr71 blackbird",
+    "aero engineering"
+  ],
+  "pinned_comment_prompt": "\ud83d\udcac Which strategy do you think was more crucial for the final outcome? Let us know your thoughts in the comments below!",
+  "status": "COMPLETED"
+}

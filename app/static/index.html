@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Intelligence System | Autonomous 5-Stage Agent Pipeline</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- Three.js & Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- 3D WebGL Background Canvas -->
+  <div id="webgl-bg"></div>
+
+  <!-- SVG Gradient Definitions -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#06b6d4" />
+        <stop offset="50%" stop-color="#8b5cf6" />
+        <stop offset="100%" stop-color="#10b981" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-container">
+    
+    <!-- Top Header & Live Pipeline Tracker -->
+    <header>
+      <div class="brand-badge">
+        <div class="logo-orb">⚡</div>
+        <div class="brand-text">
+          <h1>CONTENT INTELLIGENCE SYSTEM</h1>
+          <span>Autonomous 5-Stage Production Engine</span>
+        </div>
+      </div>
+
+      <!-- Autonomous Agent Pipeline Flow Stepper -->
+      <div class="pipeline-flow">
+        <div class="pipeline-node done" onclick="switchStageTab('tab-creator')">
+          <i data-lucide="check-circle-2" style="width:13px;height:13px;"></i>
+          <span>1. Research</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div id="pipe-node-2" class="pipeline-node active" onclick="switchStageTab('tab-studio')">
+          <i data-lucide="cpu" style="width:13px;height:13px;"></i>
+          <span>2. Topic Selection</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div id="pipe-node-3" class="pipeline-node" onclick="switchStageTab('tab-story')">
+          <i data-lucide="compass" style="width:13px;height:13px;"></i>
+          <span>3. Story Dev</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div id="pipe-node-4" class="pipeline-node" onclick="switchStageTab('tab-script')">
+          <i data-lucide="file-text" style="width:13px;height:13px;"></i>
+          <span>4. Script</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div id="pipe-node-5" class="pipeline-node" onclick="switchStageTab('tab-packaging')">
+          <i data-lucide="package-check" style="width:13px;height:13px;"></i>
+          <span>5. Packaging</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-studio">
+        <i data-lucide="activity" style="width:16px;height:16px;"></i>
+        <span>2. Topic Decision Studio</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-story">
+        <i data-lucide="compass" style="width:16px;height:16px;"></i>
+        <span>3. Story Dev</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-script">
+        <i data-lucide="file-text" style="width:16px;height:16px;"></i>
+        <span>4. Production Script</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-packaging">
+        <i data-lucide="package-check" style="width:16px;height:16px;"></i>
+        <span>5. Packaging & SEO</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-batch">
+        <i data-lucide="layers" style="width:16px;height:16px;"></i>
+        <span>Batch Priority Queue</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-creator">
+        <i data-lucide="plus-circle" style="width:16px;height:16px;"></i>
+        <span>New Research</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-config">
+        <i data-lucide="sliders" style="width:16px;height:16px;"></i>
+        <span>Settings</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: Topic Decision Studio (Live Evaluation) -->
+    <main id="tab-studio" class="tab-content" style="display: block;">
+      <div class="grid-studio">
+        
+        <!-- Left Col: Candidate Queue -->
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="folder-search" style="color: var(--cyan-glow); width:18px;height:18px;"></i>
+              <span>Research Candidates</span>
+            </div>
+            <button class="btn-secondary" onclick="loadResearchPackets()">
+              <i data-lucide="refresh-cw" style="width:13px;height:13px;"></i>
+            </button>
+          </div>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+            Incoming candidates from Research Agent. Select a topic to trigger full 12-stage analysis.
+          </p>
+          <div id="candidates-list" style="max-height: 580px; overflow-y: auto;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Center Col: Primary Decision Engine Output -->
+        <div class="glass-card">
+          <div class="card-header">
+            <div>
+              <h2 id="display-topic-title" style="font-size: 1.25rem; font-weight:700; color:#fff; line-height:1.3;">
+                Loading Topic...
+              </h2>
+              <span id="display-topic-category" style="font-size:0.75rem; color:var(--cyan-glow); font-family:var(--font-mono);">
+                Category
+              </span>
+            </div>
+          </div>
+
+          <!-- Narrative Strategy & Angles -->
+          <div style="margin-bottom: 1.5rem;">
+            <div class="angle-box">
+              <div class="angle-label">🎯 Primary Approved Angle</div>
+              <div id="primary-angle-text" class="angle-text">Analyzing strategic angle...</div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.25); border-radius:10px; padding:0.85rem; margin-bottom:0.75rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">
+                Core Viewer Question (Curiosity Gap)
+              </div>
+              <div id="core-viewer-question" style="font-size:0.9rem; font-style:italic; color:#38bdf8;">
+                "Loading unanswered question..."
+              </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.25); border-radius:10px; padding:0.85rem; margin-bottom:1rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">
+                Why Watch Our Version? (Content Gap)
+              </div>
+              <div id="content-gap-text" style="font-size:0.85rem; color:#cbd5e1;">
+                Extracting competitor differentiation...
+              </div>
+            </div>
+
+            <!-- Alternative Generated Angles -->
+            <div style="font-size:0.78rem; font-weight:700; text-transform:uppercase; color:var(--purple-glow); margin-bottom:0.5rem; letter-spacing:0.05em;">
+              Autonomous Reframing Matrix (3 Alternative Angles)
+            </div>
+            <div id="alt-angles-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Format & Production Strategy Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+            <div style="background: rgba(0,0,0,0.3); padding:0.75rem; border-radius:10px; border: 1px solid var(--border-subtle); text-align:center;">
+              <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase;">Format</div>
+              <div id="meta-format-badge" style="font-weight:700; color:var(--cyan-glow); margin-top:0.2rem;">BOTH</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding:0.75rem; border-radius:10px; border: 1px solid var(--border-subtle); text-align:center;">
+              <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase;">Timing</div>
+              <div id="meta-timing-badge" style="font-weight:700; color:var(--emerald-glow); margin-top:0.2rem;">EVERGREEN</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding:0.75rem; border-radius:10px; border: 1px solid var(--border-subtle); text-align:center;">
+              <div style="font-size:0.68rem; color:var(--text-muted); text-transform:uppercase;">Effort</div>
+              <div id="meta-effort-badge" style="font-weight:700; color:var(--amber-glow); margin-top:0.2rem;">MEDIUM</div>
+            </div>
+          </div>
+
+          <!-- Master Multi-Stage Advance Action -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <button class="btn-primary" onclick="runFullPipelineForCurrentTopic()">
+              <i data-lucide="play-circle" style="width:16px;height:16px;"></i>
+              <span>⚡ Run Full Pipeline (2→3→4→5)</span>
+            </button>
+            <button class="btn-secondary" style="display:flex; align-items:center; justify-content:center; gap:0.5rem;" onclick="advanceToNextStage('tab-story')">
+              <span>Advance to 3. Story Dev</span>
+              <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Col: 3D Score Visualizer & Radar Matrix -->
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="gauge" style="color: var(--purple-glow); width:18px;height:18px;"></i>
+              <span>Opportunity Score</span>
+            </div>
+          </div>
+
+          <!-- Hero Score Radial Dial -->
+          <div class="score-hero-container">
+            <div class="score-radial">
+              <svg viewBox="0 0 160 160">
+                <circle class="score-circle-bg" cx="80" cy="80" r="70"></circle>
+                <circle id="score-progress-ring" class="score-circle-progress" cx="80" cy="80" r="70"></circle>
+              </svg>
+              <div class="score-number">
+                <div id="hero-score-val" class="score-val">0</div>
+                <div class="score-label">Points / 100</div>
+              </div>
+            </div>
+            <div id="hero-decision-badge" class="badge-decision badge-MAKE_NOW">
+              EVALUATING...
+            </div>
+          </div>
+
+          <!-- Hard Gates Status Check -->
+          <div style="margin-top: 1rem;">
+            <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">
+              Quality & Risk Gates (6 Hard Gates)
+            </div>
+            <div id="hard-gates-container" class="gates-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- 12-Stage Radar Chart -->
+          <div style="margin-top: 1.5rem; height: 260px; position: relative;">
+            <canvas id="radarChart"></canvas>
+          </div>
+
+          <p id="meta-reason-text" style="font-size:0.72rem; color:var(--text-muted); text-align:center; margin-top:0.75rem; font-style:italic;">
+            -
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- TAB 2: STAGE 3 — STORY DEV STUDIO -->
+    <main id="tab-story" class="tab-content" style="display: none;">
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="compass" style="color:var(--cyan-glow); width:20px;height:20px;"></i>
+            <span>Stage 3: Story Development & 5-Beat Narrative Arc</span>
+          </div>
+          <button class="btn-primary" style="width:auto; padding:0.5rem 1.2rem;" onclick="advanceToNextStage('tab-script')">
+            <span>Advance to 4. Script Agent</span>
+            <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="angle-box">
+            <div class="angle-label">Core Narrative Thesis</div>
+            <div id="story-thesis-text" class="angle-text" style="font-size:0.95rem;">Generating thesis...</div>
+          </div>
+          <div class="angle-box alt">
+            <div class="angle-label">Hook Promise & Opening Tension</div>
+            <div id="story-hook-text" class="angle-text" style="font-size:0.95rem;">Generating hook...</div>
+          </div>
+        </div>
+
+        <div style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--cyan-glow); margin-bottom:1rem; letter-spacing:0.05em;">
+          Cinematic 5-Beat Story Structure
+        </div>
+        <div id="story-beats-container" style="display: grid; gap: 0.9rem;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </main>
+
+    <!-- TAB 3: STAGE 4 — PRODUCTION SCRIPT STUDIO -->
+    <main id="tab-script" class="tab-content" style="display: none;">
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="file-text" style="color:var(--purple-glow); width:20px;height:20px;"></i>
+            <span>Stage 4: Broadcast Production Script (Visual & Voiceover Tracks)</span>
+          </div>
+          <div style="display:flex; gap:0.75rem;">
+            <button class="btn-secondary" onclick="copyFullScript()">
+              <i data-lucide="copy" style="width:14px;height:14px;"></i>
+              <span>Copy Script</span>
+            </button>
+            <button class="btn-primary" style="width:auto; padding:0.5rem 1.2rem;" onclick="advanceToNextStage('tab-packaging')">
+              <span>Advance to 5. Packaging</span>
+              <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Script Metrics Bar -->
+        <div style="display: flex; gap: 1.5rem; background: rgba(0,0,0,0.35); padding: 0.85rem 1.2rem; border-radius:10px; border:1px solid var(--border-subtle); margin-bottom: 1.5rem;">
+          <div><span style="color:var(--text-muted); font-size:0.75rem;">ESTIMATED DURATION:</span> <strong id="script-duration" style="color:var(--cyan-glow);">-</strong></div>
+          <div><span style="color:var(--text-muted); font-size:0.75rem;">WORD COUNT:</span> <strong id="script-words" style="color:var(--emerald-glow);">-</strong></div>
+          <div><span style="color:var(--text-muted); font-size:0.75rem;">PACING:</span> <strong style="color:var(--amber-glow);">150 WPM (Fast-Paced Cinematic)</strong></div>
+        </div>
+
+        <!-- Scenes Breakdown Table -->
+        <div id="script-scenes-container" style="display: grid; gap: 1rem;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </main>
+
+    <!-- TAB 4: STAGE 5 — PACKAGING & SEO STUDIO -->
+    <main id="tab-packaging" class="tab-content" style="display: none;">
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="package-check" style="color:var(--emerald-glow); width:20px;height:20px;"></i>
+            <span>Stage 5: Packaging, High-CTR Titles & Thumbnail Concepts</span>
+          </div>
+        </div>
+
+        <!-- 5 Title Variations -->
+        <div style="margin-bottom: 2rem;">
+          <div style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--cyan-glow); margin-bottom:0.75rem; letter-spacing:0.05em;">
+            High-CTR YouTube Title Candidates (Curiosity & Paradox Formulas)
+          </div>
+          <div id="packaging-titles-container" style="display: grid; gap: 0.75rem;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- 3 Thumbnail Concepts -->
+        <div style="margin-bottom: 2rem;">
+          <div style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--purple-glow); margin-bottom:0.75rem; letter-spacing:0.05em;">
+            Visual Thumbnail Concepts & Midjourney Image Prompts
+          </div>
+          <div id="packaging-thumbnails-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- YouTube Description & Tags -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div class="glass-card" style="padding:1rem;">
+            <div style="font-size:0.8rem; font-weight:700; color:#fff; margin-bottom:0.5rem;">Optimized SEO Description with Timestamps</div>
+            <textarea id="packaging-seo-desc" rows="10" readonly style="width:100%; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; color:#cbd5e1; font-family:var(--font-mono); font-size:0.75rem; padding:0.75rem;"></textarea>
+          </div>
+          <div class="glass-card" style="padding:1rem;">
+            <div style="font-size:0.8rem; font-weight:700; color:#fff; margin-bottom:0.5rem;">15 High-Ranking YouTube Tags</div>
+            <div id="packaging-tags-container" style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              <!-- Rendered via JS -->
+            </div>
+            <div style="margin-top:1rem;">
+              <div style="font-size:0.75rem; color:var(--text-muted);">Pinned Audience Retention Comment:</div>
+              <div id="packaging-pinned-comment" style="font-size:0.82rem; color:var(--amber-glow); font-style:italic; margin-top:0.3rem;">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- TAB 5: Batch Priority Queue -->
+    <main id="tab-batch" class="tab-content" style="display: none;">
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="kanban-square" style="color:var(--cyan-glow); width:20px;height:20px;"></i>
+            <span>Batch Topic Optimization & Priority Production Queue</span>
+          </div>
+          <button class="btn-secondary" onclick="runBatchEvaluation()">
+            <i data-lucide="play" style="width:14px;height:14px;"></i>
+            <span>Run Full Batch Optimizer</span>
+          </button>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:1.5rem;">
+          The batch optimizer validates all researched candidates, detects near-duplicates, clusters themes, eliminates adjacent repetition, and ranks topics into executable production tiers.
+        </p>
+
+        <div id="batch-loading" style="display:none; text-align:center; padding:2rem; color:var(--cyan-glow);">
+          ⚡ Optimizing Candidate Cluster Network...
+        </div>
+
+        <div class="kanban-board">
+          <div class="kanban-col">
+            <div class="kanban-header" style="color:var(--emerald-glow);">
+              <span>🔥 MAKE NOW (P0)</span>
+              <span id="count-now" class="badge-decision" style="font-size:0.7rem; padding:0.1rem 0.5rem; margin:0;">0</span>
+            </div>
+            <div id="kanban-col-now"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-header" style="color:var(--cyan-glow);">
+              <span>⚡ NEXT (P1)</span>
+              <span id="count-next" class="badge-decision" style="font-size:0.7rem; padding:0.1rem 0.5rem; margin:0;">0</span>
+            </div>
+            <div id="kanban-col-next"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-header" style="color:var(--amber-glow);">
+              <span>🧪 TEST / REFRAME</span>
+              <span id="count-test" class="badge-decision" style="font-size:0.7rem; padding:0.1rem 0.5rem; margin:0;">0</span>
+            </div>
+            <div id="kanban-col-test"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-header" style="color:var(--text-secondary);">
+              <span>👀 WATCHLIST</span>
+              <span id="count-watchlist" class="badge-decision" style="font-size:0.7rem; padding:0.1rem 0.5rem; margin:0;">0</span>
+            </div>
+            <div id="kanban-col-watchlist"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-header" style="color:var(--rose-glow);">
+              <span>🚫 SKIP / BLOCKED</span>
+              <span id="count-skip" class="badge-decision" style="font-size:0.7rem; padding:0.1rem 0.5rem; margin:0;">0</span>
+            </div>
+            <div id="kanban-col-skip"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- TAB 6: New Research Packet Creator -->
+    <main id="tab-creator" class="tab-content" style="display: none;">
+      <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="file-plus" style="color:var(--cyan-glow); width:20px;height:20px;"></i>
+            <span>Add New Research Candidate</span>
+          </div>
+        </div>
+        <form onsubmit="submitNewTopic(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Topic Title</label>
+              <input type="text" id="new-topic-title" required placeholder="e.g. Why the Concorde Really Failed" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Main Entity / Keyword</label>
+              <input type="text" id="new-topic-keyword" required placeholder="e.g. Concorde supersonic airliner" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Category</label>
+              <input type="text" id="new-topic-category" value="Aviation History" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Demand (0-100)</label>
+              <input type="number" id="new-topic-demand" value="85" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Curiosity (0-100)</label>
+              <input type="number" id="new-topic-curiosity" value="90" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Confidence (0-100)</label>
+              <input type="number" id="new-topic-confidence" value="92" style="width:100%; padding:0.75rem; background:rgba(0,0,0,0.3); border:1px solid var(--border-subtle); border-radius:8px; color:#fff;">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            <i data-lucide="save" style="width:16px;height:16px;"></i>
+            <span>Save & Evaluate in Decision Studio</span>
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- TAB 7: Configuration Matrix -->
+    <main id="tab-config" class="tab-content" style="display: none;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="settings" style="color:var(--cyan-glow); width:18px;height:18px;"></i>
+              <span>Scoring Weights & Hard Gate Thresholds</span>
+            </div>
+          </div>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+            Edit <code>config/scoring.json</code> directly. Real-time updates without restarting the server.
+          </p>
+          <textarea id="config-scoring-raw" rows="16" style="width:100%; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; color:#38bdf8; font-family:var(--font-mono); font-size:0.8rem; padding:1rem;"></textarea>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <i data-lucide="users" style="color:var(--purple-glow); width:18px;height:18px;"></i>
+              <span>Channel Profile & Audience Memory</span>
+            </div>
+          </div>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+            Edit <code>config/audience.json</code> to tune target geography, demographics, and content style.
+          </p>
+          <textarea id="config-audience-raw" rows="16" style="width:100%; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; color:#a855f7; font-family:var(--font-mono); font-size:0.8rem; padding:1rem;"></textarea>
+        </div>
+      </div>
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button class="btn-primary" style="display:inline-flex; width:auto;" onclick="saveConfigs()">
+          <i data-lucide="check" style="width:16px;height:16px;"></i>
+          <span>Save All Configurations</span>
+        </button>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Application Logic -->
+  <script src="/static/js/three-scene.js"></script>
+  <script src="/static/js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

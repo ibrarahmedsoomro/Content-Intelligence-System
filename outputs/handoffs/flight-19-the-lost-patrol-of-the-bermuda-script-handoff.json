@@ -1,0 +1,48 @@
+{
+  "approved_topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
+  "approved_angle": "The 45-minute radio transcript that reveals why no one spoke up.",
+  "viewer_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+  "format": "BOTH",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "content_gap": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "core_facts": [
+    "Main entity: Flight 19 Bermuda Triangle",
+    "Category: Aviation Mystery / Human Factor",
+    "Key keywords: TBM Avenger lost patrol, Lieutenant Charles Taylor, Naval Air Station Fort Lauderdale, Bermuda Triangle debunked"
+  ],
+  "sources": [
+    "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html"
+  ],
+  "hook_direction": "Open with the immediate contrast between expectation and reality in Flight 19 Bermuda Triangle.",
+  "series_context": {
+    "pillar": "Aviation Mystery / Human Factor",
+    "ideas": [
+      "Famous Aviation Disappearances Deconstructed",
+      "The Human Factor in Fatal Flights"
+    ],
+    "related": [
+      "Spatial disorientation in flight",
+      "PBM Mariner rescue plane explosion",
+      "Military air accident investigations"
+    ]
+  },
+  "risk_notes": "Ensure balanced factual presentation and avoid superficial spec debates.",
+  "suggested_length": "8-12 minutes",
+  "confidence": 88.0,
+  "next_agent": "Script Agent"
+}

@@ -1,0 +1,62 @@
+{
+  "topic_name": "Why Did America Need So Many WWII Bombers?",
+  "main_keyword": "WWII American bombers",
+  "related_keywords": [
+    "B-17 Flying Fortress",
+    "B-24 Liberator",
+    "B-25 Mitchell",
+    "B-29 Superfortress",
+    "A-20 Havoc"
+  ],
+  "search_demand_score": 82.0,
+  "trend_momentum": 75.0,
+  "competitor_examples": [
+    {
+      "title": "The Legendary B-17 Bomber Explained",
+      "views": 450000,
+      "upload_date": "2024-05-12",
+      "channel_authority": "HIGH",
+      "angle_used": "Technical aircraft showcase"
+    },
+    {
+      "title": "B-17 vs B-24: Which Was Really Better?",
+      "views": 280000,
+      "upload_date": "2023-11-04",
+      "channel_authority": "MEDIUM",
+      "angle_used": "Direct 1v1 spec comparison"
+    }
+  ],
+  "competitor_saturation_level": 55.0,
+  "audience_signals": [
+    "Why did the US military build multiple distinct heavy bombers simultaneously?",
+    "How did Pacific theater range requirements differ from European operations?",
+    "Why was the B-24 built in larger numbers than the famous B-17?"
+  ],
+  "content_gaps": [
+    "Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
+    "Visualizing Pacific vs European theater ranges and altitude requirements"
+  ],
+  "existing_angles": [
+    "The hidden strategic doctrine: Why one bomber could not do every job."
+  ],
+  "topic_category": "Military History / Aviation Strategy",
+  "related_topics": [
+    "Pacific bomber strategy",
+    "Why the B-24 was harder to fly",
+    "The B-29 pressurized breakthrough"
+  ],
+  "potential_series_ideas": [
+    "WWII Bomber Evolution Series",
+    "Aircraft That Failed vs Aircraft That Won"
+  ],
+  "source_links": [
+    "https://nationalww2museum.org/aircraft-strategy",
+    "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress"
+  ],
+  "research_confidence": 91.0,
+  "curiosity_factor": 94.0,
+  "audience_fit_score": 91.0,
+  "depth_score": 85.0,
+  "visual_packaging_score": 93.0,
+  "is_factually_verified": true
+}

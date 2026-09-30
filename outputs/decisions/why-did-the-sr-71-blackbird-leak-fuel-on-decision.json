@@ -1,0 +1,35 @@
+{
+  "topic": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
+  "decision": "MAKE_NOW",
+  "score": 83.3,
+  "confidence": 95.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 88.0,
+    "curiosity": 96.0,
+    "audience_fit": 94.0,
+    "competition_opportunity": 50.0,
+    "content_gap": 65.0,
+    "series_potential": 100.0,
+    "format_fit": 90.0,
+    "timing": 90.0,
+    "feasibility": 75.0,
+    "packaging": 98.0
+  },
+  "topic_type": "Aviation Engineering / Cold War",
+  "recommended_format": "BOTH",
+  "primary_angle": "The intentional design flaw that saved the world's fastest jet.",
+  "alternative_angles": [
+    "Why SR-71 Blackbird fuel leak solved a crisis everyone ignored",
+    "The hidden truth behind SR-71 Blackbird fuel leak",
+    "How one fatal design flaw redefined SR-71 Blackbird fuel leak"
+  ],
+  "viewer_question": "Why didn't engineers just seal the fuel tanks properly?",
+  "content_gap_reason": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "timing_action": "MAKE_NOW",
+  "production_effort": "HIGH",
+  "risk_status": "CLEAR",
+  "reason": "Scored 83.3/100 across demand, curiosity, and differentiation.",
+  "next_action": "HANDOFF_TO_SCRIPT_AGENT",
+  "handoff_agent": "Script Agent"
+}

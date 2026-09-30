@@ -1,0 +1,49 @@
+{
+  "approved_topic": "Why Did America Need So Many WWII Bombers?",
+  "approved_angle": "The hidden strategic doctrine: Why one bomber could not do every job.",
+  "viewer_question": "Why did the US military build multiple distinct heavy bombers simultaneously?",
+  "format": "BOTH",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "content_gap": "Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
+  "core_facts": [
+    "Main entity: WWII American bombers",
+    "Category: Military History / Aviation Strategy",
+    "Key keywords: B-17 Flying Fortress, B-24 Liberator, B-25 Mitchell, B-29 Superfortress, A-20 Havoc"
+  ],
+  "sources": [
+    "https://nationalww2museum.org/aircraft-strategy",
+    "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress"
+  ],
+  "hook_direction": "Open with the immediate contrast between expectation and reality in WWII American bombers.",
+  "series_context": {
+    "pillar": "Military History / Aviation Strategy",
+    "ideas": [
+      "WWII Bomber Evolution Series",
+      "Aircraft That Failed vs Aircraft That Won"
+    ],
+    "related": [
+      "Pacific bomber strategy",
+      "Why the B-24 was harder to fly",
+      "The B-29 pressurized breakthrough"
+    ]
+  },
+  "risk_notes": "Ensure balanced factual presentation and avoid superficial spec debates.",
+  "suggested_length": "8-12 minutes",
+  "confidence": 91.0,
+  "next_agent": "Script Agent"
+}
