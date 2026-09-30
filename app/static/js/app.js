@@ -110,9 +110,45 @@ async function loadSinglePacket(filename) {
   }
 }
 
-// Master Action: Execute full 5-stage pipeline
+// Modal controls
+function openPipelineModal() {
+  const m = document.getElementById('pipeline-modal');
+  if (m) m.classList.add('open');
+}
+
+function closePipelineModal() {
+  const m = document.getElementById('pipeline-modal');
+  if (m) m.classList.remove('open');
+}
+
+function jumpToStageFromModal(tabId) {
+  closePipelineModal();
+  switchStageTab(tabId);
+}
+
+// Master Action: Execute full 5-stage pipeline with live animated HUD
 async function runFullPipelineForCurrentTopic() {
-  if (!currentLoadedPacket) return;
+  if (!currentLoadedPacket) {
+    const list = document.querySelectorAll('.candidate-item');
+    if (list.length > 0) {
+      list[0].click();
+      return;
+    }
+  }
+
+  // Open HUD Modal
+  openPipelineModal();
+  const bar = document.getElementById('pipeline-progress-bar');
+  const sub = document.getElementById('pipeline-status-sub');
+  
+  // Reset HUD
+  bar.style.width = '15%';
+  sub.innerText = `Analyzing: "${currentLoadedPacket.topic_name}"`;
+
+  setHudBadge('hud-stage-2-badge', 'RUNNING...', 'rgba(6,182,212,0.2)', 'var(--cyan-glow)');
+  setHudBadge('hud-stage-3-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
+  setHudBadge('hud-stage-4-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
+  setHudBadge('hud-stage-5-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
 
   try {
     const res = await fetch('/api/pipeline/run-full', {
@@ -124,30 +160,59 @@ async function runFullPipelineForCurrentTopic() {
     const data = await res.json();
     currentPipelineData = data;
 
-    // Render Stage 2 (Topic Decision)
-    if (data.decision) {
-      renderDecisionUI(data.decision, data.handoff);
-    }
+    // Simulate animated stage-by-stage progression
+    await delay(300);
+    bar.style.width = '35%';
+    setHudBadge('hud-stage-2-badge', `✓ ${data.decision.decision}`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
+    renderDecisionUI(data.decision, data.handoff);
 
-    // Render Stage 3 (Story Dev)
     if (data.story) {
+      await delay(350);
+      bar.style.width = '60%';
+      setHudBadge('hud-stage-3-badge', '✓ 5 BEATS BUILT', 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
       renderStoryUI(data.story);
     }
 
-    // Render Stage 4 (Script)
     if (data.script) {
+      await delay(350);
+      bar.style.width = '85%';
+      setHudBadge('hud-stage-4-badge', `✓ ${data.script.total_word_count} WORDS`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
       renderScriptUI(data.script);
     }
 
-    // Render Stage 5 (Packaging)
     if (data.packaging) {
+      await delay(300);
+      bar.style.width = '100%';
+      setHudBadge('hud-stage-5-badge', '✓ 5 TITLES & SEO', 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
       renderPackagingUI(data.packaging);
+    }
+
+    sub.innerText = '⚡ Pipeline Execution Complete! All 5 Stages Ready.';
+    
+    // Light up all header stepper nodes
+    for (let i = 2; i <= 5; i++) {
+      const el = document.getElementById(`pipe-node-${i}`);
+      if (el) el.className = 'pipeline-node done';
     }
 
     lucide.createIcons();
   } catch (err) {
     console.error('Pipeline execution failed:', err);
+    sub.innerText = '⚠️ Pipeline execution error.';
   }
+}
+
+function setHudBadge(elId, text, bg, color) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  el.innerText = text;
+  el.style.background = bg;
+  el.style.color = color;
+  el.style.borderColor = color;
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function advanceToNextStage(tabId) {

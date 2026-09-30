@@ -1,0 +1,43 @@
+{
+  "approved_topic": "The bomber with no guns de haviland mosquito",
+  "approved_angle": "The untold story behind de haviland mosquito.",
+  "viewer_question": "Why is de haviland mosquito so significant?",
+  "format": "LONG_FORM",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "content_gap": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+  "core_facts": [
+    "Main entity: de haviland mosquito",
+    "Category: Aviation History",
+    "Key keywords: de haviland mosquito, de haviland mosquito explained, de haviland mosquito mystery"
+  ],
+  "sources": [
+    "https://wikipedia.org"
+  ],
+  "hook_direction": "Open with the immediate contrast between expectation and reality in de haviland mosquito.",
+  "series_context": {
+    "pillar": "Aviation History",
+    "ideas": [
+      "The Aviation History Chronicles"
+    ],
+    "related": []
+  },
+  "risk_notes": "Ensure balanced factual presentation and avoid superficial spec debates.",
+  "suggested_length": "8-12 minutes",
+  "confidence": 60.0,
+  "next_agent": "Script Agent"
+}
