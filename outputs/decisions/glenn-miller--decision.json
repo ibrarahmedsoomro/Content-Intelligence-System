@@ -1,7 +1,8 @@
 {
   "topic": "Glenn Miller ",
   "decision": "MAKE",
-  "score": 69.6,
+  "topic_opportunity_score": 71.1,
+  "score": 71.1,
   "confidence": 92.0,
   "validation": "VALID",
   "scores": {
@@ -11,6 +12,8 @@
     "competition_opportunity": 57.5,
     "content_gap": 65.0,
     "series_potential": 35.0,
+    "evidence_strength": 79.4,
+    "narrative_payoff_potential": 82.5,
     "format_fit": 90.0,
     "timing": 80.0,
     "feasibility": 85.0,
@@ -21,15 +24,15 @@
   "primary_angle": "The untold story behind Glenn Miller.",
   "alternative_angles": [
     "Why Glenn Miller solved a crisis everyone ignored",
-    "The hidden truth behind Glenn Miller",
-    "How one fatal design flaw redefined Glenn Miller"
+    "The operational reality behind Glenn Miller",
+    "How design tradeoffs redefined Glenn Miller"
   ],
   "viewer_question": "Why is Glenn Miller so significant?",
   "content_gap_reason": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
   "timing_action": "EVERGREEN",
   "production_effort": "MEDIUM",
   "risk_status": "CAUTION",
-  "reason": "Scored 69.6/100 across demand, curiosity, and differentiation.",
-  "next_action": "HANDOFF_TO_SCRIPT_AGENT",
-  "handoff_agent": "Script Agent"
+  "reason": "Scored 71.1/100 across 12 dimensions with verified evidence.",
+  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
+  "handoff_agent": "Story Dev Agent"
 }

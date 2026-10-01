@@ -1,15 +1,17 @@
 {
   "weights": {
-    "demand": 20,
-    "curiosity": 15,
-    "audience_fit": 15,
-    "competition_opportunity": 15,
+    "demand": 18,
+    "curiosity": 14,
+    "audience_fit": 13,
+    "competition_opportunity": 13,
     "content_gap": 10,
-    "series_potential": 10,
-    "format_fit": 5,
-    "timing": 5,
-    "feasibility": 3,
-    "packaging": 2
+    "series_potential": 8,
+    "evidence_strength": 8,
+    "narrative_payoff_potential": 6,
+    "format_fit": 4,
+    "timing": 3,
+    "feasibility": 2,
+    "packaging": 1
   },
   "thresholds": {
     "make_now": 80,
@@ -21,6 +23,7 @@
     "minimum_research_confidence": 60,
     "minimum_audience_fit": 40,
     "minimum_curiosity": 35,
-    "minimum_demand_for_low_curiosity": 45
+    "minimum_demand_for_low_curiosity": 45,
+    "minimum_evidence_strength": 50
   }
 }

@@ -1,16 +1,16 @@
 {
-  "topic": "Glenn Miller ",
-  "topic_id": "TOPIC-glenn-miller-",
-  "decision": "MAKE",
-  "topic_opportunity_score": 71.1,
-  "opportunity_score": 71.1,
-  "confidence": 92.0,
+  "topic": "Why Did America Need So Many WWII Bombers?",
+  "topic_id": "TOPIC-why-did-america-need-so-many-w",
+  "decision": "MAKE_NOW",
+  "topic_opportunity_score": 88.5,
+  "opportunity_score": 88.5,
+  "confidence": 91.0,
   "core_facts": [
     {
       "fact_id": "FACT-001",
-      "claim": "Glenn Miller was developed to meet specific operational theater requirements rather than a single universal mission.",
+      "claim": "WWII American bombers was developed to meet specific operational theater requirements rather than a single universal mission.",
       "confidence": "HIGH",
-      "source_ref": "https://wikipedia.org",
+      "source_ref": "https://nationalww2museum.org/aircraft-strategy",
       "is_verified": true,
       "status": "ALLOWED"
     },
@@ -18,7 +18,7 @@
       "fact_id": "FACT-002",
       "claim": "Technical tradeoffs directly affected range, payload capacity, and flight crew survivability.",
       "confidence": "HIGH",
-      "source_ref": "https://wikipedia.org",
+      "source_ref": "https://nationalww2museum.org/aircraft-strategy",
       "is_verified": true,
       "status": "ALLOWED"
     },
@@ -26,7 +26,7 @@
       "fact_id": "FACT-003",
       "claim": "Production volume and logistics constraints influenced military procurement as much as aerodynamic performance.",
       "confidence": "HIGH",
-      "source_ref": "https://wikipedia.org",
+      "source_ref": "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress",
       "is_verified": true,
       "status": "ALLOWED"
     }
@@ -35,9 +35,9 @@
   "core_contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
   "common_assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
   "evidence_base": "Operational records demonstrate differing geographic range requirements and industrial tooling capacities.",
-  "content_gap": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
-  "unique_angle": "The untold story behind Glenn Miller.",
-  "primary_curiosity_question": "Why is Glenn Miller so significant?",
+  "content_gap": "Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
+  "unique_angle": "The hidden strategic doctrine: Why one bomber could not do every job.",
+  "primary_curiosity_question": "Why did the US military build multiple distinct heavy bombers simultaneously?",
   "secondary_questions": [
     "How did crew experience differ between platforms?",
     "What was the decisive logistical factor in procurement?"
@@ -74,9 +74,10 @@
     ]
   },
   "retention_strategy": "Resolve the common assumption through progressive evidence revelations across 5 structured beats.",
-  "packaging_promise": "The real doctrinal reason behind Glenn Miller.",
+  "packaging_promise": "The real doctrinal reason behind WWII American bombers.",
   "sources": [
-    "https://wikipedia.org"
+    "https://nationalww2museum.org/aircraft-strategy",
+    "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress"
   ],
   "next_agent": "Story Dev Agent"
 }

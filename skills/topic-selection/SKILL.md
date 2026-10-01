@@ -206,19 +206,21 @@ Estimate whether the topic has:
 ---
 
 ### STEP 14 — SCORE CALCULATION
-Load weights dynamically from `config/scoring.json`:
-- Demand: 20%
-- Curiosity: 15%
-- Audience Fit: 15%
-- Competition Opportunity: 15%
-- Content Gap: 10%
-- Series Potential: 10%
-- Format Fit: 5%
-- Timing: 5%
-- Feasibility: 3%
-- Packaging: 2%
+Load weights dynamically from `config/scoring.json` (Exact 12 Dimensions):
+1. Demand: 18%
+2. Curiosity: 14%
+3. Audience Fit: 13%
+4. Competition Opportunity: 13%
+5. Content Gap: 10%
+6. Series Potential: 8%
+7. Evidence Strength: 8%
+8. Narrative Payoff Potential: 6%
+9. Format Fit: 4%
+10. Timing: 3%
+11. Feasibility: 2%
+12. Packaging: 1%
 
-$$\text{Opportunity Score} = \sum (\text{Dimension Score} \times \text{Weight})$$
+$$\text{Opportunity Score} = \sum_{i=1}^{12} (\text{Dimension Score}_i \times \text{Weight}_i) = 100\%$$
 
 ---
 

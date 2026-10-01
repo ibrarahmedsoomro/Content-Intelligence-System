@@ -1,0 +1,38 @@
+{
+  "topic": "Why Did America Need So Many WWII Bombers?",
+  "decision": "MAKE_NOW",
+  "topic_opportunity_score": 88.5,
+  "score": 88.5,
+  "confidence": 91.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 82.0,
+    "curiosity": 94.0,
+    "audience_fit": 91.0,
+    "competition_opportunity": 72.5,
+    "content_gap": 100.0,
+    "series_potential": 100.0,
+    "evidence_strength": 93.7,
+    "narrative_payoff_potential": 89.5,
+    "format_fit": 90.0,
+    "timing": 80.0,
+    "feasibility": 75.0,
+    "packaging": 93.0
+  },
+  "topic_type": "Military History / Aviation Strategy",
+  "recommended_format": "BOTH",
+  "primary_angle": "The hidden strategic doctrine: Why one bomber could not do every job.",
+  "alternative_angles": [
+    "Why WWII American bombers solved a crisis everyone ignored",
+    "The operational reality behind WWII American bombers",
+    "How design tradeoffs redefined WWII American bombers"
+  ],
+  "viewer_question": "Why did the US military build multiple distinct heavy bombers simultaneously?",
+  "content_gap_reason": "Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
+  "timing_action": "EVERGREEN",
+  "production_effort": "HIGH",
+  "risk_status": "CLEAR",
+  "reason": "Scored 88.5/100 across 12 dimensions with verified evidence.",
+  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
+  "handoff_agent": "Story Dev Agent"
+}

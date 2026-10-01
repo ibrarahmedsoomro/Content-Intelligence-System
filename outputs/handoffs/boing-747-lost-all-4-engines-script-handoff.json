@@ -1,14 +1,14 @@
 {
-  "topic": "Glenn Miller ",
-  "topic_id": "TOPIC-glenn-miller-",
-  "decision": "MAKE",
-  "topic_opportunity_score": 71.1,
-  "opportunity_score": 71.1,
-  "confidence": 92.0,
+  "topic": "Boing 747 lost all 4 engines",
+  "topic_id": "TOPIC-boing-747-lost-all-4-engines",
+  "decision": "REFRAME",
+  "topic_opportunity_score": 66.8,
+  "opportunity_score": 66.8,
+  "confidence": 100.0,
   "core_facts": [
     {
       "fact_id": "FACT-001",
-      "claim": "Glenn Miller was developed to meet specific operational theater requirements rather than a single universal mission.",
+      "claim": "Boeing 747 was developed to meet specific operational theater requirements rather than a single universal mission.",
       "confidence": "HIGH",
       "source_ref": "https://wikipedia.org",
       "is_verified": true,
@@ -35,9 +35,9 @@
   "core_contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
   "common_assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
   "evidence_base": "Operational records demonstrate differing geographic range requirements and industrial tooling capacities.",
-  "content_gap": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
-  "unique_angle": "The untold story behind Glenn Miller.",
-  "primary_curiosity_question": "Why is Glenn Miller so significant?",
+  "content_gap": "Comprehensive breakdown of Boeing 747 from a fresh strategic angle.",
+  "unique_angle": "The untold story behind Boeing 747.",
+  "primary_curiosity_question": "Why is Boeing 747 so significant?",
   "secondary_questions": [
     "How did crew experience differ between platforms?",
     "What was the decisive logistical factor in procurement?"
@@ -55,7 +55,7 @@
     "Comparative theater radius range maps (Pacific vs Europe).",
     "Technical blueprint cutaways highlighting fuel and armor distribution."
   ],
-  "format": "BOTH",
+  "format": "LONG_FORM",
   "target_length": "8-12 minutes",
   "target_audience": {
     "channel": "Vanished Skies Aviation",
@@ -74,7 +74,7 @@
     ]
   },
   "retention_strategy": "Resolve the common assumption through progressive evidence revelations across 5 structured beats.",
-  "packaging_promise": "The real doctrinal reason behind Glenn Miller.",
+  "packaging_promise": "The real doctrinal reason behind Boeing 747.",
   "sources": [
     "https://wikipedia.org"
   ],

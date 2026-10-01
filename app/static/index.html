@@ -259,7 +259,7 @@
         <div class="card-header">
           <div class="card-title">
             <i data-lucide="compass" style="color:var(--cyan-glow); width:20px;height:20px;"></i>
-            <span>Stage 3: Story Development & 5-Beat Narrative Arc</span>
+            <span>Stage 3: Story Intelligence Blueprint (Beat Scoring & Open Loops)</span>
           </div>
           <button class="btn-primary" style="width:auto; padding:0.5rem 1.2rem;" onclick="advanceToNextStage('tab-script')">
             <span>Advance to 4. Script Agent</span>
@@ -273,15 +273,25 @@
             <div id="story-thesis-text" class="angle-text" style="font-size:0.95rem;">Generating thesis...</div>
           </div>
           <div class="angle-box alt">
-            <div class="angle-label">Hook Promise & Opening Tension</div>
-            <div id="story-hook-text" class="angle-text" style="font-size:0.95rem;">Generating hook...</div>
+            <div class="angle-label">Payoff Target & Resolution Goal</div>
+            <div id="story-hook-text" class="angle-text" style="font-size:0.95rem;">Generating payoff goal...</div>
+          </div>
+        </div>
+
+        <!-- Open Loops Tracking Table -->
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--purple-glow); margin-bottom:0.5rem; letter-spacing:0.05em;">
+            Open-Loop Tracking System (Zero Unpaid Loops Rule)
+          </div>
+          <div id="story-loops-container">
+            <!-- Rendered via JS -->
           </div>
         </div>
 
         <div style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--cyan-glow); margin-bottom:1rem; letter-spacing:0.05em;">
-          Cinematic 5-Beat Story Structure
+          100-Point Beat Intelligence Architecture (Curiosity, Information Gain, Dependency & Revelation Flow)
         </div>
-        <div id="story-beats-container" style="display: grid; gap: 0.9rem;">
+        <div id="story-beats-container" style="display: grid; gap: 1rem;">
           <!-- Rendered via JS -->
         </div>
       </div>
@@ -293,12 +303,16 @@
         <div class="card-header">
           <div class="card-title">
             <i data-lucide="file-text" style="color:var(--purple-glow); width:20px;height:20px;"></i>
-            <span>Stage 4: Broadcast Production Script (Visual & Voiceover Tracks)</span>
+            <span>Stage 4: Traceable Script & QA Promise-Delivery Audit</span>
           </div>
           <div style="display:flex; gap:0.75rem;">
             <button class="btn-secondary" onclick="copyFullScript()">
               <i data-lucide="copy" style="width:14px;height:14px;"></i>
               <span>Copy Script</span>
+            </button>
+            <button class="btn-secondary" onclick="downloadProductionBundle()">
+              <i data-lucide="download" style="width:14px;height:14px;"></i>
+              <span>Export Bundle (.md)</span>
             </button>
             <button class="btn-primary" style="width:auto; padding:0.5rem 1.2rem;" onclick="advanceToNextStage('tab-packaging')">
               <span>Advance to 5. Packaging</span>
@@ -307,11 +321,16 @@
           </div>
         </div>
 
+        <!-- Script QA Audit Banner -->
+        <div id="script-qa-banner">
+          <!-- Rendered via JS -->
+        </div>
+
         <!-- Script Metrics Bar -->
         <div style="display: flex; gap: 1.5rem; background: rgba(0,0,0,0.35); padding: 0.85rem 1.2rem; border-radius:10px; border:1px solid var(--border-subtle); margin-bottom: 1.5rem;">
           <div><span style="color:var(--text-muted); font-size:0.75rem;">ESTIMATED DURATION:</span> <strong id="script-duration" style="color:var(--cyan-glow);">-</strong></div>
           <div><span style="color:var(--text-muted); font-size:0.75rem;">WORD COUNT:</span> <strong id="script-words" style="color:var(--emerald-glow);">-</strong></div>
-          <div><span style="color:var(--text-muted); font-size:0.75rem;">PACING:</span> <strong style="color:var(--amber-glow);">150 WPM (Fast-Paced Cinematic)</strong></div>
+          <div><span style="color:var(--text-muted); font-size:0.75rem;">PACING:</span> <strong style="color:var(--amber-glow);">150 WPM (Grounded Documentary)</strong></div>
         </div>
 
         <!-- Scenes Breakdown Table -->
@@ -594,10 +613,12 @@
   </div>
 
   <!-- Application Logic -->
-  <script src="/static/js/three-scene.js"></script>
-  <script src="/static/js/app.js"></script>
+  <script src="/static/js/three-scene.js?v=2.1"></script>
+  <script src="/static/js/app.js?v=2.1"></script>
   <script>
-    lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   </script>
 </body>
 </html>

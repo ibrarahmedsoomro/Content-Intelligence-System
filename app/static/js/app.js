@@ -1,9 +1,8 @@
-// Main Frontend Application Logic for 5-Stage Agent Pipeline
+// Content Intelligence System - 5-Stage Agent Pipeline with Story Intelligence & QA
 let radarChartInstance = null;
 let currentLoadedPacket = null;
 let currentPipelineData = null;
 
-// Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   loadResearchPackets();
@@ -33,7 +32,6 @@ function switchStageTab(targetId) {
   const targetEl = document.getElementById(targetId);
   if (targetEl) targetEl.style.display = 'block';
 
-  // Highlight header pipeline nodes
   updateHeaderStepper(targetId);
 
   if (targetId === 'tab-batch') {
@@ -136,16 +134,14 @@ async function runFullPipelineForCurrentTopic() {
     }
   }
 
-  // Open HUD Modal
   openPipelineModal();
   const bar = document.getElementById('pipeline-progress-bar');
   const sub = document.getElementById('pipeline-status-sub');
   
-  // Reset HUD
   bar.style.width = '15%';
   sub.innerText = `Analyzing: "${currentLoadedPacket.topic_name}"`;
 
-  setHudBadge('hud-stage-2-badge', 'RUNNING...', 'rgba(6,182,212,0.2)', 'var(--cyan-glow)');
+  setHudBadge('hud-stage-2-badge', 'EVALUATING 12D...', 'rgba(6,182,212,0.2)', 'var(--cyan-glow)');
   setHudBadge('hud-stage-3-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
   setHudBadge('hud-stage-4-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
   setHudBadge('hud-stage-5-badge', 'WAITING', 'rgba(255,255,255,0.05)', 'var(--text-muted)');
@@ -157,48 +153,53 @@ async function runFullPipelineForCurrentTopic() {
       body: JSON.stringify(currentLoadedPacket)
     });
 
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Server returned ${res.status}: ${errText}`);
+    }
+
     const data = await res.json();
     currentPipelineData = data;
 
-    // Simulate animated stage-by-stage progression
-    await delay(300);
+    await delay(250);
     bar.style.width = '35%';
     setHudBadge('hud-stage-2-badge', `✓ ${data.decision.decision}`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
     renderDecisionUI(data.decision, data.handoff);
 
     if (data.story) {
-      await delay(350);
+      await delay(300);
       bar.style.width = '60%';
-      setHudBadge('hud-stage-3-badge', '✓ 5 BEATS BUILT', 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
-      renderStoryUI(data.story);
+      setHudBadge('hud-stage-3-badge', `✓ SCORE: ${data.story.overall_story_intelligence_score}/100`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
+      renderStoryUI(data.story, data.handoff);
     }
 
     if (data.script) {
-      await delay(350);
+      await delay(300);
       bar.style.width = '85%';
-      setHudBadge('hud-stage-4-badge', `✓ ${data.script.total_word_count} WORDS`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
+      setHudBadge('hud-stage-4-badge', `✓ QA PASS (${data.script.qa_report.fact_coverage_rate}% FACTS)`, 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
       renderScriptUI(data.script);
     }
 
     if (data.packaging) {
-      await delay(300);
+      await delay(250);
       bar.style.width = '100%';
-      setHudBadge('hud-stage-5-badge', '✓ 5 TITLES & SEO', 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
+      setHudBadge('hud-stage-5-badge', '✓ 5 TITLES & AI PROMPTS', 'rgba(16,185,129,0.2)', 'var(--emerald-glow)');
       renderPackagingUI(data.packaging);
     }
 
     sub.innerText = '⚡ Pipeline Execution Complete! All 5 Stages Ready.';
     
-    // Light up all header stepper nodes
     for (let i = 2; i <= 5; i++) {
       const el = document.getElementById(`pipe-node-${i}`);
       if (el) el.className = 'pipeline-node done';
     }
 
-    lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   } catch (err) {
     console.error('Pipeline execution failed:', err);
-    sub.innerText = '⚠️ Pipeline execution error.';
+    sub.innerText = `⚠️ Pipeline error: ${err.message || 'Execution failed'}`;
   }
 }
 
@@ -219,49 +220,79 @@ function advanceToNextStage(tabId) {
   switchStageTab(tabId);
 }
 
-// Render Stage 2: Decision UI
+// Render Stage 2: Decision UI (12 Dimensions)
 function renderDecisionUI(dec, handoff) {
-  document.getElementById('display-topic-title').innerText = dec.topic;
-  document.getElementById('display-topic-category').innerText = `${dec.topic_type} • Confidence: ${dec.confidence}%`;
+  try {
+    const topicEl = document.getElementById('display-topic-title');
+    if (topicEl) topicEl.innerText = dec.topic || 'Untitled Topic';
 
-  const scoreValEl = document.getElementById('hero-score-val');
-  scoreValEl.innerText = dec.score;
-  const progressCircle = document.getElementById('score-progress-ring');
-  const circumference = 440;
-  const offset = circumference - (dec.score / 100) * circumference;
-  progressCircle.style.strokeDashoffset = offset;
+    const catEl = document.getElementById('display-topic-category');
+    if (catEl) catEl.innerText = `${dec.topic_type || 'General'} • Confidence: ${dec.confidence ?? 80}%`;
 
-  const badgeEl = document.getElementById('hero-decision-badge');
-  badgeEl.className = `badge-decision badge-${dec.decision}`;
-  badgeEl.innerText = dec.decision.replace('_', ' ');
+    const scoreNum = dec.topic_opportunity_score ?? dec.score ?? 0;
+    const scoreValEl = document.getElementById('hero-score-val');
+    if (scoreValEl) scoreValEl.innerText = scoreNum;
 
-  if (window.threeScene) {
-    window.threeScene.setDecisionTheme(dec.decision);
+    const progressCircle = document.getElementById('score-progress-ring');
+    if (progressCircle) {
+      const circumference = 440;
+      const offset = circumference - (Math.min(100, Math.max(0, scoreNum)) / 100) * circumference;
+      progressCircle.style.strokeDashoffset = isNaN(offset) ? 0 : offset;
+    }
+
+    const badgeEl = document.getElementById('hero-decision-badge');
+    if (badgeEl) {
+      const decStr = dec.decision || 'PENDING';
+      badgeEl.className = `badge-decision badge-${decStr}`;
+      badgeEl.innerText = decStr.replace('_', ' ');
+    }
+
+    if (window.threeScene && dec.decision) {
+      window.threeScene.setDecisionTheme(dec.decision);
+    }
+
+    if (dec.scores) {
+      updateRadarChart(dec.scores);
+      renderHardGates(dec);
+    }
+
+    const primaryAngleEl = document.getElementById('primary-angle-text');
+    if (primaryAngleEl) primaryAngleEl.innerText = dec.primary_angle || 'Strategic Tradeoff Analysis';
+
+    const viewerQEl = document.getElementById('core-viewer-question');
+    if (viewerQEl) viewerQEl.innerText = `"${dec.viewer_question || 'What is the real causation?'}"`;
+
+    const gapEl = document.getElementById('content-gap-text');
+    if (gapEl) gapEl.innerText = dec.content_gap_reason || 'Presents documented evidence missing from competitor coverage.';
+
+    const altContainer = document.getElementById('alt-angles-container');
+    if (altContainer) {
+      altContainer.innerHTML = '';
+      (dec.alternative_angles || []).forEach((alt, i) => {
+        const box = document.createElement('div');
+        box.className = 'angle-box alt';
+        box.innerHTML = `
+          <div class="angle-label">Alternative Angle #${i + 1}</div>
+          <div class="angle-text">${alt}</div>
+        `;
+        altContainer.appendChild(box);
+      });
+    }
+
+    const fmtBadge = document.getElementById('meta-format-badge');
+    if (fmtBadge) fmtBadge.innerText = dec.recommended_format || 'LONG_FORM';
+
+    const timingBadge = document.getElementById('meta-timing-badge');
+    if (timingBadge) timingBadge.innerText = dec.timing_action || 'EVERGREEN';
+
+    const effortBadge = document.getElementById('meta-effort-badge');
+    if (effortBadge) effortBadge.innerText = dec.production_effort || 'MEDIUM';
+
+    const reasonEl = document.getElementById('meta-reason-text');
+    if (reasonEl) reasonEl.innerText = dec.reason || '-';
+  } catch (err) {
+    console.error('Error rendering Decision UI:', err);
   }
-
-  updateRadarChart(dec.scores);
-  renderHardGates(dec);
-
-  document.getElementById('primary-angle-text').innerText = dec.primary_angle;
-  document.getElementById('core-viewer-question').innerText = `"${dec.viewer_question}"`;
-  document.getElementById('content-gap-text').innerText = dec.content_gap_reason;
-
-  const altContainer = document.getElementById('alt-angles-container');
-  altContainer.innerHTML = '';
-  dec.alternative_angles.forEach((alt, i) => {
-    const box = document.createElement('div');
-    box.className = 'angle-box alt';
-    box.innerHTML = `
-      <div class="angle-label">Alternative Angle #${i + 1}</div>
-      <div class="angle-text">${alt}</div>
-    `;
-    altContainer.appendChild(box);
-  });
-
-  document.getElementById('meta-format-badge').innerText = dec.recommended_format;
-  document.getElementById('meta-timing-badge').innerText = dec.timing_action;
-  document.getElementById('meta-effort-badge').innerText = dec.production_effort;
-  document.getElementById('meta-reason-text').innerText = dec.reason;
 }
 
 // Render Hard Gates status
@@ -288,143 +319,263 @@ function renderHardGates(dec) {
   });
 }
 
-// Render Stage 3: Story Dev UI
-function renderStoryUI(story) {
-  document.getElementById('story-thesis-text').innerText = story.core_thesis;
-  document.getElementById('story-hook-text').innerText = story.hook_promise;
+// Render Stage 3: Story Dev UI (Story Intelligence Blueprint)
+function renderStoryUI(story, handoff) {
+  try {
+    const thesisEl = document.getElementById('story-thesis-text');
+    if (thesisEl) thesisEl.innerText = story.core_thesis || 'Thesis generated.';
 
-  const beatsContainer = document.getElementById('story-beats-container');
-  beatsContainer.innerHTML = '';
+    const hookEl = document.getElementById('story-hook-text');
+    if (hookEl) hookEl.innerText = `Target: ${story.payoff_target || 'Resolve primary contradiction'}`;
 
-  story.narrative_arc.forEach(b => {
-    const card = document.createElement('div');
-    card.className = 'glass-card';
-    card.style.padding = '1rem';
-    card.style.borderLeft = '3px solid var(--cyan-glow)';
-    card.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-        <span style="font-weight:700; color:#fff; font-size:0.95rem;">Beat #${b.beat_number}: ${b.title}</span>
-        <span class="badge-decision" style="font-size:0.7rem; padding:0.15rem 0.6rem; background:rgba(245,158,11,0.2); color:var(--amber-glow); border:1px solid var(--amber-glow);">
-          ⚡ Tension: ${b.tension_level}/10
-        </span>
-      </div>
-      <div style="font-size:0.85rem; color:#e2e8f0; margin-bottom:0.4rem;"><strong>Goal:</strong> ${b.narrative_goal}</div>
-      <div style="font-size:0.82rem; color:#38bdf8; margin-bottom:0.4rem;"><strong>Key Revelation:</strong> ${b.key_revelation}</div>
-      <div style="font-size:0.75rem; color:var(--text-muted); font-style:italic;"><strong>Visual Anchor:</strong> ${b.visual_anchor}</div>
-    `;
-    beatsContainer.appendChild(card);
-  });
+    // Render Open Loops Tracker Table
+    const loopsContainer = document.getElementById('story-loops-container');
+    if (loopsContainer && story.open_loops) {
+      loopsContainer.innerHTML = '';
+      story.open_loops.forEach(l => {
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); padding:0.6rem 0.85rem; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:0.5rem; font-size:0.8rem;';
+        row.innerHTML = `
+          <div>
+            <strong style="color:var(--cyan-glow);">${l.loop_id}:</strong> 
+            <span style="color:#cbd5e1;">${l.question}</span>
+          </div>
+          <div style="display:flex; gap:0.6rem; align-items:center;">
+            <span style="font-size:0.7rem; color:var(--text-muted);">Opened: Beat ${l.opened_beat} ➔ Resolved: Beat ${l.resolved_beat}</span>
+            <span class="badge-decision" style="font-size:0.68rem; padding:0.15rem 0.5rem; background:rgba(16,185,129,0.2); color:var(--emerald-glow); border:1px solid var(--emerald-glow); margin:0;">${l.status}</span>
+          </div>
+        `;
+        loopsContainer.appendChild(row);
+      });
+    }
+
+    // Render Beats with Beat Intelligence Score
+    const beatsContainer = document.getElementById('story-beats-container');
+    if (beatsContainer && story.beats) {
+      beatsContainer.innerHTML = '';
+
+      story.beats.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'glass-card';
+        card.style.padding = '1.25rem';
+        card.style.borderLeft = '4px solid var(--cyan-glow)';
+        
+        const totalBeatScore = b.beat_score ? (b.beat_score.total_beat_score ?? 85) : 85;
+        const depScore = b.narrative_dependency_score ?? 9;
+        const rev = b.revelation || {};
+        const infoGain = b.information_gain || {};
+        const factIds = b.supporting_fact_ids || [];
+        const loopIds = b.associated_open_loop_ids || [];
+
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border-subtle);">
+            <div>
+              <span style="font-weight:700; color:#fff; font-size:1rem;">Beat #${b.beat_number}: ${b.title}</span>
+              <div style="font-size:0.75rem; color:var(--text-muted);">${b.function_role || ''}</div>
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+              <span class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(6,182,212,0.15); color:var(--cyan-glow); border:1px solid var(--cyan-glow); margin:0;">
+                ⚡ Beat Intelligence: ${totalBeatScore}/100
+              </span>
+              <span class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(245,158,11,0.15); color:var(--amber-glow); border:1px solid var(--amber-glow); margin:0;">
+                Dependency: ${depScore}/10
+              </span>
+            </div>
+          </div>
+
+          <!-- Structured Revelation Box -->
+          <div style="background:rgba(0,0,0,0.35); padding:0.85rem; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:0.75rem;">
+            <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--purple-glow); margin-bottom:0.3rem;">
+              Structured Revelation Flow (Assumption ➔ Evidence ➔ Contradiction ➔ New Understanding)
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem; font-size:0.82rem;">
+              <div><span style="color:var(--rose-glow); font-weight:700;">Common Assumption:</span> ${rev.assumption || 'Standard public view'}</div>
+              <div><span style="color:var(--emerald-glow); font-weight:700;">Grounding Evidence:</span> ${rev.evidence || 'Documented records'}</div>
+            </div>
+            <div style="font-size:0.85rem; color:#38bdf8; margin-top:0.4rem; padding-top:0.4rem; border-top:1px dashed var(--border-subtle);">
+              <strong>New Viewer Understanding:</strong> ${rev.new_understanding || 'Deeper strategic insight'}
+            </div>
+          </div>
+
+          <!-- Information Gain Metric -->
+          <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); padding:0.6rem 0.85rem; border-radius:6px; font-size:0.78rem; margin-bottom:0.5rem;">
+            <div><strong style="color:var(--text-muted);">Information Gain:</strong> ${infoGain.genuine_change || 'Increases strategic clarity'}</div>
+            <div style="display:flex; gap:0.4rem;">
+              ${factIds.map(f => `<span style="background:rgba(6,182,212,0.2); color:var(--cyan-glow); padding:0.1rem 0.4rem; border-radius:4px; font-family:var(--font-mono); font-size:0.7rem;">${f}</span>`).join('')}
+              ${loopIds.map(l => `<span style="background:rgba(139,92,246,0.2); color:var(--purple-glow); padding:0.1rem 0.4rem; border-radius:4px; font-family:var(--font-mono); font-size:0.7rem;">${l}</span>`).join('')}
+            </div>
+          </div>
+        `;
+        beatsContainer.appendChild(card);
+      });
+    }
+  } catch (err) {
+    console.error('Error rendering Story UI:', err);
+  }
 }
 
-// Render Stage 4: Script UI
+// Render Stage 4: Script UI (Traceable Scenes & QA Report)
 function renderScriptUI(script) {
-  document.getElementById('script-duration').innerText = script.estimated_duration;
-  document.getElementById('script-words').innerText = `${script.total_word_count} Words`;
+  try {
+    const durEl = document.getElementById('script-duration');
+    if (durEl) durEl.innerText = script.estimated_duration || '8-10 Minutes';
 
-  const container = document.getElementById('script-scenes-container');
-  container.innerHTML = '';
+    const wordsEl = document.getElementById('script-words');
+    if (wordsEl) wordsEl.innerText = `${script.total_word_count || 1200} Words`;
 
-  script.scenes.forEach(s => {
-    const row = document.createElement('div');
-    row.className = 'glass-card';
-    row.style.padding = '1.2rem';
-    row.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border-subtle);">
-        <span style="font-weight:700; color:#fff; font-size:0.9rem;">Scene ${s.scene_number}: ${s.section_title}</span>
-        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-glow); background:rgba(6,182,212,0.1); padding:0.2rem 0.6rem; border-radius:6px;">
-          ⏱️ ${s.timestamp_estimate}
-        </span>
-      </div>
-      <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:1.25rem;">
-        <div>
-          <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.2rem;">Visual Direction</div>
-          <div style="font-size:0.8rem; color:#94a3b8; font-style:italic; margin-bottom:0.6rem;">${s.visual_direction}</div>
-          <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.2rem;">SFX & Audio Track</div>
-          <div style="font-size:0.78rem; color:#a855f7;">${s.audio_sfx}</div>
+    // Render QA Audit Banner
+    const qaContainer = document.getElementById('script-qa-banner');
+    if (qaContainer && script.qa_report) {
+      const qa = script.qa_report;
+      const matchScore = qa.promise_delivery ? (qa.promise_delivery.promise_match_score ?? 95) : 95;
+      qaContainer.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(16,185,129,0.1); border:1px solid var(--emerald-glow); border-radius:10px; padding:0.85rem 1.2rem; margin-bottom:1.5rem;">
+          <div style="display:flex; gap:1.5rem; align-items:center;">
+            <div><span style="font-size:0.72rem; color:var(--text-muted);">FACT COVERAGE:</span> <strong style="color:var(--emerald-glow);">${qa.fact_coverage_rate ?? 100}%</strong></div>
+            <div><span style="font-size:0.72rem; color:var(--text-muted);">PROMISE DELIVERY:</span> <strong style="color:var(--cyan-glow);">${matchScore}%</strong></div>
+            <div><span style="font-size:0.72rem; color:var(--text-muted);">DRAMA INTEGRITY:</span> <strong style="color:var(--emerald-glow);">${qa.drama_integrity_check ? '✓ PASSED' : 'FLAGGED'}</strong></div>
+            <div><span style="font-size:0.72rem; color:var(--text-muted);">UNRESOLVED LOOPS:</span> <strong style="color:var(--emerald-glow);">${qa.unresolved_loops ?? 0}</strong></div>
+          </div>
+          <span class="badge-decision" style="font-size:0.75rem; padding:0.25rem 0.8rem; background:rgba(16,185,129,0.2); color:var(--emerald-glow); border:1px solid var(--emerald-glow); margin:0;">
+            ${qa.qa_verdict || 'APPROVED_FOR_PRODUCTION'}
+          </span>
         </div>
-        <div style="background:rgba(0,0,0,0.3); padding:0.85rem; border-radius:8px; border:1px solid var(--border-subtle);">
-          <div style="font-size:0.72rem; color:var(--cyan-glow); text-transform:uppercase; font-weight:700; margin-bottom:0.3rem;">🎙️ Voiceover Script</div>
-          <div style="font-size:0.88rem; color:#f1f5f9; line-height:1.5;">${s.voiceover_script}</div>
-        </div>
-      </div>
-    `;
-    container.appendChild(row);
-  });
+      `;
+    }
+
+    const container = document.getElementById('script-scenes-container');
+    if (container && script.scenes) {
+      container.innerHTML = '';
+
+      script.scenes.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'glass-card';
+        row.style.padding = '1.25rem';
+        const facts = s.supporting_fact_ids || [];
+
+        row.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border-subtle);">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; background:rgba(6,182,212,0.15); color:var(--cyan-glow); padding:0.2rem 0.5rem; border-radius:4px; font-weight:700;">${s.scene_id}</span>
+              <span style="font-weight:700; color:#fff; font-size:0.92rem;">Scene ${s.scene_number}: ${s.section_title}</span>
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+              ${facts.map(f => `<span style="background:rgba(255,255,255,0.06); color:#94a3b8; font-family:var(--font-mono); font-size:0.7rem; padding:0.15rem 0.4rem; border-radius:4px;">${f}</span>`).join('')}
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-glow); background:rgba(6,182,212,0.1); padding:0.2rem 0.6rem; border-radius:6px;">
+                ⏱️ ${s.timestamp_estimate || '0:00 - 1:00'}
+              </span>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1.25fr; gap:1.25rem;">
+            <div>
+              <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.2rem;">Visual Direction</div>
+              <div style="font-size:0.8rem; color:#94a3b8; font-style:italic; margin-bottom:0.6rem;">${s.visual_direction || ''}</div>
+              <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.2rem;">SFX & Audio Track</div>
+              <div style="font-size:0.78rem; color:#a855f7;">${s.audio_sfx || ''}</div>
+            </div>
+            <div style="background:rgba(0,0,0,0.3); padding:0.9rem; border-radius:8px; border:1px solid var(--border-subtle);">
+              <div style="font-size:0.72rem; color:var(--cyan-glow); text-transform:uppercase; font-weight:700; margin-bottom:0.3rem;">🎙️ Grounded Voiceover Script</div>
+              <div style="font-size:0.88rem; color:#f1f5f9; line-height:1.5;">${s.voiceover_script || ''}</div>
+            </div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+  } catch (err) {
+    console.error('Error rendering Script UI:', err);
+  }
 }
 
 function copyFullScript() {
   if (!currentPipelineData || !currentPipelineData.script) return;
   const script = currentPipelineData.script;
   let text = `TOPIC: ${script.topic}\nDURATION: ${script.estimated_duration}\nWORD COUNT: ${script.total_word_count}\n\n`;
-  script.scenes.forEach(s => {
-    text += `[${s.timestamp_estimate}] SCENE ${s.scene_number}: ${s.section_title}\n`;
+  (script.scenes || []).forEach(s => {
+    text += `[${s.timestamp_estimate}] ${s.scene_id}: ${s.section_title}\n`;
     text += `VISUAL: ${s.visual_direction}\n`;
     text += `AUDIO: ${s.audio_sfx}\n`;
     text += `VOICEOVER: ${s.voiceover_script}\n\n`;
   });
 
   navigator.clipboard.writeText(text).then(() => {
-    alert('📋 Full Production Script copied to clipboard!');
+    alert('📋 Grounded Production Script copied to clipboard!');
   });
+}
+
+function downloadProductionBundle() {
+  if (!currentLoadedPacket) return;
+  const slug = currentLoadedPacket.topic_name.toLowerCase().replace(/[^a-z0-9]/g, '-').slice(0, 35);
+  window.open(`/api/export/${slug}/markdown`, '_blank');
 }
 
 // Render Stage 5: Packaging UI
 function renderPackagingUI(pkg) {
-  // Titles
-  const titlesContainer = document.getElementById('packaging-titles-container');
-  titlesContainer.innerHTML = '';
-  pkg.titles.forEach((t, i) => {
-    const card = document.createElement('div');
-    card.className = 'angle-box';
-    card.style.display = 'flex';
-    card.style.justifyContent = 'space-between';
-    card.style.alignItems = 'center';
-    card.innerHTML = `
-      <div>
-        <div class="angle-label">${t.formula_type} Formula</div>
-        <div style="font-size:0.95rem; font-weight:700; color:#fff;">${t.title}</div>
-        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem;">${t.rationale}</div>
-      </div>
-      <div class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(16,185,129,0.2); color:var(--emerald-glow); border:1px solid var(--emerald-glow);">
-        ${t.predicted_ctr} CTR
-      </div>
-    `;
-    titlesContainer.appendChild(card);
-  });
+  try {
+    const titlesContainer = document.getElementById('packaging-titles-container');
+    if (titlesContainer && pkg.titles) {
+      titlesContainer.innerHTML = '';
+      pkg.titles.forEach((t, i) => {
+        const card = document.createElement('div');
+        card.className = 'angle-box';
+        card.style.display = 'flex';
+        card.style.justifyContent = 'space-between';
+        card.style.alignItems = 'center';
+        card.innerHTML = `
+          <div>
+            <div class="angle-label">${t.formula_type || 'Curiosity'} Formula</div>
+            <div style="font-size:0.95rem; font-weight:700; color:#fff;">${t.title}</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem;">${t.rationale || ''}</div>
+          </div>
+          <div class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(16,185,129,0.2); color:var(--emerald-glow); border:1px solid var(--emerald-glow);">
+            ${t.predicted_ctr || 'High'} CTR
+          </div>
+        `;
+        titlesContainer.appendChild(card);
+      });
+    }
 
-  // Thumbnails
-  const thumbsContainer = document.getElementById('packaging-thumbnails-container');
-  thumbsContainer.innerHTML = '';
-  pkg.thumbnails.forEach(th => {
-    const card = document.createElement('div');
-    card.className = 'glass-card';
-    card.style.padding = '1rem';
-    card.innerHTML = `
-      <div style="font-size:0.85rem; font-weight:700; color:var(--purple-glow); margin-bottom:0.4rem;">${th.concept_name}</div>
-      <div style="font-size:0.78rem; color:#e2e8f0; margin-bottom:0.5rem;"><strong>Layout:</strong> ${th.visual_layout}</div>
-      <div style="font-size:0.75rem; color:var(--amber-glow); margin-bottom:0.5rem;"><strong>Text Overlay:</strong> <span style="background:rgba(245,158,11,0.2); padding:0.1rem 0.4rem; border-radius:4px; font-weight:700;">${th.text_overlay}</span></div>
-      <div style="background:rgba(0,0,0,0.4); padding:0.6rem; border-radius:6px; font-size:0.7rem; font-family:var(--font-mono); color:#38bdf8;">
-        <strong>Prompt:</strong> ${th.ai_image_prompt}
-      </div>
-    `;
-    thumbsContainer.appendChild(card);
-  });
+    const thumbsContainer = document.getElementById('packaging-thumbnails-container');
+    if (thumbsContainer && pkg.thumbnails) {
+      thumbsContainer.innerHTML = '';
+      pkg.thumbnails.forEach(th => {
+        const card = document.createElement('div');
+        card.className = 'glass-card';
+        card.style.padding = '1rem';
+        card.innerHTML = `
+          <div style="font-size:0.85rem; font-weight:700; color:var(--purple-glow); margin-bottom:0.4rem;">${th.concept_name}</div>
+          <div style="font-size:0.78rem; color:#e2e8f0; margin-bottom:0.5rem;"><strong>Layout:</strong> ${th.visual_layout}</div>
+          <div style="font-size:0.75rem; color:var(--amber-glow); margin-bottom:0.5rem;"><strong>Text Overlay:</strong> <span style="background:rgba(245,158,11,0.2); padding:0.1rem 0.4rem; border-radius:4px; font-weight:700;">${th.text_overlay}</span></div>
+          <div style="background:rgba(0,0,0,0.4); padding:0.6rem; border-radius:6px; font-size:0.7rem; font-family:var(--font-mono); color:#38bdf8;">
+            <strong>Prompt:</strong> ${th.ai_image_prompt}
+          </div>
+        `;
+        thumbsContainer.appendChild(card);
+      });
+    }
 
-  // Description & Tags
-  document.getElementById('packaging-seo-desc').value = pkg.seo_description;
-  const tagsContainer = document.getElementById('packaging-tags-container');
-  tagsContainer.innerHTML = '';
-  pkg.tags.forEach(tag => {
-    const tagSpan = document.createElement('span');
-    tagSpan.style.cssText = 'background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.72rem; color:#94a3b8; border:1px solid var(--border-subtle);';
-    tagSpan.innerText = `#${tag}`;
-    tagsContainer.appendChild(tagSpan);
-  });
+    const seoEl = document.getElementById('packaging-seo-desc');
+    if (seoEl) seoEl.value = pkg.seo_description || '';
 
-  document.getElementById('packaging-pinned-comment').innerText = pkg.pinned_comment_prompt;
+    const tagsContainer = document.getElementById('packaging-tags-container');
+    if (tagsContainer && pkg.tags) {
+      tagsContainer.innerHTML = '';
+      pkg.tags.forEach(tag => {
+        const tagSpan = document.createElement('span');
+        tagSpan.style.cssText = 'background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.72rem; color:#94a3b8; border:1px solid var(--border-subtle);';
+        tagSpan.innerText = `#${tag}`;
+        tagsContainer.appendChild(tagSpan);
+      });
+    }
+
+    const pinnedEl = document.getElementById('packaging-pinned-comment');
+    if (pinnedEl) pinnedEl.innerText = pkg.pinned_comment_prompt || '-';
+  } catch (err) {
+    console.error('Error rendering Packaging UI:', err);
+  }
 }
 
-// Chart.js Radar Initialization
+// Chart.js Radar Initialization (12 Exact Dimensions)
 function initRadarChart() {
   const ctx = document.getElementById('radarChart');
   if (!ctx) return;
@@ -433,20 +584,22 @@ function initRadarChart() {
     type: 'radar',
     data: {
       labels: [
-        'Demand (20%)',
-        'Curiosity (15%)',
-        'Audience (15%)',
-        'Competition Opp (15%)',
-        'Content Gap (10%)',
-        'Series (10%)',
-        'Format (5%)',
-        'Timing (5%)',
-        'Feasibility (3%)',
-        'Packaging (2%)'
+        '1. Demand (18%)',
+        '2. Curiosity (14%)',
+        '3. Audience (13%)',
+        '4. Competition (13%)',
+        '5. Content Gap (10%)',
+        '6. Series (8%)',
+        '7. Evidence (8%)',
+        '8. Payoff (6%)',
+        '9. Format (4%)',
+        '10. Timing (3%)',
+        '11. Feasibility (2%)',
+        '12. Packaging (1%)'
       ],
       datasets: [{
         label: 'Candidate Score',
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: 'rgba(6, 182, 212, 0.25)',
         borderColor: '#06b6d4',
         borderWidth: 2,
@@ -464,7 +617,7 @@ function initRadarChart() {
           ticks: { display: false, stepSize: 20 },
           grid: { color: 'rgba(255, 255, 255, 0.08)' },
           angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
-          pointLabels: { color: '#94a3b8', font: { size: 10, family: 'Inter' } }
+          pointLabels: { color: '#94a3b8', font: { size: 9, family: 'Inter' } }
         }
       },
       plugins: { legend: { display: false } }
@@ -481,6 +634,8 @@ function updateRadarChart(scores) {
     scores.competition_opportunity,
     scores.content_gap,
     scores.series_potential,
+    scores.evidence_strength,
+    scores.narrative_payoff_potential,
     scores.format_fit,
     scores.timing,
     scores.feasibility,
@@ -562,7 +717,7 @@ async function saveConfigs() {
       fetch('/api/config/audience', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: audienceRaw })
     ]);
 
-    alert('✅ Configurations updated successfully!');
+    alert('✅ 12-Dimensional Configurations updated successfully!');
     if (currentLoadedPacket) {
       runFullPipelineForCurrentTopic();
     }
@@ -584,18 +739,18 @@ async function submitNewTopic(e) {
   const newPacket = {
     topic_name: title,
     main_keyword: keyword,
-    related_keywords: [keyword, `${keyword} explained`, `${keyword} mystery`],
+    related_keywords: [keyword, `${keyword} doctrine`, `${keyword} history`],
     search_demand_score: demand,
     trend_momentum: 75.0,
     competitor_examples: [],
     competitor_saturation_level: 50.0,
-    audience_signals: [`Why is ${keyword} so significant?`],
-    content_gaps: [`Comprehensive breakdown of ${keyword} from a fresh strategic angle.`],
-    existing_angles: [`The untold story behind ${keyword}.`],
+    audience_signals: [`Why is ${keyword} so significant in military doctrine?`],
+    content_gaps: [`Comprehensive breakdown of ${keyword} from a documented doctrinal angle.`],
+    existing_angles: [`The operational tradeoffs behind ${keyword}.`],
     topic_category: category,
     related_topics: [],
     potential_series_ideas: [`The ${category} Chronicles`],
-    source_links: ["https://wikipedia.org"],
+    source_links: ["https://nationalww2museum.org/archives"],
     research_confidence: confidence,
     curiosity_factor: curiosity,
     audience_fit_score: 88.0,

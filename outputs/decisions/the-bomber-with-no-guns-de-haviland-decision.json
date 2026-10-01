@@ -1,0 +1,38 @@
+{
+  "topic": "The bomber with no guns de haviland mosquito",
+  "decision": "REFRAME",
+  "topic_opportunity_score": 64.6,
+  "score": 64.6,
+  "confidence": 60.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 60.0,
+    "curiosity": 60.0,
+    "audience_fit": 88.0,
+    "competition_opportunity": 57.5,
+    "content_gap": 65.0,
+    "series_potential": 35.0,
+    "evidence_strength": 57.0,
+    "narrative_payoff_potential": 70.0,
+    "format_fit": 85.0,
+    "timing": 80.0,
+    "feasibility": 85.0,
+    "packaging": 90.0
+  },
+  "topic_type": "Aviation History",
+  "recommended_format": "LONG_FORM",
+  "primary_angle": "The untold story behind de haviland mosquito.",
+  "alternative_angles": [
+    "Why de haviland mosquito solved a crisis everyone ignored",
+    "The operational reality behind de haviland mosquito",
+    "How design tradeoffs redefined de haviland mosquito"
+  ],
+  "viewer_question": "Why is de haviland mosquito so significant?",
+  "content_gap_reason": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+  "timing_action": "EVERGREEN",
+  "production_effort": "MEDIUM",
+  "risk_status": "CAUTION",
+  "reason": "Scored 64.6/100 across 12 dimensions with verified evidence.",
+  "next_action": "LOG_AND_MONITOR",
+  "handoff_agent": "None"
+}

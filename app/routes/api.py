@@ -1,13 +1,15 @@
 import os
+import re
 import json
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, HTTPException, Body
+from fastapi.responses import PlainTextResponse
 
 from agents.topic_selection.models import (
     ResearchPacket,
     MachineTopicDecision,
-    ScriptHandoffPacket,
+    TopicIntelligenceHandoff,
     DecisionType,
 )
 from agents.topic_selection.engine import TopicSelectionEngine
@@ -15,7 +17,7 @@ from agents.story_dev.engine import StoryDevEngine
 from agents.script.engine import ScriptEngine
 from agents.packaging.engine import PackagingEngine
 
-router = APIRouter(prefix="/api", tags=["Content Intelligence Full Pipeline API"])
+router = APIRouter(prefix="/api", tags=["Content Intelligence Pipeline API"])
 
 BASE_DIR = Path(__file__).parent.parent.parent
 CONFIG_DIR = BASE_DIR / "config"
@@ -32,7 +34,7 @@ for d in [
 ]:
     d.mkdir(parents=True, exist_ok=True)
 
-# Engines
+# Shared Engines
 topic_engine = TopicSelectionEngine()
 story_engine = StoryDevEngine()
 script_engine = ScriptEngine()
@@ -42,13 +44,14 @@ packaging_engine = PackagingEngine()
 def get_system_status():
     return {
         "system": "Content Intelligence System",
-        "version": "2.1.0",
+        "version": "3.0.0-ExpertMode",
+        "scoring_dimensions_count": 12,
         "active_pipeline": [
             {"id": "research", "name": "1. Research Agent", "status": "COMPLETED", "stage": 1},
-            {"id": "topic_selection", "name": "2. Topic Selection Agent", "status": "ACTIVE", "stage": 2},
-            {"id": "story_dev", "name": "3. Story Dev Agent", "status": "ACTIVE", "stage": 3},
-            {"id": "script", "name": "4. Script Agent", "status": "ACTIVE", "stage": 4},
-            {"id": "packaging", "name": "5. Packaging Agent", "status": "ACTIVE", "stage": 5}
+            {"id": "topic_selection", "name": "2. Topic Selection Agent (12 Dimensions)", "status": "ACTIVE", "stage": 2},
+            {"id": "story_dev", "name": "3. Story Dev Agent (Beat Intelligence & Open Loops)", "status": "ACTIVE", "stage": 3},
+            {"id": "script", "name": "4. Script & QA Agent (Traceable Scenes & Promise Audit)", "status": "ACTIVE", "stage": 4},
+            {"id": "packaging", "name": "5. Packaging & SEO Agent (CTR Formulas & AI Prompts)", "status": "ACTIVE", "stage": 5}
         ]
     }
 
@@ -112,8 +115,8 @@ def get_research_packet(filename: str):
 
 @router.post("/research/create")
 def create_research_packet(packet_data: Dict[str, Any] = Body(...)):
-    topic_slug = packet_data.get("topic_name", "custom-topic").lower().replace(" ", "-").replace("?", "").replace(":", "")[:40]
-    filename = f"custom-{topic_slug}.json"
+    slug = re.sub(r'[^a-zA-Z0-9]', '-', packet_data.get("topic_name", "custom-topic").lower())[:35]
+    filename = f"custom-{slug}.json"
     file_path = DATA_RESEARCH_DIR / filename
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(packet_data, f, indent=2)
@@ -122,17 +125,13 @@ def create_research_packet(packet_data: Dict[str, Any] = Body(...)):
 @router.post("/evaluate")
 def evaluate_single_topic(packet: ResearchPacket):
     decision, handoff, report = topic_engine.evaluate(packet)
-    
-    topic_slug = packet.topic_name.lower().replace(" ", "-").replace("?", "").replace(":", "")[:40]
-    dec_path = OUTPUTS_DECISIONS_DIR / f"{topic_slug}-decision.json"
-    rep_path = OUTPUTS_DECISIONS_DIR / f"{topic_slug}-report.md"
-    hnd_path = OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json"
+    slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:35]
 
-    with open(dec_path, "w", encoding="utf-8") as f:
+    with open(OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json", "w", encoding="utf-8") as f:
         json.dump(decision.model_dump(), f, indent=2)
-    with open(rep_path, "w", encoding="utf-8") as f:
+    with open(OUTPUTS_DECISIONS_DIR / f"{slug}-report.md", "w", encoding="utf-8") as f:
         f.write(report)
-    with open(hnd_path, "w", encoding="utf-8") as f:
+    with open(OUTPUTS_HANDOFFS_DIR / f"{slug}-script-handoff.json", "w", encoding="utf-8") as f:
         json.dump(handoff.model_dump(), f, indent=2)
 
     return {
@@ -141,28 +140,25 @@ def evaluate_single_topic(packet: ResearchPacket):
         "report_markdown": report
     }
 
-# ==========================================
-# ADVANCED MULTI-STAGE PIPELINE ENDPOINTS
-# ==========================================
-
 @router.post("/pipeline/run-full")
 def run_full_pipeline(packet: ResearchPacket):
     """
-    Executes all remaining pipeline stages end-to-end:
-    Topic Selection -> Story Dev -> Script -> Packaging
+    End-to-End Execution across all 5 Agent Stages:
+    1. Research (Ingested)
+    2. Topic Selection (12 Dimensions + 6 Hard Gates)
+    3. Story Dev (Beat Intelligence Score + Open Loops + Info Gain Diffs)
+    4. Script Agent (Traceable Scenes + QA Promise Delivery Audit)
+    5. Packaging Agent (CTR Formulas + AI Prompts + SEO)
     """
-    topic_slug = packet.topic_name.lower().replace(" ", "-").replace("?", "").replace(":", "")[:40]
+    slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:35]
 
     # Stage 2: Topic Selection
     decision, handoff, report = topic_engine.evaluate(packet)
-    
-    # Save Stage 2
-    with open(OUTPUTS_DECISIONS_DIR / f"{topic_slug}-decision.json", "w", encoding="utf-8") as f:
+    with open(OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json", "w", encoding="utf-8") as f:
         json.dump(decision.model_dump(), f, indent=2)
-    with open(OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json", "w", encoding="utf-8") as f:
+    with open(OUTPUTS_HANDOFFS_DIR / f"{slug}-script-handoff.json", "w", encoding="utf-8") as f:
         json.dump(handoff.model_dump(), f, indent=2)
 
-    # Check if rejected by Hard Gate
     if decision.decision in [DecisionType.SKIP, DecisionType.NEED_MORE_RESEARCH]:
         return {
             "status": "STOPPED_AT_TOPIC_SELECTION",
@@ -173,19 +169,19 @@ def run_full_pipeline(packet: ResearchPacket):
             "packaging": None
         }
 
-    # Stage 3: Story Dev
+    # Stage 3: Story Dev Agent
     story = story_engine.generate_story(handoff)
-    with open(OUTPUTS_STORIES_DIR / f"{topic_slug}-story.json", "w", encoding="utf-8") as f:
+    with open(OUTPUTS_STORIES_DIR / f"{slug}-story.json", "w", encoding="utf-8") as f:
         json.dump(story.model_dump(), f, indent=2)
 
-    # Stage 4: Script Agent
+    # Stage 4: Script & QA Agent
     script = script_engine.generate_script(handoff, story)
-    with open(OUTPUTS_SCRIPTS_DIR / f"{topic_slug}-script.json", "w", encoding="utf-8") as f:
+    with open(OUTPUTS_SCRIPTS_DIR / f"{slug}-script.json", "w", encoding="utf-8") as f:
         json.dump(script.model_dump(), f, indent=2)
 
-    # Stage 5: Packaging Agent
+    # Stage 5: Packaging & SEO Agent
     packaging = packaging_engine.generate_packaging(handoff, script)
-    with open(OUTPUTS_PACKAGES_DIR / f"{topic_slug}-packaging.json", "w", encoding="utf-8") as f:
+    with open(OUTPUTS_PACKAGES_DIR / f"{slug}-packaging.json", "w", encoding="utf-8") as f:
         json.dump(packaging.model_dump(), f, indent=2)
 
     return {
@@ -196,66 +192,6 @@ def run_full_pipeline(packet: ResearchPacket):
         "script": script.model_dump(),
         "packaging": packaging.model_dump()
     }
-
-@router.post("/pipeline/stage-story/{topic_slug}")
-def advance_to_story(topic_slug: str):
-    handoff_path = OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json"
-    if not handoff_path.exists():
-        raise HTTPException(status_code=404, detail="Topic Handoff packet not found. Run Topic Selection first.")
-    
-    with open(handoff_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        handoff = ScriptHandoffPacket(**data)
-
-    story = story_engine.generate_story(handoff)
-    with open(OUTPUTS_STORIES_DIR / f"{topic_slug}-story.json", "w", encoding="utf-8") as f:
-        json.dump(story.model_dump(), f, indent=2)
-
-    return story.model_dump()
-
-@router.post("/pipeline/stage-script/{topic_slug}")
-def advance_to_script(topic_slug: str):
-    handoff_path = OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json"
-    story_path = OUTPUTS_STORIES_DIR / f"{topic_slug}-story.json"
-    
-    if not handoff_path.exists() or not story_path.exists():
-        raise HTTPException(status_code=404, detail="Prerequisite stages (Handoff / Story) missing.")
-
-    with open(handoff_path, "r", encoding="utf-8") as f:
-        handoff = ScriptHandoffPacket(**json.load(f))
-    with open(story_path, "r", encoding="utf-8") as f:
-        story_data = json.load(f)
-        from agents.story_dev.models import StoryDevOutput
-        story = StoryDevOutput(**story_data)
-
-    script = script_engine.generate_script(handoff, story)
-    with open(OUTPUTS_SCRIPTS_DIR / f"{topic_slug}-script.json", "w", encoding="utf-8") as f:
-        json.dump(script.model_dump(), f, indent=2)
-
-    return script.model_dump()
-
-@router.post("/pipeline/stage-packaging/{topic_slug}")
-def advance_to_packaging(topic_slug: str):
-    handoff_path = OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json"
-    script_path = OUTPUTS_SCRIPTS_DIR / f"{topic_slug}-script.json"
-    
-    if not handoff_path.exists():
-        raise HTTPException(status_code=404, detail="Topic Handoff missing.")
-
-    with open(handoff_path, "r", encoding="utf-8") as f:
-        handoff = ScriptHandoffPacket(**json.load(f))
-
-    script = None
-    if script_path.exists():
-        from agents.script.models import ProductionScriptOutput
-        with open(script_path, "r", encoding="utf-8") as f:
-            script = ProductionScriptOutput(**json.load(f))
-
-    packaging = packaging_engine.generate_packaging(handoff, script)
-    with open(OUTPUTS_PACKAGES_DIR / f"{topic_slug}-packaging.json", "w", encoding="utf-8") as f:
-        json.dump(packaging.model_dump(), f, indent=2)
-
-    return packaging.model_dump()
 
 @router.post("/evaluate/batch")
 def evaluate_batch_topics():
@@ -268,11 +204,11 @@ def evaluate_batch_topics():
                 raw_data = json.load(f)
                 packet = ResearchPacket(**raw_data)
                 decision, handoff, report = topic_engine.evaluate(packet)
-                
-                topic_slug = packet.topic_name.lower().replace(" ", "-").replace("?", "").replace(":", "")[:40]
-                with open(OUTPUTS_DECISIONS_DIR / f"{topic_slug}-decision.json", "w", encoding="utf-8") as out_f:
+                slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:35]
+
+                with open(OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json", "w", encoding="utf-8") as out_f:
                     json.dump(decision.model_dump(), out_f, indent=2)
-                with open(OUTPUTS_HANDOFFS_DIR / f"{topic_slug}-script-handoff.json", "w", encoding="utf-8") as out_f:
+                with open(OUTPUTS_HANDOFFS_DIR / f"{slug}-script-handoff.json", "w", encoding="utf-8") as out_f:
                     json.dump(handoff.model_dump(), out_f, indent=2)
 
                 item = {
@@ -311,3 +247,91 @@ def evaluate_batch_topics():
         "queue": queue,
         "results": results
     }
+
+@router.get("/export/{topic_slug}/markdown", response_class=PlainTextResponse)
+def export_topic_markdown(topic_slug: str):
+    slug = re.sub(r'[^a-zA-Z0-9]', '-', topic_slug.lower())[:35]
+    dec_file = OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json"
+    story_file = OUTPUTS_STORIES_DIR / f"{slug}-story.json"
+    script_file = OUTPUTS_SCRIPTS_DIR / f"{slug}-script.json"
+    pkg_file = OUTPUTS_PACKAGES_DIR / f"{slug}-packaging.json"
+
+    if not dec_file.exists():
+        raise HTTPException(status_code=404, detail="Topic outputs not found.")
+
+    with open(dec_file, "r", encoding="utf-8") as f:
+        dec = json.load(f)
+    
+    story = json.load(open(story_file, "r", encoding="utf-8")) if story_file.exists() else {}
+    script = json.load(open(script_file, "r", encoding="utf-8")) if script_file.exists() else {}
+    pkg = json.load(open(pkg_file, "r", encoding="utf-8")) if pkg_file.exists() else {}
+
+    md = f"""# COMPLETE PRODUCTION BUNDLE: {dec.get('topic')}
+
+## 1. TOPIC DECISION (STAGE 2)
+- **Decision:** `{dec.get('decision')}`
+- **Opportunity Score:** `{dec.get('score')}/100` (Confidence: `{dec.get('confidence')}%`)
+- **Format:** `{dec.get('recommended_format')}`
+- **Primary Angle:** {dec.get('primary_angle')}
+- **Core Viewer Question:** "{dec.get('viewer_question')}"
+- **Content Gap:** {dec.get('content_gap_reason')}
+
+---
+
+## 2. STORY INTELLIGENCE BLUEPRINT (STAGE 3)
+- **Core Thesis:** {story.get('core_thesis', 'N/A')}
+- **Story Intelligence Score:** `{story.get('overall_story_intelligence_score', 'N/A')}/100`
+- **Drama Integrity:** {'PASSED' if story.get('drama_integrity_passed') else 'FLAGGED'}
+
+### 5-BEAT STRUCTURE:
+"""
+    for b in story.get('beats', []):
+        md += f"""
+### Beat #{b.get('beat_number')}: {b.get('title')}
+- **Beat Score:** `{b.get('beat_score', {}).get('total_beat_score')}/100` | **Dependency:** `{b.get('narrative_dependency_score')}/10`
+- **Goal:** {b.get('function_role')}
+- **Revelation:** {b.get('revelation', {}).get('new_understanding')}
+- **Info Gain:** {b.get('information_gain', {}).get('genuine_change')}
+- **Supporting Facts:** {', '.join(b.get('supporting_fact_ids', []))}
+"""
+
+    md += f"""
+---
+
+## 3. BROADCAST PRODUCTION SCRIPT (STAGE 4)
+- **Duration:** `{script.get('estimated_duration', 'N/A')}` | **Words:** `{script.get('total_word_count', 'N/A')}`
+- **QA Promise Delivery Match:** `{script.get('qa_report', {}).get('promise_delivery', {}).get('promise_match_score', 'N/A')}%`
+"""
+    for sc in script.get('scenes', []):
+        md += f"""
+---
+### [{sc.get('timestamp_estimate')}] SCENE {sc.get('scene_number')}: {sc.get('section_title')}
+- **Facts:** {', '.join(sc.get('supporting_fact_ids', []))} | **Loops:** {', '.join(sc.get('open_loop_ids', []))} ({sc.get('payoff_contribution')})
+- **VISUAL:** {sc.get('visual_direction')}
+- **AUDIO:** {sc.get('audio_sfx')}
+- **VOICEOVER:**
+> {sc.get('voiceover_script')}
+"""
+
+    md += f"""
+---
+
+## 4. PACKAGING & SEO (STAGE 5)
+### High-CTR Titles:
+"""
+    for t in pkg.get('titles', []):
+        md += f"- **[{t.get('predicted_ctr')}]** {t.get('title')} *({t.get('formula_type')} Formula)*\n"
+
+    md += f"""
+### Thumbnail Concepts:
+"""
+    for th in pkg.get('thumbnails', []):
+        md += f"#### {th.get('concept_name')}\n- **Text Overlay:** `{th.get('text_overlay')}`\n- **Layout:** {th.get('visual_layout')}\n- **Prompt:** `{th.get('ai_image_prompt')}`\n\n"
+
+    md += f"""
+### YouTube SEO Description:
+```
+{pkg.get('seo_description', '')}
+```
+"""
+    return PlainTextResponse(content=md, media_type="text/markdown")

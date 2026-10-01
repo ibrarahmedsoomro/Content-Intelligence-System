@@ -1,0 +1,38 @@
+{
+  "topic": "WWII Bombers: B-17 vs B-24 - The Production & Operational Reality",
+  "decision": "REFRAME",
+  "topic_opportunity_score": 63.9,
+  "score": 63.9,
+  "confidence": 90.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 85.0,
+    "curiosity": 88.0,
+    "audience_fit": 85.0,
+    "competition_opportunity": 27.5,
+    "content_gap": 30.0,
+    "series_potential": 0.0,
+    "evidence_strength": 63.0,
+    "narrative_payoff_potential": 84.0,
+    "format_fit": 90.0,
+    "timing": 80.0,
+    "feasibility": 85.0,
+    "packaging": 85.0
+  },
+  "topic_type": "Military History & Engineering",
+  "recommended_format": "BOTH",
+  "primary_angle": "The strategic tradeoff behind B-17 vs B-24.",
+  "alternative_angles": [
+    "Why B-17 vs B-24 solved a crisis everyone ignored",
+    "The operational reality behind B-17 vs B-24",
+    "How design tradeoffs redefined B-17 vs B-24"
+  ],
+  "viewer_question": "What made B-17 vs B-24 so critical?",
+  "content_gap_reason": "Presents a unique structural angle missing in current coverage.",
+  "timing_action": "EVERGREEN",
+  "production_effort": "MEDIUM",
+  "risk_status": "CAUTION",
+  "reason": "Scored 63.9/100 across 12 dimensions with verified evidence.",
+  "next_action": "LOG_AND_MONITOR",
+  "handoff_agent": "None"
+}

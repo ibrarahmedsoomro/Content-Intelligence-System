@@ -1,9 +1,9 @@
 {
-  "topic": "Glenn Miller ",
+  "topic": "Why Did America Need So Many WWII Bombers?",
   "format": "LONG_FORM_DOCUMENTARY",
   "estimated_duration": "9 Minutes 30 Seconds",
   "total_word_count": 1450,
-  "hook_opening": "For decades, discussions surrounding Glenn Miller  have treated the platforms as direct competitors in a zero-sum rivalry. Yet military procurement records reveal that the leadership never intended to choose a single winner.",
+  "hook_opening": "For decades, discussions surrounding Why Did America Need So Many WWII Bombers? have treated the platforms as direct competitors in a zero-sum rivalry. Yet military procurement records reveal that the leadership never intended to choose a single winner.",
   "scenes": [
     {
       "scene_id": "SCENE-001",
@@ -20,7 +20,7 @@
       "payoff_contribution": "PARTIAL",
       "visual_direction": "[VISUAL: High-resolution archival footage of bomber formations at high altitude. Camera zooms into navigation maps with distinct theater radii highlighted in cyan and amber.]",
       "audio_sfx": "[AUDIO: Low ambient engine drone, analog radio tuning tone fading into subdued cinematic strings.]",
-      "voiceover_script": "For decades, discussions surrounding Glenn Miller  have treated the platforms as direct competitors in a zero-sum rivalry. Yet military procurement records reveal that the leadership never intended to choose a single winner.",
+      "voiceover_script": "For decades, discussions surrounding Why Did America Need So Many WWII Bombers? have treated the platforms as direct competitors in a zero-sum rivalry. Yet military procurement records reveal that the leadership never intended to choose a single winner.",
       "retention_hook": "Challenges common ranking myths with documented procurement reality."
     },
     {
@@ -58,7 +58,7 @@
       "payoff_contribution": "EXPANDED",
       "visual_direction": "[VISUAL: Archival automotive assembly plant conversion footage showing high-volume stamping presses and progressive conveyor lines.]",
       "audio_sfx": "[AUDIO: Rhythmic industrial percussion, subtle metallic clinks.]",
-      "voiceover_script": "Beyond flight performance, wartime procurement was dictated by industrial throughput. Rather than an arbitrary rivalry, Glenn Miller  was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints. Automotive stamping techniques permitted rapid airframe production at volumes that traditional aviation tooling could not match. Tactical planners recognized that operational availability in numbers often superseded marginal flight-handling preferences.",
+      "voiceover_script": "Beyond flight performance, wartime procurement was dictated by industrial throughput. Rather than an arbitrary rivalry, Why Did America Need So Many WWII Bombers? was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints. Automotive stamping techniques permitted rapid airframe production at volumes that traditional aviation tooling could not match. Tactical planners recognized that operational availability in numbers often superseded marginal flight-handling preferences.",
       "retention_hook": "Presents industrial manufacturing data that reshapes viewer understanding."
     },
     {
@@ -99,7 +99,7 @@
       "payoff_contribution": "RESOLVED",
       "visual_direction": "[VISUAL: Elegant slow-motion aerial footage of restored aircraft flying over sunrise horizon, concluding with a clean structural infographic card.]",
       "audio_sfx": "[AUDIO: Warm resonant string resolve, gentle wind ambience.]",
-      "voiceover_script": "Looking back, Glenn Miller  was never about declaring a single victorious design. It was a masterclass in operational doctrine\u2014recognizing that complex global challenges cannot be solved with a one-size-fits-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
+      "voiceover_script": "Looking back, Why Did America Need So Many WWII Bombers? was never about declaring a single victorious design. It was a masterclass in operational doctrine\u2014recognizing that complex global challenges cannot be solved with a one-size-fits-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
       "retention_hook": "Delivers complete resolution to LOOP-001 with an enduring strategic lesson."
     }
   ],
@@ -109,9 +109,9 @@
     "unresolved_loops": 0,
     "drama_integrity_check": true,
     "promise_delivery": {
-      "title_promise": "The real doctrinal reason behind Glenn Miller.",
-      "hook_promise": "For decades, discussions surrounding Glenn Miller  have treated the platforms as...",
-      "story_promise": "Rather than an arbitrary rivalry, Glenn Miller  was an intentional doctrine matching specific aircra...",
+      "title_promise": "The real doctrinal reason behind WWII American bombers.",
+      "hook_promise": "For decades, discussions surrounding Why Did America Need So Many WWII Bombers? ...",
+      "story_promise": "Rather than an arbitrary rivalry, Why Did America Need So Many WWII Bombers? was an intentional doct...",
       "script_delivery": "Script delivers detailed geographic and industrial explanations in scenes 2-4.",
       "ending_payoff": "-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
       "promise_match_score": 98.0,

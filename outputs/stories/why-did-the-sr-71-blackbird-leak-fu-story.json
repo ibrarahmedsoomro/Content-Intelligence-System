@@ -1,8 +1,8 @@
 {
-  "topic": "Glenn Miller ",
-  "topic_id": "TOPIC-glenn-miller-",
-  "core_thesis": "Rather than an arbitrary rivalry, Glenn Miller  was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints.",
-  "primary_curiosity_question": "Why is Glenn Miller so significant?",
+  "topic": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
+  "topic_id": "TOPIC-why-did-the-sr-71-blackbird-le",
+  "core_thesis": "Rather than an arbitrary rivalry, Why Did the SR-71 Blackbird Leak Fuel on the Runway? was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints.",
+  "primary_curiosity_question": "Why didn't engineers just seal the fuel tanks properly?",
   "secondary_questions": [
     "How did crew experience differ between platforms?",
     "What was the decisive logistical factor in procurement?"
@@ -11,7 +11,7 @@
   "open_loops": [
     {
       "loop_id": "LOOP-001",
-      "question": "Why is Glenn Miller so significant?",
+      "question": "Why didn't engineers just seal the fuel tanks properly?",
       "opened_beat": 1,
       "partially_answered_beat": 2,
       "expanded_beat": 3,
@@ -34,7 +34,7 @@
       "beat_number": 1,
       "title": "The Standard Assumption & The Doctrinal Contradiction",
       "function_role": "Expose the flaw in the public assumption within 30 seconds and open primary inquiry loop.",
-      "core_question": "Why is Glenn Miller so significant?",
+      "core_question": "Why didn't engineers just seal the fuel tanks properly?",
       "revelation": {
         "assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
         "evidence": "Procurement registries show simultaneous heavy resource allocation for distinct airframes.",
@@ -43,7 +43,7 @@
         "new_understanding": "Air combat strategy was governed by theater doctrine rather than abstract one-on-one superiority."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer assumes Glenn Miller  was an arbitrary competition with one clear winner.",
+        "viewer_knowledge_before": "Viewer assumes Why Did the SR-71 Blackbird Leak Fuel on the Runway? was an arbitrary competition with one clear winner.",
         "viewer_knowledge_after": "Viewer realizes distinct operational requirements forced multiple designs to co-exist.",
         "genuine_change": "Shifts perspective from superficial platform rankings to strategic theater requirements.",
         "gain_level": "HIGH"
@@ -239,7 +239,7 @@
     }
   ],
   "overall_story_intelligence_score": 88.3,
-  "factual_confidence": 92.0,
+  "factual_confidence": 95.0,
   "drama_integrity_passed": true,
   "unresolved_loops_count": 0,
   "status": "COMPLETED"
