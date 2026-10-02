@@ -1,11 +1,11 @@
 {
-  "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+  "topic": "Why the B-17 and B-24 Both Existed",
+  "topic_id": "TOPIC-why-the-b-17-and-b-24-both-exi",
   "format": "LONG_FORM_DOCUMENTARY",
   "estimated_duration": "9 Minutes 30 Seconds",
-  "total_word_count": 243,
-  "calculated_wpm": 25.6,
-  "hook_opening": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records..",
+  "total_word_count": 231,
+  "calculated_wpm": 24.3,
+  "hook_opening": "For decades, discussions surrounding Why the B-17 and B-24 Both Existed have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records..",
   "scenes": [
     {
       "scene_id": "SCENE-001",
@@ -20,9 +20,9 @@
         "LOOP-001"
       ],
       "payoff_contribution": "PARTIAL",
-      "visual_direction": "[VISUAL: High-resolution authentic archival/technical footage of Flight 19: The Lost Patrol of the Bermuda Triangle. Camera zooms into navigation charts and operational records with key discrepancy highlighted in cyan.]",
+      "visual_direction": "[VISUAL: High-resolution authentic archival/technical footage of Why the B-17 and B-24 Both Existed. Camera zooms into navigation charts and operational records with key discrepancy highlighted in cyan.]",
       "audio_sfx": "[AUDIO: Low ambient engine drone, analog radio tuning tone fading into subdued cinematic strings.]",
-      "voiceover_script": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records..",
+      "voiceover_script": "For decades, discussions surrounding Why the B-17 and B-24 Both Existed have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records..",
       "retention_hook": "Challenges common consensus with documented procurement reality in the first 30 seconds."
     },
     {
@@ -40,9 +40,9 @@
         "LOOP-002"
       ],
       "payoff_contribution": "EXPANDED",
-      "visual_direction": "[VISUAL: Side-by-side technical schematics illustrating the physical and environmental constraints: Technical tradeoffs and procedural decisions directly influenced the outcome: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation.]",
+      "visual_direction": "[VISUAL: Side-by-side technical schematics illustrating the physical and environmental constraints: Technical tradeoffs and procedural decisions directly influenced the outcome: Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity..]",
       "audio_sfx": "[AUDIO: Driving electronic pulse with subtle mechanical clicking elements.]",
-      "voiceover_script": "The fundamental driver was operational divergence. Flight 19 Bermuda Triangle was governed by documented operational parameters rather than arbitrary circumstances. To satisfy extreme mission profiles, engineers had to accept uncompromising tradeoffs: The 45-minute radio transcript that reveals why no one spoke up.. Every optimization in range or capability carried an exact, measurable cost.",
+      "voiceover_script": "The fundamental driver was operational divergence. B-17 vs B-24 Bomber Strategy was governed by documented operational parameters rather than arbitrary circumstances. To satisfy extreme mission profiles, engineers had to accept uncompromising tradeoffs: Direct specification comparison of armor vs payload.. Every optimization in range or capability carried an exact, measurable cost.",
       "retention_hook": "Visual proof connecting physical design parameters directly to mission demands."
     },
     {
@@ -60,7 +60,7 @@
       "payoff_contribution": "EXPANDED",
       "visual_direction": "[VISUAL: Archival production line schematics and throughput analytics charts showing manufacturing velocity and supply constraints.]",
       "audio_sfx": "[AUDIO: Rhythmic industrial percussion, subtle metallic clinks.]",
-      "voiceover_script": "Beyond isolated performance metrics, real-world execution was dictated by industrial throughput. Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle was an intentional doctrine balancing distinct constraints: The 45-minute radio transcript that reveals why no one spoke up.. Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope. Planners recognized that operational availability at scale often superseded marginal technical advantages.",
+      "voiceover_script": "Beyond isolated performance metrics, real-world execution was dictated by industrial throughput. Rather than a simple rivalry or isolated anomaly, Why the B-17 and B-24 Both Existed was an intentional doctrine balancing distinct constraints: Direct specification comparison of armor vs payload.. Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope. Planners recognized that operational availability at scale often superseded marginal technical advantages.",
       "retention_hook": "Presents industrial throughput data that completely reshapes viewer understanding."
     },
     {
@@ -101,20 +101,20 @@
       "payoff_contribution": "RESOLVED",
       "visual_direction": "[VISUAL: Cinematic footage of surviving engineering artifacts fading into a clean structural infographic takeaway card. Modern comparison badge displayed: MODERN ANALOGY \u2014 NOT HISTORICAL FACT.]",
       "audio_sfx": "[AUDIO: Warm resonant string resolve, gentle wind ambience.]",
-      "voiceover_script": "Looking back, Flight 19: The Lost Patrol of the Bermuda Triangle was never about declaring a single victorious design. It was a masterclass in strategic doctrine\u2014recognizing that complex global challenges cannot be solved with a one-size-fits-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
+      "voiceover_script": "Looking back, Why the B-17 and B-24 Both Existed was never about declaring a single victorious design. It was a masterclass in strategic doctrine\u2014recognizing that complex global challenges cannot be solved with a one-size-fits-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
       "retention_hook": "Delivers complete resolution to LOOP-001 with an enduring strategic lesson."
     }
   ],
-  "pacing_notes": "Maintain steady 25.6 WPM delivery. Visual cuts synchronized every 4-5 seconds with informational density. Ground every statement in registered facts.",
+  "pacing_notes": "Maintain steady 24.3 WPM delivery. Visual cuts synchronized every 4-5 seconds with informational density. Ground every statement in registered facts.",
   "qa_report": {
     "fact_coverage_rate": 100.0,
     "unresolved_loops": 0,
-    "promise_match_score": 95.5,
+    "promise_match_score": 85.0,
     "drama_integrity_score": 100.0,
     "traceability_rate": 100.0,
-    "pacing_wpm": 25.6,
+    "pacing_wpm": 24.3,
     "retention_hook_density": 100.0,
-    "script_quality_score": 99.3,
+    "script_quality_score": 97.8,
     "checks": [
       {
         "check_id": "QA-01",
@@ -141,7 +141,7 @@
         "name": "Promise -> Delivery Alignment",
         "category": "Viewer Fulfillment",
         "status": "PASS",
-        "calculated_value": "95.5%",
+        "calculated_value": "85.0%",
         "threshold": ">= 80.0%",
         "details": "Ending scene cleanly delivers on initial thesis and curiosity promise.",
         "is_critical": true
@@ -171,9 +171,9 @@
         "name": "Voiceover Pacing & WPM",
         "category": "Production Delivery",
         "status": "WARN",
-        "calculated_value": "25.6 WPM",
+        "calculated_value": "24.3 WPM",
         "threshold": "130 - 165 WPM",
-        "details": "Total 243 words delivered at standard documentary narration tempo.",
+        "details": "Total 231 words delivered at standard documentary narration tempo.",
         "is_critical": false
       },
       {
@@ -181,7 +181,7 @@
         "name": "Initial Hook Timing",
         "category": "Audience Retention",
         "status": "PASS",
-        "calculated_value": "43 words in Scene 1",
+        "calculated_value": "42 words in Scene 1",
         "threshold": "<= 90 words (~35s)",
         "details": "Core contradiction and inquiry loop opened within opening 30 seconds.",
         "is_critical": false
@@ -228,12 +228,12 @@
       }
     ],
     "promise_delivery": {
-      "title_promise": "The documented truth behind Flight 19 Bermuda Triangle.",
-      "hook_promise": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle ha...",
-      "story_promise": "Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle...",
+      "title_promise": "The documented truth behind B-17 vs B-24 Bomber Strategy.",
+      "hook_promise": "For decades, discussions surrounding Why the B-17 and B-24 Both Existed have relied on a c...",
+      "story_promise": "Rather than a simple rivalry or isolated anomaly, Why the B-17 and B-24 Both Existed was an intentio...",
       "script_delivery": "Script delivers detailed physical mechanisms and industrial throughput facts in scenes 2-4.",
       "ending_payoff": "-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
-      "promise_match_score": 95.5,
+      "promise_match_score": 85.0,
       "status": "PASS"
     },
     "drama_integrity_check": true,

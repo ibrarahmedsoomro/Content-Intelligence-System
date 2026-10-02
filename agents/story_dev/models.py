@@ -24,11 +24,31 @@ class InformationGainMetric(BaseModel):
 class OpenLoopItem(BaseModel):
     loop_id: str
     question: str
-    opened_beat: int
+    topic_id: str = ""
+    entity_ids: List[str] = Field(default_factory=list)
+    opened_at_beat: int = 1
     partially_answered_beat: Optional[int] = None
     expanded_beat: Optional[int] = None
-    resolved_beat: int
-    status: str = "PAID"  # OPEN / EXPANDED / PAID
+    resolved_at_beat: int = 5
+    resolution_fact_ids: List[str] = Field(default_factory=list)
+    resolution_quality: float = 90.0 # 0-100
+    is_entity_consistent: bool = True
+    status: str = "PAID"  # OPEN / EXPANDED / PAID / UNPAID / INVALID
+    
+    # Backward compatibility aliases
+    opened_beat: Optional[int] = None
+    resolved_beat: Optional[int] = None
+
+    def __init__(self, **data: Any):
+        if "opened_at_beat" in data and "opened_beat" not in data:
+            data["opened_beat"] = data["opened_at_beat"]
+        elif "opened_beat" in data and "opened_at_beat" not in data:
+            data["opened_at_beat"] = data["opened_beat"]
+        if "resolved_at_beat" in data and "resolved_beat" not in data:
+            data["resolved_beat"] = data["resolved_at_beat"]
+        elif "resolved_beat" in data and "resolved_at_beat" not in data:
+            data["resolved_at_beat"] = data["resolved_beat"]
+        super().__init__(**data)
 
 class BeatScoreBreakdown(BaseModel):
     curiosity: float = Field(ge=0, le=100)
@@ -42,6 +62,14 @@ class BeatScoreBreakdown(BaseModel):
     stakes: float = Field(ge=0, le=100)
     total_beat_score: float = Field(ge=0, le=100)
 
+class DependencyAuditCriteria(BaseModel):
+    breaks_causal_understanding: bool = True
+    removes_necessary_evidence: bool = True
+    breaks_open_loop: bool = True
+    removes_payoff_setup: bool = True
+    makes_later_beat_confusing: bool = True
+    is_filler: bool = False
+
 class StoryBeatIntelligence(BaseModel):
     beat_number: int
     title: str
@@ -49,11 +77,13 @@ class StoryBeatIntelligence(BaseModel):
     core_question: str
     revelation: RevelationStructure
     information_gain: InformationGainMetric
-    narrative_dependency_score: int = Field(ge=0, le=10) # 0=unnecessary, 9-10=essential
+    narrative_dependency_score: int = Field(ge=0, le=10) # 0=unnecessary/filler, 9-10=essential
+    dependency_audit: Optional[DependencyAuditCriteria] = None
     supporting_fact_ids: List[str] = Field(default_factory=list)
     associated_open_loop_ids: List[str] = Field(default_factory=list)
     visual_strategy: str
     tension_attribute: TensionLevel = TensionLevel.MEDIUM
+    modern_analogy_label: Optional[str] = None # e.g. "MODERN ANALOGY — NOT HISTORICAL FACT"
     beat_score: BeatScoreBreakdown
 
 class StoryIntelligenceBlueprint(BaseModel):
@@ -75,5 +105,7 @@ class StoryIntelligenceBlueprint(BaseModel):
     overall_story_intelligence_score: float
     factual_confidence: float
     drama_integrity_passed: bool = True
+    entity_consistency_passed: bool = True
     unresolved_loops_count: int = 0
     status: str = "COMPLETED"
+

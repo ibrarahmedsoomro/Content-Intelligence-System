@@ -1,23 +1,23 @@
 {
-  "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
-  "core_thesis": "Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle was an intentional doctrine balancing distinct constraints: The 45-minute radio transcript that reveals why no one spoke up..",
-  "primary_curiosity_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+  "topic": "Why the B-17 and B-24 Both Existed",
+  "topic_id": "TOPIC-why-the-b-17-and-b-24-both-exi",
+  "core_thesis": "Rather than a simple rivalry or isolated anomaly, Why the B-17 and B-24 Both Existed was an intentional doctrine balancing distinct constraints: Direct specification comparison of armor vs payload..",
+  "primary_curiosity_question": "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
   "secondary_questions": [
-    "Did Taylor confuse the Bahamas with the Florida Keys?",
-    "Why didn't the student pilots take over navigation?"
+    "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
+    "What operational variable was previously overlooked in B-17 vs B-24 Bomber Strategy?"
   ],
-  "central_contradiction": "Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
+  "central_contradiction": "Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records.",
   "open_loops": [
     {
       "loop_id": "LOOP-001",
-      "question": "Did Taylor confuse the Bahamas with the Florida Keys?",
-      "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+      "question": "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
+      "topic_id": "TOPIC-why-the-b-17-and-b-24-both-exi",
       "entity_ids": [
-        "Flight 19 Bermuda Triangle",
-        "TBM Avenger lost patrol",
-        "Lieutenant Charles Taylor",
-        "Naval Air Station Fort Lauderdale"
+        "B-17 vs B-24 Bomber Strategy",
+        "B-17 Flying Fortress",
+        "B-24 Liberator",
+        "WWII Bomber Doctrine"
       ],
       "opened_at_beat": 1,
       "partially_answered_beat": 2,
@@ -36,13 +36,13 @@
     },
     {
       "loop_id": "LOOP-002",
-      "question": "What was the decisive structural or operational constraint governing Flight 19: The Lost Patrol of the Bermuda Triangle?",
-      "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+      "question": "What was the decisive structural or operational constraint governing Why the B-17 and B-24 Both Existed?",
+      "topic_id": "TOPIC-why-the-b-17-and-b-24-both-exi",
       "entity_ids": [
-        "Flight 19 Bermuda Triangle",
-        "TBM Avenger lost patrol",
-        "Lieutenant Charles Taylor",
-        "Naval Air Station Fort Lauderdale"
+        "B-17 vs B-24 Bomber Strategy",
+        "B-17 Flying Fortress",
+        "B-24 Liberator",
+        "WWII Bomber Doctrine"
       ],
       "opened_at_beat": 2,
       "partially_answered_beat": 3,
@@ -59,23 +59,23 @@
       "resolved_beat": 4
     }
   ],
-  "payoff_target": "Complete causal understanding of Flight 19 Bermuda Triangle replacing sensational myth with verifiable causation.",
+  "payoff_target": "Complete causal understanding of B-17 vs B-24 Bomber Strategy replacing sensational myth with verifiable causation.",
   "beats": [
     {
       "beat_number": 1,
       "title": "The Public Assumption & The Core Contradiction",
       "function_role": "Expose the flaw in the public assumption within 30 seconds and open primary inquiry loop.",
-      "core_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+      "core_question": "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
       "revelation": {
-        "assumption": "The audience assumes a simplistic or sensationalized explanation for Flight 19 Bermuda Triangle.",
-        "evidence": "Primary records and technical logs establish the baseline constraints of Flight 19 Bermuda Triangle.",
-        "contradiction": "Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
+        "assumption": "The audience assumes a simplistic or sensationalized explanation for B-17 vs B-24 Bomber Strategy.",
+        "evidence": "Primary records and technical logs establish the baseline constraints of B-17 vs B-24 Bomber Strategy.",
+        "contradiction": "Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records.",
         "explanation": "Operational requirements created irreconcilable constraints that conventional assumptions fail to account for.",
-        "new_understanding": "The reality of Flight 19: The Lost Patrol of the Bermuda Triangle was governed by systemic necessity rather than simplistic comparisons."
+        "new_understanding": "The reality of Why the B-17 and B-24 Both Existed was governed by systemic necessity rather than simplistic comparisons."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer assumes Flight 19: The Lost Patrol of the Bermuda Triangle was an arbitrary competition or standard development with one obvious explanation.",
-        "viewer_knowledge_after": "Viewer discovers the underlying paradox: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
+        "viewer_knowledge_before": "Viewer assumes Why the B-17 and B-24 Both Existed was an arbitrary competition or standard development with one obvious explanation.",
+        "viewer_knowledge_after": "Viewer discovers the underlying paradox: Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records.",
         "genuine_change": "Shifts perspective from superficial narrative to structural and operational realities.",
         "gain_level": "HIGH"
       },
@@ -114,12 +114,12 @@
       "beat_number": 2,
       "title": "The Operational Constraint Dilemma",
       "function_role": "Demonstrate the physical and operational limitations that created the central tradeoff.",
-      "core_question": "Why did standard approaches fail to solve the operational dilemma in Flight 19: The Lost Patrol of the Bermuda Triangle?",
+      "core_question": "Why did standard approaches fail to solve the operational dilemma in Why the B-17 and B-24 Both Existed?",
       "revelation": {
         "assumption": "A single optimized solution could satisfy all operational demands simultaneously.",
-        "evidence": "Documented engineering and procedural data recorded during Flight 19 Bermuda Triangle events.",
+        "evidence": "Documented engineering and procedural data recorded during B-17 vs B-24 Bomber Strategy events.",
         "contradiction": "Optimizing for one critical parameter directly compromised another vital capability.",
-        "explanation": "The environment and mission profile demanded uncompromising zero-sum design choices: The 45-minute radio transcript that reveals why no one spoke up..",
+        "explanation": "The environment and mission profile demanded uncompromising zero-sum design choices: Direct specification comparison of armor vs payload..",
         "new_understanding": "System design is fundamentally a series of calculated zero-sum tradeoffs."
       },
       "information_gain": {
@@ -165,7 +165,7 @@
       "beat_number": 3,
       "title": "Systemic & Logistical Realities",
       "function_role": "Reveal how manufacturing, logistics, and systemic throughput determined real-world viability.",
-      "core_question": "How did execution and throughput limitations shape the final outcome of Flight 19: The Lost Patrol of the Bermuda Triangle?",
+      "core_question": "How did execution and throughput limitations shape the final outcome of Why the B-17 and B-24 Both Existed?",
       "revelation": {
         "assumption": "Theoretical performance alone determined operational success.",
         "evidence": "Post-event investigative findings and official technical assessments.",
@@ -214,7 +214,7 @@
       "beat_number": 4,
       "title": "Operational Crucible & Doctrinal Validation",
       "function_role": "Demonstrate how the strategy performed under direct real-world pressure.",
-      "core_question": "How did the strategic choices for Flight 19: The Lost Patrol of the Bermuda Triangle hold up in actual operational deployment?",
+      "core_question": "How did the strategic choices for Why the B-17 and B-24 Both Existed hold up in actual operational deployment?",
       "revelation": {
         "assumption": "The chosen strategy resulted in an irrecoverable systemic failure.",
         "evidence": "Operational records confirm specialized deployment maximized total system effectiveness.",
@@ -266,13 +266,13 @@
       "beat_number": 5,
       "title": "The Strategic Verdict & Enduring Legacy",
       "function_role": "Fully resolve all open loops and deliver an enduring mental model for modern systems.",
-      "core_question": "What is the enduring lesson of Flight 19: The Lost Patrol of the Bermuda Triangle for modern engineering and decision-making?",
+      "core_question": "What is the enduring lesson of Why the B-17 and B-24 Both Existed for modern engineering and decision-making?",
       "revelation": {
         "assumption": "Modern technology and advanced systems have made these historical compromises obsolete.",
         "evidence": "Contemporary programs encounter identical trade-offs between range, payload, cost, and complexity.",
         "contradiction": "Despite modern tools, fundamental engineering tradeoffs remain mathematically immutable.",
         "explanation": "Success is not finding an ideal tool, but aligning precise tools with specific operational realities.",
-        "new_understanding": "The enduring lesson of Flight 19: The Lost Patrol of the Bermuda Triangle is that doctrine and architecture outweigh raw individual metrics."
+        "new_understanding": "The enduring lesson of Why the B-17 and B-24 Both Existed is that doctrine and architecture outweigh raw individual metrics."
       },
       "information_gain": {
         "viewer_knowledge_before": "Viewer has heard a fascinating isolated case study.",
@@ -315,7 +315,7 @@
     }
   ],
   "overall_story_intelligence_score": 89.5,
-  "factual_confidence": 88.0,
+  "factual_confidence": 95.0,
   "drama_integrity_passed": true,
   "entity_consistency_passed": true,
   "unresolved_loops_count": 0,

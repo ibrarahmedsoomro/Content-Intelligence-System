@@ -1,0 +1,38 @@
+{
+  "topic": "Why the B-17 and B-24 Both Existed",
+  "decision": "MAKE",
+  "topic_opportunity_score": 79.4,
+  "score": 79.4,
+  "confidence": 95.0,
+  "validation": "VALID",
+  "scores": {
+    "demand": 88.0,
+    "curiosity": 90.0,
+    "audience_fit": 92.0,
+    "competition_opportunity": 55.0,
+    "content_gap": 65.0,
+    "series_potential": 65.0,
+    "evidence_strength": 81.5,
+    "narrative_payoff_potential": 87.5,
+    "format_fit": 90.0,
+    "timing": 80.0,
+    "feasibility": 75.0,
+    "packaging": 90.0
+  },
+  "topic_type": "Military Aviation",
+  "recommended_format": "BOTH",
+  "primary_angle": "Direct specification comparison of armor vs payload.",
+  "alternative_angles": [
+    "Why B-17 vs B-24 Bomber Strategy solved a crisis everyone ignored",
+    "The operational reality behind B-17 vs B-24 Bomber Strategy",
+    "How design tradeoffs redefined B-17 vs B-24 Bomber Strategy"
+  ],
+  "viewer_question": "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
+  "content_gap_reason": "Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity.",
+  "timing_action": "EVERGREEN",
+  "production_effort": "HIGH",
+  "risk_status": "CAUTION",
+  "reason": "Scored 79.4/100 across 12 dimensions with verified evidence.",
+  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
+  "handoff_agent": "Story Dev Agent"
+}

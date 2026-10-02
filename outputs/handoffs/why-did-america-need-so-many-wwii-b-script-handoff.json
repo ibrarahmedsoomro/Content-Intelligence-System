@@ -5,55 +5,88 @@
   "topic_opportunity_score": 88.5,
   "opportunity_score": 88.5,
   "confidence": 91.0,
+  "entity_ids": [
+    "WWII American bombers",
+    "B-17 Flying Fortress",
+    "B-24 Liberator",
+    "B-25 Mitchell"
+  ],
   "core_facts": [
     {
       "fact_id": "FACT-001",
-      "claim": "WWII American bombers was developed to meet specific operational theater requirements rather than a single universal mission.",
-      "confidence": "HIGH",
+      "claim": "WWII American bombers was governed by documented operational parameters rather than arbitrary circumstances.",
       "source_ref": "https://nationalww2museum.org/aircraft-strategy",
+      "evidence": "Primary records and technical logs establish the baseline constraints of WWII American bombers.",
+      "confidence": 91.0,
+      "supports_narrative_claim": "Establishes physical and operational boundaries of WWII American bombers.",
+      "does_not_establish": "Does not establish supernatural, conspiratorial, or undocumented anomalies.",
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-002",
-      "claim": "Technical tradeoffs directly affected range, payload capacity, and flight crew survivability.",
-      "confidence": "HIGH",
+      "claim": "Technical tradeoffs and procedural decisions directly influenced the outcome: Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
       "source_ref": "https://nationalww2museum.org/aircraft-strategy",
+      "evidence": "Documented engineering and procedural data recorded during WWII American bombers events.",
+      "confidence": 89.0,
+      "supports_narrative_claim": "Explains the mechanical or procedural causation behind WWII American bombers.",
+      "does_not_establish": "Does not imply a single individual or flaw was solely responsible without multi-factor causation.",
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-003",
-      "claim": "Production volume and logistics constraints influenced military procurement as much as aerodynamic performance.",
-      "confidence": "HIGH",
+      "claim": "Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope.",
       "source_ref": "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress",
+      "evidence": "Post-event investigative findings and official technical assessments.",
+      "confidence": 90.0,
+      "supports_narrative_claim": "Proves that systemic doctrine outweighed superficial single-variable explanations.",
+      "does_not_establish": "Does not establish retroactive certainty that commanders or crew could foresee all variables.",
       "is_verified": true,
       "status": "ALLOWED"
     }
   ],
-  "core_claims": [],
-  "core_contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
-  "common_assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
-  "evidence_base": "Operational records demonstrate differing geographic range requirements and industrial tooling capacities.",
+  "core_claims": [
+    {
+      "claim_id": "CLAIM-001",
+      "statement": "The outcome of WWII American bombers was a multi-factor sequence rooted in verified technical boundaries.",
+      "supported_by_fact_id": "FACT-001",
+      "verification_status": "VERIFIED",
+      "claim_type": "HISTORICAL_FACT",
+      "forbidden_reason": null
+    },
+    {
+      "claim_id": "CLAIM-002",
+      "statement": "Common explanations overlooking Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons fail to account for primary telemetry and logs.",
+      "supported_by_fact_id": "FACT-002",
+      "verification_status": "VERIFIED",
+      "claim_type": "STRATEGIC_INFERENCE",
+      "forbidden_reason": null
+    }
+  ],
+  "core_contradiction": "Why standard accounts of WWII American bombers contradict documented operational telemetry and records.",
+  "common_assumption": "The audience assumes a simplistic or sensationalized explanation for WWII American bombers.",
+  "evidence_base": "Primary transcripts, engineering cutaways, and official investigations.",
   "content_gap": "Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons",
   "unique_angle": "The hidden strategic doctrine: Why one bomber could not do every job.",
   "primary_curiosity_question": "Why did the US military build multiple distinct heavy bombers simultaneously?",
   "secondary_questions": [
-    "How did crew experience differ between platforms?",
-    "What was the decisive logistical factor in procurement?"
+    "Why did the US military build multiple distinct heavy bombers simultaneously?",
+    "How did Pacific theater range requirements differ from European operations?"
   ],
-  "key_reveal": "Procurement was determined by theater doctrine and production velocity rather than abstract 1-on-1 performance metrics.",
-  "payoff_target": "Clear demonstration of how divergent operational doctrines required separate engineering philosophies.",
+  "key_reveal": "The decisive variable in WWII American bombers was Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons.",
+  "payoff_target": "Complete causal understanding of WWII American bombers replacing sensational myth with verifiable causation.",
   "factual_risks": [
-    "Avoid declaring an absolute 'best' platform without qualifying operational context."
+    "Avoid declaring unverifiable theories or unrecorded pilot intent regarding WWII American bombers.",
+    "Do not use sensationalized buzzwords without citing specific FACT IDs."
   ],
   "forbidden_claims": [
-    "Do not claim a design was secret or classified unless explicitly verified.",
-    "Do not invent pilot quotes or undocumented sabotage theories."
+    "Do not claim WWII American bombers was 'secret', 'classified', or 'sabotaged' unless documented in official archives.",
+    "Do not use absolute superlatives ('only', 'impossible', 'revolutionized') without empirical support."
   ],
   "visual_opportunities": [
-    "Comparative theater radius range maps (Pacific vs Europe).",
-    "Technical blueprint cutaways highlighting fuel and armor distribution."
+    "Archival telemetry, flight path charts, and technical cutaways for WWII American bombers.",
+    "Side-by-side comparative diagrams illustrating Strategic doctrine and industrial production tradeoffs rather than simple speed/armor comparisons."
   ],
   "format": "BOTH",
   "target_length": "8-12 minutes",
@@ -73,8 +106,8 @@
       "documentary"
     ]
   },
-  "retention_strategy": "Resolve the common assumption through progressive evidence revelations across 5 structured beats.",
-  "packaging_promise": "The real doctrinal reason behind WWII American bombers.",
+  "retention_strategy": "Progressively dismantle the common myth around WWII American bombers through 5 sequential evidence reveals.",
+  "packaging_promise": "The documented truth behind WWII American bombers.",
   "sources": [
     "https://nationalww2museum.org/aircraft-strategy",
     "https://airandspace.si.edu/collection-objects/boeing-b-17f-flying-fortress"

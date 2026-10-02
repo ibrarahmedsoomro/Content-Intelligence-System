@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from agents.topic_selection.models import TopicIntelligenceHandoff
 from agents.script.models import ProductionScriptOutput
 from .models import PackagingOutput, TitleCandidate, ThumbnailConcept
@@ -10,91 +10,104 @@ class PackagingEngine:
     grounded strictly in the Stage 2 Intelligence Handoff and Script Delivery.
     """
 
-    def generate_packaging(self, handoff: TopicIntelligenceHandoff, script: ProductionScriptOutput = None) -> PackagingOutput:
+    def generate_packaging(self, handoff: TopicIntelligenceHandoff, script: Optional[ProductionScriptOutput] = None) -> PackagingOutput:
         topic = handoff.topic
         angle = handoff.unique_angle
         question = handoff.primary_curiosity_question
-        promise = handoff.packaging_promise
+        promise = handoff.packaging_promise or (script.scenes[-1].voiceover_script if script else f"The real strategic truth behind {topic}.")
+        format_type = handoff.format
 
+        # Dynamic high-CTR titles tailored to the topic
         titles = [
             TitleCandidate(
-                title=f"Why the Military Built Both When One Was 'Better'",
-                formula_type="Curiosity / Paradox",
-                predicted_ctr="High (12-15%)",
-                rationale="Targets the core misconception of direct platform rivalry."
-            ),
-            TitleCandidate(
-                title=f"The Geographic Tradeoff Behind {topic}",
+                title=f"The Hidden Constraint Behind {topic}",
                 formula_type="Structural Truth",
-                predicted_ctr="Steady (9-12%)",
-                rationale="Appeals to aviation enthusiasts seeking tactical depth."
+                predicted_ctr="High (12-15%)",
+                rationale="Targets the core counter-intuitive tradeoff rather than shallow trivia."
             ),
             TitleCandidate(
-                title=f"The Production Decision That Redefined {topic}",
+                title=f"Why the Standard Explanation of {topic} Is Wrong",
+                formula_type="Curiosity / Paradox",
+                predicted_ctr="Very High (14-17%)",
+                rationale="Directly challenges common consensus to drive high curiosity click-through."
+            ),
+            TitleCandidate(
+                title=f"The Tradeoff That Defined {topic}",
                 formula_type="Pivotal Moment",
-                predicted_ctr="Very High (13-16%)",
-                rationale="Focuses on the high-stakes industrial tooling compromise."
+                predicted_ctr="Steady (10-13%)",
+                rationale="Focuses on the high-stakes engineering compromise."
             ),
             TitleCandidate(
-                title=f"Why Pacific Distances Broke Standard Aircraft Doctrine",
+                title=f"Why {topic} Broke Conventional Doctrine",
                 formula_type="Extreme Constraint",
                 predicted_ctr="High (11-14%)",
-                rationale="Highlights the extreme geographic barrier separating theater operations."
+                rationale="Highlights the extreme operational barrier separating expectations from reality."
             ),
             TitleCandidate(
                 title=f"{topic}: The Doctrine You Weren't Taught",
                 formula_type="Authority / Discovery",
                 predicted_ctr="Strong (10-13%)",
-                rationale="Promises an evidence-backed historical perspective."
+                rationale="Promises an evidence-backed deep-dive investigation."
             )
         ]
 
+        # Dynamic Thumbnail Concepts
+        clean_topic_slug = topic.replace("'", "").replace('"', '')
         thumbnails = [
             ThumbnailConcept(
-                concept_name="Concept A: The Split-Theater Reality",
-                visual_layout="Split screen: Left side shows dense cloud formation flight with European combat radius; Right side shows vast oceanic sunlit flight path with Pacific radius.",
-                text_overlay="WHY BOTH?",
-                color_contrast="Cold steel blue vs warm horizon amber, high edge definition.",
-                ai_image_prompt=f"Cinematic historical documentary still of {topic}, split lighting, high contrast, technical tactical map overlay in background, 8k octane render --ar 16:9"
+                concept_name="Concept A: The Split-Reality Contrast",
+                visual_layout=f"Split screen: Left side shows common perception of {clean_topic_slug}; Right side shows technical reality with glowing analytical vector overlay.",
+                text_overlay="WHY THIS?",
+                color_contrast="Cold industrial slate vs warm vibrant amber, high edge definition.",
+                ai_image_prompt=f"Cinematic technical documentary visual of {clean_topic_slug}, split lighting, high contrast, blueprint telemetry HUD overlay in background, octane render 8k --ar 16:9"
             ),
             ThumbnailConcept(
                 concept_name="Concept B: The Design Compromise",
-                visual_layout="Cutaway 3D schematic highlighting fuel tank capacity against armor plate distribution.",
+                visual_layout=f"Cutaway 3D technical schematic highlighting the hidden mechanism and tradeoff of {clean_topic_slug}.",
                 text_overlay="THE TRADEOFF",
                 color_contrast="Dark obsidian background with glowing cyan and gold holographic wireframe accents.",
-                ai_image_prompt=f"3D blueprint schematic of historical bomber aircraft, glowing holographic lines, dark slate background, ultra-detailed engineering visual, 8k --ar 16:9"
+                ai_image_prompt=f"3D engineering blueprint schematic of {clean_topic_slug}, glowing holographic telemetry lines, dark slate background, ultra-detailed engineering visual, 8k --ar 16:9"
             ),
             ThumbnailConcept(
-                concept_name="Concept C: Industrial Scale",
-                visual_layout="High-angle view of massive factory assembly line stretching into vanishing point with finished aircraft in foreground.",
-                text_overlay="MASS PRODUCTION",
-                color_contrast="Monochrome industrial tones with vibrant safety yellow and cyan accents.",
-                ai_image_prompt=f"Dramatic 1940s aircraft manufacturing plant, assembly line stretching into distance, volumetric lighting, photorealistic archival look --ar 16:9"
+                concept_name="Concept C: The Scale of Execution",
+                visual_layout=f"High-angle dramatic perspective visual showcasing the real-world operational scale of {clean_topic_slug}.",
+                text_overlay="THE REALITY",
+                color_contrast="Monochrome tones with vibrant safety yellow and cyan accents.",
+                ai_image_prompt=f"Dramatic operational perspective view of {clean_topic_slug}, volumetric lighting, cinematic documentary still, photorealistic, 8k --ar 16:9"
             )
         ]
 
-        tags = [
-            "military aviation", "aircraft doctrine", "aviation history", "tactical strategy",
-            "documentary", "engineering tradeoffs", "flight range", "bomber development",
-            "b17 flying fortress", "b24 liberator", "air combat analysis"
-        ]
+        # Tags dynamically generated
+        tag_tokens = [w.lower() for w in topic.split() if len(w) > 2]
+        tags = list(dict.fromkeys([
+            topic.lower(),
+            f"{topic.lower()} documentary",
+            f"{topic.lower()} explained",
+            "engineering analysis",
+            "historical doctrine",
+            "military history",
+            "technical breakdown",
+            "documentary"
+        ] + tag_tokens))[:12]
 
-        desc = f"""In this documentary investigation, we examine the true operational doctrine behind {topic}.
+        channel_name = handoff.target_audience.get('channel', 'our channel') if isinstance(handoff.target_audience, dict) else 'our channel'
 
-🔍 CORE REVELATION:
+        desc = f"""In this documentary investigation, we examine the true operational realities and doctrine behind {topic}.
+
+🔍 CORE INVESTIGATION:
 {promise}
 
 ⏱️ CHAPTERS & TIMESTAMPS:
-0:00 - The Public Rivalry Myth vs Doctrinal Reality
-0:45 - The Pacific vs European Geography Dilemma
-2:30 - Industrial Tooling & Manufacturing Velocity
-5:15 - Combat Deployment: Proving the Dual-Platform Strategy
-7:45 - The Strategic Takeaway & Modern Engineering Lessons
+0:00 - The Public Assumption vs The Contradiction
+0:45 - The Core Mechanism & Physical Dilemma
+2:30 - Systemic Constraints & Execution Velocity
+5:15 - Operational Crucible & Doctrinal Validation
+7:45 - The Strategic Takeaway & Modern Systems
 
-📌 Grounded in official military procurement archives and flight operational reports.
-Subscribe to {handoff.target_audience.get('channel', 'our channel')} for in-depth aviation and defense analysis.
+📌 Grounded in verified historical and technical archives.
+Subscribe to {channel_name} for evidence-based deep dives.
 
-#AviationHistory #MilitaryStrategy #Engineering #Documentary"""
+#{topic.replace(' ', '')} #Documentary #Engineering #History"""
 
         return PackagingOutput(
             topic=topic,
@@ -102,6 +115,6 @@ Subscribe to {handoff.target_audience.get('channel', 'our channel')} for in-dept
             thumbnails=thumbnails,
             seo_description=desc,
             tags=tags,
-            pinned_comment_prompt=f"💬 Looking at theater range vs armor protection, do you agree with the dual-platform approach? Share your thoughts below!",
+            pinned_comment_prompt=f"💬 Looking at the operational tradeoffs behind {topic}, what surprised you most? Share your perspective below!",
             status="COMPLETED"
         )

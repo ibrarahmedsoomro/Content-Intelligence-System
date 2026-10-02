@@ -81,6 +81,8 @@ class CompetitorItem(BaseModel):
     channel_authority: Optional[str] = "MEDIUM"
     angle_used: Optional[str] = None
 
+from pydantic import BaseModel, Field, model_validator
+
 class ResearchPacket(BaseModel):
     topic_name: str
     main_keyword: str
@@ -102,6 +104,19 @@ class ResearchPacket(BaseModel):
     depth_score: float = Field(default=60.0, ge=0, le=100)
     visual_packaging_score: float = Field(default=70.0, ge=0, le=100)
     is_factually_verified: bool = True
+
+    @model_validator(mode='before')
+    @classmethod
+    def normalize_competitors(cls, data: Any) -> Any:
+        if isinstance(data, dict) and "competitor_examples" in data:
+            normalized = []
+            for item in data["competitor_examples"]:
+                if isinstance(item, str):
+                    normalized.append({"title": item, "views": 100000})
+                else:
+                    normalized.append(item)
+            data["competitor_examples"] = normalized
+        return data
 
 # ==========================================
 # 4. 12-DIMENSIONAL SCORING & DECISION

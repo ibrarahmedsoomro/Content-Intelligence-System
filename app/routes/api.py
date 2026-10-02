@@ -162,6 +162,10 @@ def run_full_pipeline(packet: ResearchPacket):
     if decision.decision in [DecisionType.SKIP, DecisionType.NEED_MORE_RESEARCH]:
         return {
             "status": "STOPPED_AT_TOPIC_SELECTION",
+            "topic_opportunity_score": decision.score,
+            "story_intelligence_score": None,
+            "script_quality_score": None,
+            "production_status": "BLOCKED" if decision.decision == DecisionType.SKIP else "NEED_MORE_RESEARCH",
             "decision": decision.model_dump(),
             "handoff": handoff.model_dump(),
             "story": None,
@@ -186,6 +190,10 @@ def run_full_pipeline(packet: ResearchPacket):
 
     return {
         "status": "PIPELINE_COMPLETE",
+        "topic_opportunity_score": decision.score,
+        "story_intelligence_score": story.overall_story_intelligence_score,
+        "script_quality_score": script.qa_report.script_quality_score,
+        "production_status": script.qa_report.qa_verdict,
         "decision": decision.model_dump(),
         "handoff": handoff.model_dump(),
         "story": story.model_dump(),
@@ -298,10 +306,18 @@ def export_topic_markdown(topic_slug: str):
     md += f"""
 ---
 
-## 3. BROADCAST PRODUCTION SCRIPT (STAGE 4)
-- **Duration:** `{script.get('estimated_duration', 'N/A')}` | **Words:** `{script.get('total_word_count', 'N/A')}`
-- **QA Promise Delivery Match:** `{script.get('qa_report', {}).get('promise_delivery', {}).get('promise_match_score', 'N/A')}%`
+## 3. BROADCAST PRODUCTION SCRIPT & 11-CHECK QA AUDIT (STAGE 4)
+- **Script Quality Score:** `{script.get('qa_report', {}).get('script_quality_score', 'N/A')}/100` | **Verdict:** `{script.get('qa_report', {}).get('qa_verdict', 'N/A')}`
+- **Fact Coverage:** `{script.get('qa_report', {}).get('fact_coverage_rate', 'N/A')}%` | **Unresolved Loops:** `{script.get('qa_report', {}).get('unresolved_loops', 'N/A')}`
+- **Duration:** `{script.get('estimated_duration', 'N/A')}` | **Words:** `{script.get('total_word_count', 'N/A')}` ({script.get('calculated_wpm', 'N/A')} WPM)
+- **Promise Match:** `{script.get('qa_report', {}).get('promise_match_score', 'N/A')}%`
 """
+    qa_checks = script.get('qa_report', {}).get('checks', [])
+    if qa_checks:
+        md += "\n### 11-Check QA Audit Matrix:\n"
+        for qc in qa_checks:
+            md += f"- `[{qc.get('status')}]` **{qc.get('name')}** ({qc.get('category')}): `{qc.get('calculated_value')}` (Threshold: `{qc.get('threshold')}`) — *{qc.get('details')}*\n"
+
     for sc in script.get('scenes', []):
         md += f"""
 ---

@@ -1,0 +1,115 @@
+{
+  "topic": "Why the B-17 and B-24 Both Existed",
+  "topic_id": "TOPIC-why-the-b-17-and-b-24-both-exi",
+  "decision": "MAKE",
+  "topic_opportunity_score": 79.4,
+  "opportunity_score": 79.4,
+  "confidence": 95.0,
+  "entity_ids": [
+    "B-17 vs B-24 Bomber Strategy",
+    "B-17 Flying Fortress",
+    "B-24 Liberator",
+    "WWII Bomber Doctrine"
+  ],
+  "core_facts": [
+    {
+      "fact_id": "FACT-001",
+      "claim": "B-17 vs B-24 Bomber Strategy was governed by documented operational parameters rather than arbitrary circumstances.",
+      "source_ref": "https://nationalww2museum.org/b17-b24-doctrine",
+      "evidence": "Primary records and technical logs establish the baseline constraints of B-17 vs B-24 Bomber Strategy.",
+      "confidence": 95.0,
+      "supports_narrative_claim": "Establishes physical and operational boundaries of B-17 vs B-24 Bomber Strategy.",
+      "does_not_establish": "Does not establish supernatural, conspiratorial, or undocumented anomalies.",
+      "is_verified": true,
+      "status": "ALLOWED"
+    },
+    {
+      "fact_id": "FACT-002",
+      "claim": "Technical tradeoffs and procedural decisions directly influenced the outcome: Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity.",
+      "source_ref": "https://nationalww2museum.org/b17-b24-doctrine",
+      "evidence": "Documented engineering and procedural data recorded during B-17 vs B-24 Bomber Strategy events.",
+      "confidence": 93.0,
+      "supports_narrative_claim": "Explains the mechanical or procedural causation behind B-17 vs B-24 Bomber Strategy.",
+      "does_not_establish": "Does not imply a single individual or flaw was solely responsible without multi-factor causation.",
+      "is_verified": true,
+      "status": "ALLOWED"
+    },
+    {
+      "fact_id": "FACT-003",
+      "claim": "Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope.",
+      "source_ref": "https://nationalww2museum.org/b17-b24-doctrine",
+      "evidence": "Post-event investigative findings and official technical assessments.",
+      "confidence": 94.0,
+      "supports_narrative_claim": "Proves that systemic doctrine outweighed superficial single-variable explanations.",
+      "does_not_establish": "Does not establish retroactive certainty that commanders or crew could foresee all variables.",
+      "is_verified": true,
+      "status": "ALLOWED"
+    }
+  ],
+  "core_claims": [
+    {
+      "claim_id": "CLAIM-001",
+      "statement": "The outcome of B-17 vs B-24 Bomber Strategy was a multi-factor sequence rooted in verified technical boundaries.",
+      "supported_by_fact_id": "FACT-001",
+      "verification_status": "VERIFIED",
+      "claim_type": "HISTORICAL_FACT",
+      "forbidden_reason": null
+    },
+    {
+      "claim_id": "CLAIM-002",
+      "statement": "Common explanations overlooking Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity. fail to account for primary telemetry and logs.",
+      "supported_by_fact_id": "FACT-002",
+      "verification_status": "VERIFIED",
+      "claim_type": "STRATEGIC_INFERENCE",
+      "forbidden_reason": null
+    }
+  ],
+  "core_contradiction": "Why standard accounts of B-17 vs B-24 Bomber Strategy contradict documented operational telemetry and records.",
+  "common_assumption": "The audience assumes a simplistic or sensationalized explanation for B-17 vs B-24 Bomber Strategy.",
+  "evidence_base": "Primary transcripts, engineering cutaways, and official investigations.",
+  "content_gap": "Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity.",
+  "unique_angle": "Direct specification comparison of armor vs payload.",
+  "primary_curiosity_question": "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
+  "secondary_questions": [
+    "Why did the US military produce both the B-17 and B-24 in huge numbers when they served similar strategic bombing roles?",
+    "What operational variable was previously overlooked in B-17 vs B-24 Bomber Strategy?"
+  ],
+  "key_reveal": "The decisive variable in B-17 vs B-24 Bomber Strategy was Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity..",
+  "payoff_target": "Complete causal understanding of B-17 vs B-24 Bomber Strategy replacing sensational myth with verifiable causation.",
+  "factual_risks": [
+    "Avoid declaring unverifiable theories or unrecorded pilot intent regarding B-17 vs B-24 Bomber Strategy.",
+    "Do not use sensationalized buzzwords without citing specific FACT IDs."
+  ],
+  "forbidden_claims": [
+    "Do not claim B-17 vs B-24 Bomber Strategy was 'secret', 'classified', or 'sabotaged' unless documented in official archives.",
+    "Do not use absolute superlatives ('only', 'impossible', 'revolutionized') without empirical support."
+  ],
+  "visual_opportunities": [
+    "Archival telemetry, flight path charts, and technical cutaways for B-17 vs B-24 Bomber Strategy.",
+    "Side-by-side comparative diagrams illustrating Most videos compare speed and armor, but miss the theater-specific doctrine and industrial manufacturing velocity.."
+  ],
+  "format": "BOTH",
+  "target_length": "8-12 minutes",
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "age": "13-35",
+    "style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ]
+  },
+  "retention_strategy": "Progressively dismantle the common myth around B-17 vs B-24 Bomber Strategy through 5 sequential evidence reveals.",
+  "packaging_promise": "The documented truth behind B-17 vs B-24 Bomber Strategy.",
+  "sources": [
+    "https://nationalww2museum.org/b17-b24-doctrine"
+  ],
+  "next_agent": "Story Dev Agent"
+}
