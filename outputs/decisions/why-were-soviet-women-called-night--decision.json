@@ -1,0 +1,131 @@
+{
+  "topic": "why were soviet women called night mare ",
+  "topic_id": "TOPIC-WHY-WERE-SOVIET-WOMEN-CALLED-NIGHT",
+  "score": 75.8,
+  "confidence": 92.0,
+  "decision": "MAKE",
+  "recommended_format": "BOTH",
+  "timing_action": "MAKE_SOON",
+  "production_effort": "MEDIUM",
+  "primary_angle": "The documented reality behind why were soviet women called night mare : Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined nightmare soviet women.",
+    "The tactical tradeoff: Why standard explanations of nightmare soviet women fall short.",
+    "What the authenticated logs reveal about nightmare soviet women."
+  ],
+  "viewer_question": "Why is nightmare soviet women so significant in military doctrine?",
+  "content_gap_reason": "Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "reason": "Strong opportunity score (75.8) approved for standard production pipeline.",
+  "scores": {
+    "demand": 60.0,
+    "curiosity": 100.0,
+    "audience_fit": 88.0,
+    "competition_opportunity": 50.0,
+    "content_gap": 70.0,
+    "series_potential": 65.0,
+    "evidence_strength": 92.0,
+    "narrative_payoff_potential": 88.0,
+    "format_fit": 80.0,
+    "timing": 75.0,
+    "feasibility": 92.8,
+    "packaging": 90.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 60.0,
+        "weight": 18.0,
+        "weighted_contribution": 10.8,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 92.0
+      },
+      "curiosity": {
+        "raw_score": 100.0,
+        "weight": 14.0,
+        "weighted_contribution": 14.0,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 92.0
+      },
+      "audience_fit": {
+        "raw_score": 88.0,
+        "weight": 13.0,
+        "weighted_contribution": 11.44,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 92.0
+      },
+      "competition_opportunity": {
+        "raw_score": 50.0,
+        "weight": 13.0,
+        "weighted_contribution": 6.5,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 92.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 92.0
+      },
+      "series_potential": {
+        "raw_score": 65.0,
+        "weight": 8.0,
+        "weighted_contribution": 5.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 92.0
+      },
+      "evidence_strength": {
+        "raw_score": 92.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.36,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 92.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 88.0,
+        "weight": 6.0,
+        "weighted_contribution": 5.28,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 92.0
+      },
+      "format_fit": {
+        "raw_score": 80.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.2,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 92.0
+      },
+      "timing": {
+        "raw_score": 75.0,
+        "weight": 3.0,
+        "weighted_contribution": 2.25,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 92.0
+      },
+      "feasibility": {
+        "raw_score": 92.8,
+        "weight": 2.0,
+        "weighted_contribution": 1.86,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 92.0
+      },
+      "packaging": {
+        "raw_score": 90.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.9,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 92.0
+      }
+    }
+  },
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation History"
+}

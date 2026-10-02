@@ -161,3 +161,50 @@ def test_all_standard_research_datasets_e2e():
             pkg = packaging_engine.generate_packaging(handoff, script)
             assert len(pkg.titles) == 5
             assert len(pkg.thumbnails) == 3
+            assert pkg.qa_report.qa_verdict in ["APPROVED", "APPROVED_WITH_NOTES"]
+            assert len(pkg.qa_report.checks) == 25
+            assert len(pkg.qa_report.hard_gates) == 10
+
+def test_packaging_qa_and_source_bounded_wording():
+    """
+    Validates Packaging QA (QA-01 through QA-25) and 10 Hard Gates:
+    - Grounded historical terminology (routine training mission, reported compass problems)
+    - Rejection of overclaims (no 'the whole truth', 'confirmed cause', 'full transcript')
+    - Thumbnail-title complementarity
+    - Source provenance adherence
+    """
+    f19_data = json.load(open(DATA_RESEARCH_DIR / "2026-09-30-bermuda-triangle-flight19.json", "r", encoding="utf-8"))
+    topic_engine = TopicSelectionEngine()
+    story_engine = StoryDevEngine()
+    script_engine = ScriptEngine()
+    packaging_engine = PackagingEngine()
+
+    _, handoff, _ = topic_engine.evaluate(ResearchPacket(**f19_data))
+    story = story_engine.generate_story(handoff)
+    script = script_engine.generate_script(handoff, story)
+    pkg = packaging_engine.generate_packaging(handoff, script)
+
+    # 1. QA Matrix Checks
+    assert pkg.qa_report.qa_score >= 90.0
+    assert pkg.qa_report.qa_verdict == "APPROVED"
+    assert len(pkg.qa_report.checks) == 25
+    assert len(pkg.qa_report.hard_gates) == 10
+    assert len(pkg.qa_report.overclaims_detected) == 0
+
+    # 2. Source-Bounded Terminology Checks
+    desc = pkg.seo_description.lower()
+    assert "compounding compass malfunctions" not in desc
+    assert "reported compass and navigation problems" in desc
+    assert "routine navigation training mission" in desc
+    assert "national archives materials" in desc or "national archives records" in desc
+
+    # 3. Keyword & Tag Integrity
+    for tag in pkg.tags:
+        assert not tag.startswith("#")
+    assert "flight 19 radio transmissions" in pkg.query_architecture.tier_c_long_tail or "flight 19 radio transmissions" in pkg.tags
+
+    # 4. Thumbnail & Title Complementarity
+    for th in pkg.thumbnails:
+        assert th.creates_question_not_answer is True
+        for t in pkg.titles:
+            assert th.text_overlay.lower() != t.title.lower()

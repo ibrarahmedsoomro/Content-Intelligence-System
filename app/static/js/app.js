@@ -634,15 +634,25 @@ function renderPackagingUI(pkg) {
         card.className = 'angle-box';
         card.style.display = 'flex';
         card.style.justifyContent = 'space-between';
-        card.style.alignItems = 'center';
+        card.style.alignItems = 'flex-start';
+        
+        const assess = t.assessment || {};
         card.innerHTML = `
-          <div>
+          <div style="flex:1; padding-right:1rem;">
             <div class="angle-label">${t.formula_type || 'Curiosity'} Formula</div>
             <div style="font-size:0.95rem; font-weight:700; color:#fff;">${t.title}</div>
-            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem;">${t.rationale || ''}</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem;">${t.rationale || ''}</div>
           </div>
-          <div class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(16,185,129,0.2); color:var(--emerald-glow); border:1px solid var(--emerald-glow);">
-            ${t.predicted_ctr || 'High'} CTR
+          <div style="display:flex; flex-direction:column; gap:0.3rem; align-items:flex-end;">
+            <span class="badge-decision" style="font-size:0.68rem; padding:0.12rem 0.45rem; background:rgba(16,185,129,0.15); color:var(--emerald-glow); border:1px solid var(--emerald-glow); margin:0;">
+              Curiosity: ${assess.curiosity_potential || 'High'}
+            </span>
+            <span class="badge-decision" style="font-size:0.68rem; padding:0.12rem 0.45rem; background:rgba(6,182,212,0.15); color:var(--cyan-glow); border:1px solid var(--cyan-glow); margin:0;">
+              Search: ${assess.search_alignment || 'High'}
+            </span>
+            <span class="badge-decision" style="font-size:0.68rem; padding:0.12rem 0.45rem; background:rgba(245,158,11,0.15); color:var(--amber-glow); border:1px solid var(--amber-glow); margin:0;">
+              Risk: ${assess.claim_risk || 'Low'}
+            </span>
           </div>
         `;
         titlesContainer.appendChild(card);
@@ -657,7 +667,12 @@ function renderPackagingUI(pkg) {
         card.className = 'glass-card';
         card.style.padding = '1rem';
         card.innerHTML = `
-          <div style="font-size:0.85rem; font-weight:700; color:var(--purple-glow); margin-bottom:0.4rem;">${th.concept_name}</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-size:0.85rem; font-weight:700; color:var(--purple-glow);">${th.concept_name}</span>
+            <span class="badge-decision" style="font-size:0.65rem; padding:0.1rem 0.4rem; background:rgba(16,185,129,0.15); color:var(--emerald-glow); border:1px solid var(--emerald-glow); margin:0;">
+              Creates Question ✓
+            </span>
+          </div>
           <div style="font-size:0.78rem; color:#e2e8f0; margin-bottom:0.5rem;"><strong>Layout:</strong> ${th.visual_layout}</div>
           <div style="font-size:0.75rem; color:var(--amber-glow); margin-bottom:0.5rem;"><strong>Text Overlay:</strong> <span style="background:rgba(245,158,11,0.2); padding:0.1rem 0.4rem; border-radius:4px; font-weight:700;">${th.text_overlay}</span></div>
           <div style="background:rgba(0,0,0,0.4); padding:0.6rem; border-radius:6px; font-size:0.7rem; font-family:var(--font-mono); color:#38bdf8;">

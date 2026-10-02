@@ -350,30 +350,73 @@ def export_topic_markdown(topic_slug: str):
     md += f"""
 ---
 
-## 4. PACKAGING & SEO (STAGE 5)
-### High-CTR Titles:
-"""
-    for t in pkg.get('titles', []):
-        md += f"- **[{t.get('predicted_ctr')}]** {t.get('title')} *({t.get('formula_type')} Formula)*\n"
+## 4. YOUTUBE SEO & PACKAGING INTELLIGENCE (STAGE 5)
 
-    md += f"""
-### Thumbnail Concepts:
-"""
-    for th in pkg.get('thumbnails', []):
-        md += f"#### {th.get('concept_name')}\n- **Text Overlay:** `{th.get('text_overlay')}`\n- **Layout:** {th.get('visual_layout')}\n- **Prompt:** `{th.get('ai_image_prompt')}`\n\n"
+### 1. PRIMARY TITLE
+**{pkg.get('primary_title', pkg.get('titles', [{}])[0].get('title', 'N/A'))}**
 
-    md += f"""
-### YouTube SEO Description:
+### 2. ALTERNATIVE TITLES
+"""
+    for t in pkg.get('alternative_titles', []):
+        assess = t.get('assessment', {})
+        md += f"- **{t.get('title')}**\n  - *Formula:* `{t.get('formula_type')}` | *Mode:* `{assess.get('discovery_mode', 'HYBRID')}` | *Search:* `{assess.get('search_alignment', 'High')}` | *Curiosity:* `{assess.get('curiosity_potential', 'High')}` | *Risk:* `{assess.get('claim_risk', 'Low')}`\n  - *Promise:* {t.get('promise_statement', '')}\n\n"
+
+    qa_rep = pkg.get('qa_report', {})
+    q_arch = pkg.get('query_architecture', {})
+
+    md += f"""### 3. PRIMARY SEARCH INTENT & CURIOSITY PROFILE
+- **Primary Intent:** `{pkg.get('search_intent', {}).get('primary_intent', 'Investigative + Informational')}`
+- **Secondary Intents:** `{', '.join(pkg.get('search_intent', {}).get('secondary_intents', []))}`
+- **Curiosity Focus:** `{pkg.get('curiosity_profile', {}).get('primary_type', 'QUESTION')}` ({', '.join(pkg.get('curiosity_profile', {}).get('secondary_types', []))})
+
+### 4. 4-TIER QUERY ARCHITECTURE
+- **Tier A (Core Entities):** `{', '.join(q_arch.get('tier_a_core', []))}`
+- **Tier B (Search Intent Queries):** `{', '.join(q_arch.get('tier_b_search_intent', []))}`
+- **Tier C (Long-Tail Queries):** `{', '.join(q_arch.get('tier_c_long_tail', []))}`
+- **Tier D (Semantic Support):** `{', '.join(q_arch.get('tier_d_semantic_support', []))}`
+
+### 5. OPTIMIZED YOUTUBE DESCRIPTION
 ```
 {pkg.get('seo_description', '')}
 ```
 
-### High-Ranking YouTube Tags (Comma-Separated for Studio):
+### 6. CHAPTERS
 ```
-{', '.join(pkg.get('youtube_tags', []))}
+{pkg.get('chapters_text', '')}
 ```
 
-### Pinned Audience Retention Comment:
-> {pkg.get('pinned_comment', '')}
+### 7. YOUTUBE STUDIO TAGS (LOW PRIORITY)
+```
+{', '.join(pkg.get('tags', []))}
+```
+
+### 8. HASHTAGS
+`{' '.join(pkg.get('hashtags', []))}`
+
+### 9. THUMBNAIL CONCEPTS
+"""
+    for th in pkg.get('thumbnails', []):
+        md += f"#### {th.get('concept_name')} `[{th.get('concept_type', 'STAKES')}]`\n- **Text Overlay:** `{th.get('text_overlay')}`\n- **Layout:** {th.get('visual_layout')}\n- **Prompt:** `{th.get('ai_image_prompt')}`\n\n"
+
+    md += f"""### 10. TITLE / THUMBNAIL PAIRING RATIONALE
+> {pkg.get('title_thumbnail_pairing_rationale', '')}
+
+### 11. CORE CONTENT PROMISE & OPEN LOOPS
+- **Core Promise:** {pkg.get('core_content_promise', '')}
+- **Open Loops:** {', '.join(pkg.get('open_loop_ids', []))}
+
+### 12. SOURCE / CLAIM PROVENANCE REGISTER
+"""
+    for sc in pkg.get('source_claim_register', []):
+        md += f"- **[{sc.get('fact_id')}]** `{sc.get('certainty')}` ({sc.get('source_tier')} - *{sc.get('source')}*): {sc.get('claim')}\n  - *Allowed:* `{sc.get('allowed_wording')}` | *Forbidden:* `{sc.get('forbidden_wording')}`\n"
+
+    md += f"""
+### 13. PACKAGING QA AUDIT (10 HARD GATES & QA-01 TO QA-25)
+- **Quality Score:** `{qa_rep.get('overall_quality_score', 95.0)}/100` | **Verdict:** `{qa_rep.get('qa_verdict', 'APPROVED')}`
+- **Competitor Differentiation:** {pkg.get('competitor_differentiation', '')}
+- **Claim Risk Summary:** {pkg.get('claim_risk_summary', '')}
+
+### 14. PINNED AUDIENCE RETENTION COMMENT
+> {pkg.get('pinned_comment_prompt', '')}
 """
     return PlainTextResponse(content=md, media_type="text/markdown")

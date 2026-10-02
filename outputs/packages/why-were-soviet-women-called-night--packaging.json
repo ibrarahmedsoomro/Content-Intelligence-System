@@ -1,9 +1,9 @@
 {
-  "topic": "Why Did America Need So Many WWII Bombers?",
-  "primary_entity": "WWII Bombers",
-  "secondary_entity": "World War II Strategic Aviation",
+  "topic": "why were soviet women called night mare ",
+  "primary_entity": "why were",
+  "secondary_entity": "soviet women called night mare",
   "search_intent": {
-    "primary_intent": "Explanatory + Informational",
+    "primary_intent": "Investigative + Informational",
     "secondary_intents": [
       "Historical",
       "Documentary"
@@ -19,35 +19,35 @@
   },
   "query_architecture": {
     "tier_a_core": [
-      "wwii bombers",
-      "wwii bombers world war ii strategic aviation"
+      "why were",
+      "why were soviet women called night mare"
     ],
     "tier_b_search_intent": [
-      "what happened to wwii bombers",
-      "wwii bombers explained",
-      "wwii bombers mystery",
-      "wwii bombers documentary",
-      "wwii bombers disappearance"
+      "what happened to why were",
+      "why were explained",
+      "why were mystery",
+      "why were documentary",
+      "why were disappearance"
     ],
     "tier_c_long_tail": [
-      "what really happened to wwii bombers",
-      "why did wwii bombers disappear",
-      "wwii bombers official investigation",
-      "wwii bombers navy investigation",
-      "wwii bombers radio transmissions",
-      "wwii bombers navigation problems"
+      "what really happened to why were",
+      "why did why were disappear",
+      "why were official investigation",
+      "why were navy investigation",
+      "why were radio transmissions",
+      "why were navigation problems"
     ],
     "tier_d_semantic_support": [
-      "WWII Bombers history",
-      "WWII Bombers investigation",
-      "WWII Bombers archives",
+      "why were history",
+      "why were investigation",
+      "why were archives",
       "aviation history"
     ]
   },
-  "primary_title": "WWII Bombers: What Really Happened in World War II Strategic Aviation?",
+  "primary_title": "why were: What Really Happened in soviet women called night mare?",
   "alternative_titles": [
     {
-      "title": "WWII Bombers: What the Official Records Reveal",
+      "title": "why were: What the Official Records Reveal",
       "formula_type": "Formula B: Official Evidence",
       "assessment": {
         "search_alignment": "High",
@@ -62,11 +62,11 @@
         "discovery_mode": "SEARCH-FIRST"
       },
       "promise_id": "PROMISE-002",
-      "promise_statement": "Direct presentation of official archival findings regarding WWII Bombers.",
+      "promise_statement": "Direct presentation of official archival findings regarding why were.",
       "rationale": "Positions the content as a sober, credible archival debrief for serious history enthusiasts."
     },
     {
-      "title": "WWII Bombers: The Industrial Armada \u2014 What Really Happened?",
+      "title": "why were: why were \u2014 What Really Happened?",
       "formula_type": "Formula C: Myth vs Record",
       "assessment": {
         "search_alignment": "High",
@@ -81,11 +81,11 @@
         "discovery_mode": "HYBRID"
       },
       "promise_id": "PROMISE-003",
-      "promise_statement": "Separation of the The Industrial Armada popular moniker from the routine training mission reality.",
+      "promise_statement": "Separation of the why were popular moniker from the routine training mission reality.",
       "rationale": "Leverages cultural phrase recognition while immediately establishing an investigative, myth-dispelling premise."
     },
     {
-      "title": "Why Did WWII Bombers Disappear? The Documented Naval Investigation",
+      "title": "Why Did why were Disappear? The Documented Naval Investigation",
       "formula_type": "Formula D: Why Question",
       "assessment": {
         "search_alignment": "High",
@@ -104,7 +104,7 @@
       "rationale": "Matches direct user questions in search bars while grounding the answer in official inquiry documents."
     },
     {
-      "title": "WWII Bombers: The Radio Transmissions, Fuel Crisis, and Final Flight",
+      "title": "why were: The Radio Transmissions, Fuel Crisis, and Final Flight",
       "formula_type": "Formula E: Narrative Evidence",
       "assessment": {
         "search_alignment": "Medium",
@@ -125,7 +125,7 @@
   ],
   "titles": [
     {
-      "title": "WWII Bombers: What Really Happened in World War II Strategic Aviation?",
+      "title": "why were: What Really Happened in soviet women called night mare?",
       "formula_type": "Formula A: Search + Question",
       "assessment": {
         "search_alignment": "High",
@@ -140,11 +140,11 @@
         "discovery_mode": "HYBRID"
       },
       "promise_id": "PROMISE-001",
-      "promise_statement": "Documented reconstruction of the WWII Bombers sequence and known investigative outcomes.",
-      "rationale": "Front-loads primary entity 'WWII Bombers', matches high-volume search queries and sparks high curiosity without overclaiming."
+      "promise_statement": "Documented reconstruction of the why were sequence and known investigative outcomes.",
+      "rationale": "Front-loads primary entity 'why were', matches high-volume search queries and sparks high curiosity without overclaiming."
     },
     {
-      "title": "WWII Bombers: What the Official Records Reveal",
+      "title": "why were: What the Official Records Reveal",
       "formula_type": "Formula B: Official Evidence",
       "assessment": {
         "search_alignment": "High",
@@ -159,11 +159,11 @@
         "discovery_mode": "SEARCH-FIRST"
       },
       "promise_id": "PROMISE-002",
-      "promise_statement": "Direct presentation of official archival findings regarding WWII Bombers.",
+      "promise_statement": "Direct presentation of official archival findings regarding why were.",
       "rationale": "Positions the content as a sober, credible archival debrief for serious history enthusiasts."
     },
     {
-      "title": "WWII Bombers: The Industrial Armada \u2014 What Really Happened?",
+      "title": "why were: why were \u2014 What Really Happened?",
       "formula_type": "Formula C: Myth vs Record",
       "assessment": {
         "search_alignment": "High",
@@ -178,11 +178,11 @@
         "discovery_mode": "HYBRID"
       },
       "promise_id": "PROMISE-003",
-      "promise_statement": "Separation of the The Industrial Armada popular moniker from the routine training mission reality.",
+      "promise_statement": "Separation of the why were popular moniker from the routine training mission reality.",
       "rationale": "Leverages cultural phrase recognition while immediately establishing an investigative, myth-dispelling premise."
     },
     {
-      "title": "Why Did WWII Bombers Disappear? The Documented Naval Investigation",
+      "title": "Why Did why were Disappear? The Documented Naval Investigation",
       "formula_type": "Formula D: Why Question",
       "assessment": {
         "search_alignment": "High",
@@ -201,7 +201,7 @@
       "rationale": "Matches direct user questions in search bars while grounding the answer in official inquiry documents."
     },
     {
-      "title": "WWII Bombers: The Radio Transmissions, Fuel Crisis, and Final Flight",
+      "title": "why were: The Radio Transmissions, Fuel Crisis, and Final Flight",
       "formula_type": "Formula E: Narrative Evidence",
       "assessment": {
         "search_alignment": "Medium",
@@ -221,31 +221,31 @@
     }
   ],
   "tags": [
-    "wwii bombers",
-    "wwii bombers world war ii strategic aviation",
-    "what happened to wwii bombers",
-    "wwii bombers explained",
-    "wwii bombers mystery",
-    "wwii bombers documentary",
-    "wwii bombers disappearance",
-    "what really happened to wwii bombers",
-    "why did wwii bombers disappear",
-    "wwii bombers official investigation",
-    "wwii bombers navy investigation",
-    "wwii bombers radio transmissions",
-    "wwii bombers navigation problems",
+    "why were",
+    "why were soviet women called night mare",
+    "what happened to why were",
+    "why were explained",
+    "why were mystery",
+    "why were documentary",
+    "why were disappearance",
+    "what really happened to why were",
+    "why did why were disappear",
+    "why were official investigation",
+    "why were navy investigation",
+    "why were radio transmissions",
+    "why were navigation problems",
     "aviation mystery",
     "historical investigation",
     "us navy flight 19",
     "flight 19 charles taylor"
   ],
   "hashtags": [
-    "#WWIIBombers",
-    "#WorldWarIIStrategicAviation",
+    "#whywere",
+    "#sovietwomencallednightmare",
     "#AviationHistory"
   ],
-  "seo_description": "What really happened to WWII Bombers in World War II Strategic Aviation? This documentary investigates the surviving records, recorded radio transmissions, and official naval investigation surrounding the 1945 disappearance.\n\nWWII Bombers, later popularly known as the \u201cLost Patrol,\u201d departed on what was scheduled as a routine navigation training mission. Surviving records document reported compass and navigation problems, worsening weather, fuel concerns, and the subsequent search for the missing aircraft.\n\nThis investigation separates the documented sequence of events from later legendary claims.\n\n\ud83d\udd0d IN THIS DOCUMENTARY:\n\u2022 The original WWII Bombers navigation training mission and planned route\n\u2022 The documented radio transmissions and reported compass disorientation\n\u2022 Why the formation became uncertain about its geographical position\n\u2022 Weather and fuel concerns during the final stage\n\u2022 The search and rescue operation, including the loss of the PBM Mariner\n\u2022 What the official Naval Board of Inquiry concluded\n\u2022 What remains unresolved about the final fate of WWII Bombers\n\n\u23f1\ufe0f CHAPTERS:\n0:00 \u2014 WWII Bombers: The Mission Begins\n0:45 \u2014 The Planned Route & Navigation Confusion\n2:30 \u2014 WWII Bombers Radio Transmissions\n5:15 \u2014 Fuel, Weather & The Final Hours\n7:45 \u2014 What the Official Investigation Found\n\n\ud83d\udcda SOURCES:\nBased on historical records from the U.S. Navy, Naval History and Heritage Command, and National Archives materials.\n\nSubscribe to Vanished Skies Aviation for evidence-based aviation history, military investigations, and archival deep dives.\n\n#WWIIBombers #WorldWarIIStrategicAviation #AviationHistory",
-  "chapters_text": "0:00 \u2014 WWII Bombers: The Mission Begins\n0:45 \u2014 The Planned Route & Navigation Confusion\n2:30 \u2014 WWII Bombers Radio Transmissions\n5:15 \u2014 Fuel, Weather & The Final Hours\n7:45 \u2014 What the Official Investigation Found",
+  "seo_description": "What really happened to why were in soviet women called night mare? This documentary investigates the surviving records, recorded radio transmissions, and official naval investigation surrounding the 1945 disappearance.\n\nwhy were, later popularly known as the \u201cLost Patrol,\u201d departed on what was scheduled as a routine navigation training mission. Surviving records document reported compass and navigation problems, worsening weather, fuel concerns, and the subsequent search for the missing aircraft.\n\nThis investigation separates the documented sequence of events from later legendary claims.\n\n\ud83d\udd0d IN THIS DOCUMENTARY:\n\u2022 The original why were navigation training mission and planned route\n\u2022 The documented radio transmissions and reported compass disorientation\n\u2022 Why the formation became uncertain about its geographical position\n\u2022 Weather and fuel concerns during the final stage\n\u2022 The search and rescue operation, including the loss of the PBM Mariner\n\u2022 What the official Naval Board of Inquiry concluded\n\u2022 What remains unresolved about the final fate of why were\n\n\u23f1\ufe0f CHAPTERS:\n0:00 \u2014 why were: The Mission Begins\n0:45 \u2014 The Planned Route & Navigation Confusion\n2:30 \u2014 why were Radio Transmissions\n5:15 \u2014 Fuel, Weather & The Final Hours\n7:45 \u2014 What the Official Investigation Found\n\n\ud83d\udcda SOURCES:\nBased on historical records from the U.S. Navy, Naval History and Heritage Command, and National Archives materials.\n\nSubscribe to Vanished Skies Aviation for evidence-based aviation history, military investigations, and archival deep dives.\n\n#whywere #sovietwomencallednightmare #AviationHistory",
+  "chapters_text": "0:00 \u2014 why were: The Mission Begins\n0:45 \u2014 The Planned Route & Navigation Confusion\n2:30 \u2014 why were Radio Transmissions\n5:15 \u2014 Fuel, Weather & The Final Hours\n7:45 \u2014 What the Official Investigation Found",
   "thumbnails": [
     {
       "concept_name": "Concept A: The Human Stakes & Loss",
@@ -276,7 +276,7 @@
     }
   ],
   "title_thumbnail_pairing_rationale": "Title asks the core historical curiosity question; Thumbnail establishes high-stakes visual scale (14 MEN. 5 PLANES. NO TRACE) without duplicating words.",
-  "core_content_promise": "Separating documented archival evidence from popular legend behind WWII Bombers.",
+  "core_content_promise": "Separating documented archival evidence from popular legend behind why were.",
   "open_loop_ids": [
     "LOOP-001: Why did Flight 19 become uncertain about its position?",
     "LOOP-002: What did the surviving radio transmissions reveal?",
@@ -285,7 +285,7 @@
   "source_claim_register": [
     {
       "fact_id": "FACT-001",
-      "claim": "WWII Bombers was a routine navigation training flight (Navigation Problem No. 1), not an operational patrol.",
+      "claim": "why were was a routine navigation training flight (Navigation Problem No. 1), not an operational patrol.",
       "source": "Naval History and Heritage Command / NAS Fort Lauderdale Records",
       "source_tier": "TIER 1",
       "certainty": "ESTABLISHED",
@@ -313,7 +313,7 @@
   ],
   "claim_risk_summary": "Low risk. All claims strictly bounded to Tier-1/2 archival sources with honest unresolved attribution for unrecovered aircraft.",
   "competitor_differentiation": "Unlike sensationalized competitor videos focusing solely on supernatural Bermuda Triangle lore, this package anchors on verified U.S. Navy inquiry records and archival historical records.",
-  "pinned_comment_prompt": "\ud83d\udcac Looking at the surviving records and radio transmissions behind WWII Bombers, what archival detail challenged your original view the most? Share your thoughts below!",
+  "pinned_comment_prompt": "\ud83d\udcac Looking at the surviving records and radio transmissions behind why were, what archival detail challenged your original view the most? Share your thoughts below!",
   "qa_report": {
     "overall_quality_score": 95.0,
     "qa_score": 95.0,
@@ -323,13 +323,13 @@
         "gate_id": "GATE-01",
         "name": "Primary Entity Identifiable",
         "passed": true,
-        "details": "Primary entity 'WWII Bombers' identified and front-loaded."
+        "details": "Primary entity 'why were' identified and front-loaded."
       },
       {
         "gate_id": "GATE-02",
         "name": "Search Intent Identifiable",
         "passed": true,
-        "details": "Search intent classified as 'Explanatory + Informational'."
+        "details": "Search intent classified as 'Investigative + Informational'."
       },
       {
         "gate_id": "GATE-03",
@@ -391,13 +391,13 @@
         "check_id": "QA-02",
         "name": "Primary Entity Extraction",
         "status": "PASSED",
-        "details": "Extracted 'WWII Bombers' without clutter."
+        "details": "Extracted 'why were' without clutter."
       },
       {
         "check_id": "QA-03",
         "name": "Search Intent Classification",
         "status": "PASSED",
-        "details": "Explanatory + Informational"
+        "details": "Investigative + Informational"
       },
       {
         "check_id": "QA-04",

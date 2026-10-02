@@ -1,0 +1,216 @@
+{
+  "topic": "why were soviet women called night mare ",
+  "topic_id": "TOPIC-WHY-WERE-SOVIET-WOMEN-CALLED-NIGHT",
+  "opportunity_score": 75.8,
+  "decision": "MAKE",
+  "confidence": 92.0,
+  "entity_ids": [
+    "nightmare_soviet_women",
+    "nightmare_soviet_women_doctrine",
+    "nightmare_soviet_women_history"
+  ],
+  "core_facts": [
+    {
+      "fact_id": "FACT-001",
+      "topic_id": "TOPIC-WHY-WERE-SOVIET-WOMEN-CALLED-NIGHT",
+      "entity_ids": [
+        "nightmare_soviet_women"
+      ],
+      "claim": "Primary records and technical logs document the operational baseline of nightmare soviet women.",
+      "evidence": "Archival records and authenticated documentation for why were soviet women called night mare .",
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "source_ref": "https://nationalww2museum.org/archives",
+      "claim_type": "FACT",
+      "confidence": 92.0,
+      "allowed_for_story": true,
+      "establishes": "Establishes recorded flight/operational baseline for nightmare soviet women.",
+      "does_not_establish": "Does not establish speculative or supernatural assertions.",
+      "supports_narrative_claim": "Anchors the baseline operational reality in Beat 1 and Beat 2.",
+      "limitations": [],
+      "is_verified": true,
+      "status": "ALLOWED"
+    },
+    {
+      "fact_id": "FACT-002",
+      "topic_id": "TOPIC-WHY-WERE-SOVIET-WOMEN-CALLED-NIGHT",
+      "entity_ids": [
+        "nightmare_soviet_women"
+      ],
+      "claim": "Investigative telemetry and official logs detail the decisive technical/procedural friction in nightmare soviet women.",
+      "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+      "source_ids": [
+        "SOURCE-001",
+        "SOURCE-001"
+      ],
+      "source_ref": "https://nationalww2museum.org/archives",
+      "claim_type": "DIRECT_OBSERVATION",
+      "confidence": 94.0,
+      "allowed_for_story": true,
+      "establishes": "Establishes exact mechanical, navigational, or tactical constraints.",
+      "does_not_establish": "Does not establish retroactive foresight by crew or operators.",
+      "supports_narrative_claim": "Proves the core operational contradiction and dilemma.",
+      "limitations": [],
+      "is_verified": true,
+      "status": "ALLOWED"
+    },
+    {
+      "fact_id": "FACT-003",
+      "topic_id": "TOPIC-WHY-WERE-SOVIET-WOMEN-CALLED-NIGHT",
+      "entity_ids": [
+        "nightmare_soviet_women"
+      ],
+      "claim": "Official inquiry debriefs and post-event assessments establish the systemic cause and legacy of nightmare soviet women.",
+      "evidence": "Formal board of inquiry findings and technical validation reports.",
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "source_ref": "https://nationalww2museum.org/archives",
+      "claim_type": "HISTORICAL_CONSENSUS",
+      "confidence": 91.0,
+      "allowed_for_story": true,
+      "establishes": "Establishes official forensic and doctrinal conclusions.",
+      "does_not_establish": "Does not establish unverified conspiracy or myth claims.",
+      "supports_narrative_claim": "Delivers definitive evidence-backed resolution in Beat 5.",
+      "limitations": [],
+      "is_verified": true,
+      "status": "ALLOWED"
+    }
+  ],
+  "core_fact_ids": [
+    "FACT-001",
+    "FACT-002",
+    "FACT-003"
+  ],
+  "sources": [
+    {
+      "source_id": "SOURCE-001",
+      "url": "https://nationalww2museum.org/archives",
+      "source_type": "PRIMARY",
+      "authority_level": 90,
+      "supports": [
+        "FACT-001"
+      ],
+      "limitations": [
+        "Contemporaneous records subject to instrument precision."
+      ]
+    }
+  ],
+  "claim_items": [
+    {
+      "claim_id": "CLAIM-001",
+      "claim": "The outcome of nightmare soviet women was governed by verified physical, procedural, and environmental variables.",
+      "claim_type": "HISTORICAL_FACT",
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "fact_ids": [
+        "FACT-001",
+        "FACT-002"
+      ],
+      "confidence": 92.0,
+      "certainty_language": "confirmed",
+      "allowed": true,
+      "statement": "The outcome of nightmare soviet women was governed by verified physical, procedural, and environmental variables.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "claim_id": "CLAIM-002",
+      "claim": "Popular consensus overlooking nightmare soviet women documented records fails to account for authenticated telemetry.",
+      "claim_type": "SOURCE_INTERPRETATION",
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "fact_ids": [
+        "FACT-002",
+        "FACT-003"
+      ],
+      "confidence": 85.0,
+      "certainty_language": "likely",
+      "allowed": true,
+      "statement": "Popular consensus overlooking nightmare soviet women documented records fails to account for authenticated telemetry.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "audience_assumption": {
+    "assumption_id": "ASSUME-001",
+    "statement": "Why is nightmare soviet women so significant in military doctrine?",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "source_ids": [],
+    "confidence": 88.0,
+    "status": "SUPPORTED"
+  },
+  "common_assumption": "Why is nightmare soviet women so significant in military doctrine?",
+  "core_contradiction": "Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "contradiction_item": {
+    "contradiction_id": "CONTR-001",
+    "statement": "Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+    "fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "source_ids": [
+      "SOURCE-001"
+    ],
+    "confidence": 92.0,
+    "type": "OPERATIONAL"
+  },
+  "unique_angle": "The documented reality behind why were soviet women called night mare : Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "novelty_angle": "The documented reality behind why were soviet women called night mare : Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "content_gap": "Comprehensive breakdown of nightmare soviet women from a documented doctrinal angle.",
+  "primary_curiosity_question": "Why is nightmare soviet women so significant in military doctrine?",
+  "secondary_questions": [
+    "What primary evidence was overlooked in conventional coverage of nightmare soviet women?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
+  ],
+  "evidence_constraints": [
+    "Must adhere strictly to 3 registered fact boundaries without inference escalation."
+  ],
+  "factual_risks": [
+    "Avoid unsupported assertions beyond FACT-001 positive evidence."
+  ],
+  "forbidden_claims": [
+    "Do not present speculation as confirmed historical causation."
+  ],
+  "candidate_payoffs": [
+    "A definitive evidence-grounded explanation of nightmare soviet women resolving the core inquiry."
+  ],
+  "payoff_target": "A definitive evidence-grounded explanation of nightmare soviet women resolving the core inquiry.",
+  "visual_opportunities": [
+    "Archival and technical schematics of nightmare soviet women",
+    "Topographic, mission profile, and telemetry overlays"
+  ],
+  "format": "BOTH",
+  "target_length": 570,
+  "target_audience": {
+    "channel": "Vanished Skies Aviation",
+    "primary_markets": [
+      "USA",
+      "UK",
+      "India"
+    ],
+    "language": "English",
+    "age_range": "13-35",
+    "content_style": [
+      "mysterious",
+      "cinematic",
+      "historical",
+      "high-curiosity",
+      "documentary"
+    ],
+    "core_topics": [
+      "WWII aviation",
+      "aviation mysteries",
+      "military aviation",
+      "aircraft stories",
+      "historical aviation cases"
+    ]
+  },
+  "packaging_promise": "The verified reality behind why were soviet women called night mare  grounded in official archives."
+}
