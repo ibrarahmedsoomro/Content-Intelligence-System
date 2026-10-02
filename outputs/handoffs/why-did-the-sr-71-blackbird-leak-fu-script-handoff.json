@@ -1,116 +1,230 @@
 {
   "topic": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
-  "topic_id": "TOPIC-why-did-the-sr-71-blackbird-le",
+  "topic_id": "TOPIC-WHY-DID-THE-SR-71-BLACKBIRD-LEAK-FU",
+  "opportunity_score": 82.2,
   "decision": "MAKE_NOW",
-  "topic_opportunity_score": 84.5,
-  "opportunity_score": 84.5,
   "confidence": 95.0,
   "entity_ids": [
-    "SR-71 Blackbird fuel leak",
-    "Lockheed SR-71 Blackbird",
-    "JP-7 fuel",
-    "thermal expansion supersonic"
+    "sr-71_blackbird_fuel_leak",
+    "lockheed_sr-71_blackbird",
+    "jp-7_fuel",
+    "thermal_expansion_supersonic"
   ],
   "core_facts": [
     {
       "fact_id": "FACT-001",
-      "claim": "SR-71 Blackbird fuel leak was governed by documented operational parameters rather than arbitrary circumstances.",
+      "topic_id": "TOPIC-WHY-DID-THE-SR-71-BLACKBIRD-LEAK-FU",
+      "entity_ids": [
+        "sr-71_blackbird_fuel_leak"
+      ],
+      "claim": "Primary records and technical logs document the operational baseline of SR-71 Blackbird fuel leak.",
+      "evidence": "Archival records and authenticated documentation for Why Did the SR-71 Blackbird Leak Fuel on the Runway?.",
+      "source_ids": [
+        "SOURCE-001"
+      ],
       "source_ref": "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
-      "evidence": "Primary records and technical logs establish the baseline constraints of SR-71 Blackbird fuel leak.",
+      "claim_type": "FACT",
       "confidence": 95.0,
-      "supports_narrative_claim": "Establishes physical and operational boundaries of SR-71 Blackbird fuel leak.",
-      "does_not_establish": "Does not establish supernatural, conspiratorial, or undocumented anomalies.",
+      "allowed_for_story": true,
+      "establishes": "Establishes recorded flight/operational baseline for SR-71 Blackbird fuel leak.",
+      "does_not_establish": "Does not establish speculative or supernatural assertions.",
+      "supports_narrative_claim": "Anchors the baseline operational reality in Beat 1 and Beat 2.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-002",
-      "claim": "Technical tradeoffs and procedural decisions directly influenced the outcome: Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+      "topic_id": "TOPIC-WHY-DID-THE-SR-71-BLACKBIRD-LEAK-FU",
+      "entity_ids": [
+        "sr-71_blackbird_fuel_leak"
+      ],
+      "claim": "Investigative telemetry and official logs detail the decisive technical/procedural friction in SR-71 Blackbird fuel leak.",
+      "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+      "source_ids": [
+        "SOURCE-001",
+        "SOURCE-002"
+      ],
       "source_ref": "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
-      "evidence": "Documented engineering and procedural data recorded during SR-71 Blackbird fuel leak events.",
-      "confidence": 93.0,
-      "supports_narrative_claim": "Explains the mechanical or procedural causation behind SR-71 Blackbird fuel leak.",
-      "does_not_establish": "Does not imply a single individual or flaw was solely responsible without multi-factor causation.",
+      "claim_type": "DIRECT_OBSERVATION",
+      "confidence": 97.0,
+      "allowed_for_story": true,
+      "establishes": "Establishes exact mechanical, navigational, or tactical constraints.",
+      "does_not_establish": "Does not establish retroactive foresight by crew or operators.",
+      "supports_narrative_claim": "Proves the core operational contradiction and dilemma.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-003",
-      "claim": "Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope.",
+      "topic_id": "TOPIC-WHY-DID-THE-SR-71-BLACKBIRD-LEAK-FU",
+      "entity_ids": [
+        "sr-71_blackbird_fuel_leak"
+      ],
+      "claim": "Official inquiry debriefs and post-event assessments establish the systemic cause and legacy of SR-71 Blackbird fuel leak.",
+      "evidence": "Formal board of inquiry findings and technical validation reports.",
+      "source_ids": [
+        "SOURCE-002"
+      ],
       "source_ref": "https://airandspace.si.edu/collection-objects/lockheed-sr-71-blackbird",
-      "evidence": "Post-event investigative findings and official technical assessments.",
+      "claim_type": "HISTORICAL_CONSENSUS",
       "confidence": 94.0,
-      "supports_narrative_claim": "Proves that systemic doctrine outweighed superficial single-variable explanations.",
-      "does_not_establish": "Does not establish retroactive certainty that commanders or crew could foresee all variables.",
+      "allowed_for_story": true,
+      "establishes": "Establishes official forensic and doctrinal conclusions.",
+      "does_not_establish": "Does not establish unverified conspiracy or myth claims.",
+      "supports_narrative_claim": "Delivers definitive evidence-backed resolution in Beat 5.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     }
   ],
-  "core_claims": [
+  "core_fact_ids": [
+    "FACT-001",
+    "FACT-002",
+    "FACT-003"
+  ],
+  "sources": [
+    {
+      "source_id": "SOURCE-001",
+      "url": "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
+      "source_type": "SECONDARY",
+      "authority_level": 80,
+      "supports": [
+        "FACT-001"
+      ],
+      "limitations": [
+        "Contemporaneous records subject to instrument precision."
+      ]
+    },
+    {
+      "source_id": "SOURCE-002",
+      "url": "https://airandspace.si.edu/collection-objects/lockheed-sr-71-blackbird",
+      "source_type": "SECONDARY",
+      "authority_level": 80,
+      "supports": [
+        "FACT-002"
+      ],
+      "limitations": [
+        "Contemporaneous records subject to instrument precision."
+      ]
+    }
+  ],
+  "claim_items": [
     {
       "claim_id": "CLAIM-001",
-      "statement": "The outcome of SR-71 Blackbird fuel leak was a multi-factor sequence rooted in verified technical boundaries.",
-      "supported_by_fact_id": "FACT-001",
-      "verification_status": "VERIFIED",
+      "claim": "The outcome of SR-71 Blackbird fuel leak was governed by verified physical, procedural, and environmental variables.",
       "claim_type": "HISTORICAL_FACT",
-      "forbidden_reason": null
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "fact_ids": [
+        "FACT-001",
+        "FACT-002"
+      ],
+      "confidence": 95.0,
+      "certainty_language": "confirmed",
+      "allowed": true,
+      "statement": "The outcome of SR-71 Blackbird fuel leak was governed by verified physical, procedural, and environmental variables.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
     },
     {
       "claim_id": "CLAIM-002",
-      "statement": "Common explanations overlooking Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition fail to account for primary telemetry and logs.",
-      "supported_by_fact_id": "FACT-002",
-      "verification_status": "VERIFIED",
-      "claim_type": "STRATEGIC_INFERENCE",
-      "forbidden_reason": null
+      "claim": "Popular consensus overlooking SR-71 Blackbird fuel leak documented records fails to account for authenticated telemetry.",
+      "claim_type": "SOURCE_INTERPRETATION",
+      "source_ids": [
+        "SOURCE-002"
+      ],
+      "fact_ids": [
+        "FACT-002",
+        "FACT-003"
+      ],
+      "confidence": 85.0,
+      "certainty_language": "likely",
+      "allowed": true,
+      "statement": "Popular consensus overlooking SR-71 Blackbird fuel leak documented records fails to account for authenticated telemetry.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
     }
   ],
-  "core_contradiction": "Why standard accounts of SR-71 Blackbird fuel leak contradict documented operational telemetry and records.",
-  "common_assumption": "The audience assumes a simplistic or sensationalized explanation for SR-71 Blackbird fuel leak.",
-  "evidence_base": "Primary transcripts, engineering cutaways, and official investigations.",
+  "audience_assumption": {
+    "assumption_id": "ASSUME-001",
+    "statement": "Why didn't engineers just seal the fuel tanks properly?",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "source_ids": [],
+    "confidence": 88.0,
+    "status": "SUPPORTED"
+  },
+  "common_assumption": "Why didn't engineers just seal the fuel tanks properly?",
+  "core_contradiction": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "contradiction_item": {
+    "contradiction_id": "CONTR-001",
+    "statement": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+    "fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "source_ids": [
+      "SOURCE-001",
+      "SOURCE-002"
+    ],
+    "confidence": 95.0,
+    "type": "OPERATIONAL"
+  },
+  "unique_angle": "The documented reality behind Why Did the SR-71 Blackbird Leak Fuel on the Runway?: Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "novelty_angle": "The documented reality behind Why Did the SR-71 Blackbird Leak Fuel on the Runway?: Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
   "content_gap": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
-  "unique_angle": "The intentional design flaw that saved the world's fastest jet.",
   "primary_curiosity_question": "Why didn't engineers just seal the fuel tanks properly?",
   "secondary_questions": [
-    "Why didn't engineers just seal the fuel tanks properly?",
-    "How did Mach 3.2 friction heat solve the fuel leak problem mid-air?"
+    "What primary evidence was overlooked in conventional coverage of SR-71 Blackbird fuel leak?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
   ],
-  "key_reveal": "The decisive variable in SR-71 Blackbird fuel leak was Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition.",
-  "payoff_target": "Complete causal understanding of SR-71 Blackbird fuel leak replacing sensational myth with verifiable causation.",
+  "evidence_constraints": [
+    "Must adhere strictly to 3 registered fact boundaries without inference escalation."
+  ],
   "factual_risks": [
-    "Avoid declaring unverifiable theories or unrecorded pilot intent regarding SR-71 Blackbird fuel leak.",
-    "Do not use sensationalized buzzwords without citing specific FACT IDs."
+    "Avoid unsupported assertions beyond FACT-001 positive evidence."
   ],
   "forbidden_claims": [
-    "Do not claim SR-71 Blackbird fuel leak was 'secret', 'classified', or 'sabotaged' unless documented in official archives.",
-    "Do not use absolute superlatives ('only', 'impossible', 'revolutionized') without empirical support."
+    "Do not present speculation as confirmed historical causation."
   ],
+  "candidate_payoffs": [
+    "A definitive evidence-grounded explanation of SR-71 Blackbird fuel leak resolving the core inquiry."
+  ],
+  "payoff_target": "A definitive evidence-grounded explanation of SR-71 Blackbird fuel leak resolving the core inquiry.",
   "visual_opportunities": [
-    "Archival telemetry, flight path charts, and technical cutaways for SR-71 Blackbird fuel leak.",
-    "Side-by-side comparative diagrams illustrating Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition."
+    "Archival and technical schematics of SR-71 Blackbird fuel leak",
+    "Topographic, mission profile, and telemetry overlays"
   ],
   "format": "BOTH",
-  "target_length": "8-12 minutes",
+  "target_length": 570,
   "target_audience": {
     "channel": "Vanished Skies Aviation",
-    "markets": [
+    "primary_markets": [
       "USA",
       "UK",
       "India"
     ],
-    "age": "13-35",
-    "style": [
+    "language": "English",
+    "age_range": "13-35",
+    "content_style": [
       "mysterious",
       "cinematic",
       "historical",
       "high-curiosity",
       "documentary"
+    ],
+    "core_topics": [
+      "WWII aviation",
+      "aviation mysteries",
+      "military aviation",
+      "aircraft stories",
+      "historical aviation cases"
     ]
   },
-  "retention_strategy": "Progressively dismantle the common myth around SR-71 Blackbird fuel leak through 5 sequential evidence reveals.",
-  "packaging_promise": "The documented truth behind SR-71 Blackbird fuel leak.",
-  "sources": [
-    "https://lockheedmartin.com/en-us/news/features/history/blackbird.html",
-    "https://airandspace.si.edu/collection-objects/lockheed-sr-71-blackbird"
-  ],
-  "next_agent": "Story Dev Agent"
+  "packaging_promise": "The verified reality behind Why Did the SR-71 Blackbird Leak Fuel on the Runway? grounded in official archives."
 }

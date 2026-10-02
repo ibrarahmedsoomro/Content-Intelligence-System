@@ -1,38 +1,131 @@
 {
   "topic": "Why Did the SR-71 Blackbird Leak Fuel on the Runway?",
-  "decision": "MAKE_NOW",
-  "topic_opportunity_score": 84.5,
-  "score": 84.5,
+  "topic_id": "TOPIC-WHY-DID-THE-SR-71-BLACKBIRD-LEAK-FU",
+  "score": 82.2,
   "confidence": 95.0,
-  "validation": "VALID",
+  "decision": "MAKE_NOW",
+  "recommended_format": "BOTH",
+  "timing_action": "MAKE_NOW",
+  "production_effort": "MEDIUM",
+  "primary_angle": "The documented reality behind Why Did the SR-71 Blackbird Leak Fuel on the Runway?: Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined SR-71 Blackbird fuel leak.",
+    "The tactical tradeoff: Why standard explanations of SR-71 Blackbird fuel leak fall short.",
+    "What the authenticated logs reveal about SR-71 Blackbird fuel leak."
+  ],
+  "viewer_question": "Why didn't engineers just seal the fuel tanks properly?",
+  "content_gap_reason": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
+  "reason": "High opportunity score (82.2) with strong evidence and demand.",
   "scores": {
     "demand": 88.0,
     "curiosity": 96.0,
     "audience_fit": 94.0,
-    "competition_opportunity": 50.0,
-    "content_gap": 65.0,
-    "series_potential": 100.0,
-    "evidence_strength": 96.5,
-    "narrative_payoff_potential": 92.0,
-    "format_fit": 90.0,
-    "timing": 90.0,
-    "feasibility": 75.0,
-    "packaging": 98.0
+    "competition_opportunity": 35.0,
+    "content_gap": 70.0,
+    "series_potential": 90.0,
+    "evidence_strength": 95.0,
+    "narrative_payoff_potential": 91.2,
+    "format_fit": 88.0,
+    "timing": 82.0,
+    "feasibility": 95.5,
+    "packaging": 98.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 88.0,
+        "weight": 18.0,
+        "weighted_contribution": 15.84,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 95.0
+      },
+      "curiosity": {
+        "raw_score": 96.0,
+        "weight": 14.0,
+        "weighted_contribution": 13.44,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 95.0
+      },
+      "audience_fit": {
+        "raw_score": 94.0,
+        "weight": 13.0,
+        "weighted_contribution": 12.22,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 95.0
+      },
+      "competition_opportunity": {
+        "raw_score": 35.0,
+        "weight": 13.0,
+        "weighted_contribution": 4.55,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 95.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 95.0
+      },
+      "series_potential": {
+        "raw_score": 90.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 95.0
+      },
+      "evidence_strength": {
+        "raw_score": 95.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.6,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 95.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 91.2,
+        "weight": 6.0,
+        "weighted_contribution": 5.47,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 95.0
+      },
+      "format_fit": {
+        "raw_score": 88.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.52,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 95.0
+      },
+      "timing": {
+        "raw_score": 82.0,
+        "weight": 3.0,
+        "weighted_contribution": 2.46,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 95.0
+      },
+      "feasibility": {
+        "raw_score": 95.5,
+        "weight": 2.0,
+        "weighted_contribution": 1.91,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 95.0
+      },
+      "packaging": {
+        "raw_score": 98.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.98,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 95.0
+      }
+    }
   },
-  "topic_type": "Aviation Engineering / Cold War",
-  "recommended_format": "BOTH",
-  "primary_angle": "The intentional design flaw that saved the world's fastest jet.",
-  "alternative_angles": [
-    "Why SR-71 Blackbird fuel leak solved a crisis everyone ignored",
-    "The operational reality behind SR-71 Blackbird fuel leak",
-    "How design tradeoffs redefined SR-71 Blackbird fuel leak"
-  ],
-  "viewer_question": "Why didn't engineers just seal the fuel tanks properly?",
-  "content_gap_reason": "Technical explanation of thermal skin expansion at 500\u00b0F and chemical properties of JP-7 requiring triethylborane ignition",
-  "timing_action": "MAKE_NOW",
-  "production_effort": "HIGH",
-  "risk_status": "CLEAR",
-  "reason": "Scored 84.5/100 across 12 dimensions with verified evidence.",
-  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
-  "handoff_agent": "Story Dev Agent"
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation Engineering / Cold War"
 }

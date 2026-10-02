@@ -1,38 +1,131 @@
 {
   "topic": "The bomber with no guns de haviland mosquito",
-  "decision": "REFRAME",
-  "topic_opportunity_score": 64.6,
-  "score": 64.6,
+  "topic_id": "TOPIC-THE-BOMBER-WITH-NO-GUNS-DE-HAVILAND",
+  "score": 66.1,
   "confidence": 60.0,
-  "validation": "VALID",
+  "decision": "REFRAME",
+  "recommended_format": "LONG_FORM",
+  "timing_action": "MAKE_SOON",
+  "production_effort": "LOW",
+  "primary_angle": "The documented reality behind The bomber with no guns de haviland mosquito: Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined de haviland mosquito.",
+    "The tactical tradeoff: Why standard explanations of de haviland mosquito fall short.",
+    "What the authenticated logs reveal about de haviland mosquito."
+  ],
+  "viewer_question": "Why is de haviland mosquito so significant?",
+  "content_gap_reason": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+  "reason": "Moderate score (66.1) requiring unique angle reframing.",
   "scores": {
     "demand": 60.0,
     "curiosity": 60.0,
     "audience_fit": 88.0,
-    "competition_opportunity": 57.5,
-    "content_gap": 65.0,
-    "series_potential": 35.0,
-    "evidence_strength": 57.0,
-    "narrative_payoff_potential": 70.0,
-    "format_fit": 85.0,
-    "timing": 80.0,
-    "feasibility": 85.0,
-    "packaging": 90.0
+    "competition_opportunity": 50.0,
+    "content_gap": 70.0,
+    "series_potential": 65.0,
+    "evidence_strength": 60.0,
+    "narrative_payoff_potential": 72.0,
+    "format_fit": 80.0,
+    "timing": 75.0,
+    "feasibility": 64.0,
+    "packaging": 90.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 60.0,
+        "weight": 18.0,
+        "weighted_contribution": 10.8,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 60.0
+      },
+      "curiosity": {
+        "raw_score": 60.0,
+        "weight": 14.0,
+        "weighted_contribution": 8.4,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 60.0
+      },
+      "audience_fit": {
+        "raw_score": 88.0,
+        "weight": 13.0,
+        "weighted_contribution": 11.44,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 60.0
+      },
+      "competition_opportunity": {
+        "raw_score": 50.0,
+        "weight": 13.0,
+        "weighted_contribution": 6.5,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 60.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 60.0
+      },
+      "series_potential": {
+        "raw_score": 65.0,
+        "weight": 8.0,
+        "weighted_contribution": 5.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 60.0
+      },
+      "evidence_strength": {
+        "raw_score": 60.0,
+        "weight": 8.0,
+        "weighted_contribution": 4.8,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 60.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 72.0,
+        "weight": 6.0,
+        "weighted_contribution": 4.32,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 60.0
+      },
+      "format_fit": {
+        "raw_score": 80.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.2,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 60.0
+      },
+      "timing": {
+        "raw_score": 75.0,
+        "weight": 3.0,
+        "weighted_contribution": 2.25,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 60.0
+      },
+      "feasibility": {
+        "raw_score": 64.0,
+        "weight": 2.0,
+        "weighted_contribution": 1.28,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 60.0
+      },
+      "packaging": {
+        "raw_score": 90.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.9,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 60.0
+      }
+    }
   },
-  "topic_type": "Aviation History",
-  "recommended_format": "LONG_FORM",
-  "primary_angle": "The untold story behind de haviland mosquito.",
-  "alternative_angles": [
-    "Why de haviland mosquito solved a crisis everyone ignored",
-    "The operational reality behind de haviland mosquito",
-    "How design tradeoffs redefined de haviland mosquito"
-  ],
-  "viewer_question": "Why is de haviland mosquito so significant?",
-  "content_gap_reason": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
-  "timing_action": "EVERGREEN",
-  "production_effort": "MEDIUM",
-  "risk_status": "CAUTION",
-  "reason": "Scored 64.6/100 across 12 dimensions with verified evidence.",
-  "next_action": "LOG_AND_MONITOR",
-  "handoff_agent": "None"
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation History"
 }

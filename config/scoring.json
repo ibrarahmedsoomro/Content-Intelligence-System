@@ -1,5 +1,5 @@
 {
-  "weights": {
+  "topic_scoring_weights": {
     "demand": 18,
     "curiosity": 14,
     "audience_fit": 13,
@@ -13,17 +13,40 @@
     "feasibility": 2,
     "packaging": 1
   },
-  "thresholds": {
-    "make_now": 80,
-    "make": 68,
-    "reframe_or_test": 55,
-    "watchlist": 40
+  "beat_intelligence_weights": {
+    "curiosity": 0.15,
+    "information_gain": 0.15,
+    "narrative_necessity": 0.15,
+    "evidence_strength": 0.15,
+    "payoff_contribution": 0.10,
+    "novelty": 0.10,
+    "retention_function": 0.10,
+    "visual_potential": 0.05,
+    "stakes": 0.05
+  },
+  "story_penalties": {
+    "semantic_repetition_max_penalty": 15.0,
+    "unsupported_inference_penalty": 12.0,
+    "causal_overreach_penalty": 15.0,
+    "template_contamination_penalty": 25.0,
+    "low_evidence_confidence_penalty": 10.0,
+    "weak_payoff_linkage_penalty": 8.0
+  },
+  "decision_thresholds": {
+    "make_now": 80.0,
+    "make": 68.0,
+    "reframe_or_test": 55.0,
+    "watchlist": 40.0
   },
   "hard_gates": {
-    "minimum_research_confidence": 60,
-    "minimum_audience_fit": 40,
-    "minimum_curiosity": 35,
-    "minimum_demand_for_low_curiosity": 45,
-    "minimum_evidence_strength": 50
+    "minimum_research_confidence": 60.0,
+    "minimum_audience_fit": 40.0,
+    "minimum_curiosity": 35.0,
+    "minimum_demand_for_low_curiosity": 45.0,
+    "minimum_evidence_strength": 50.0
+  },
+  "production_thresholds": {
+    "minimum_story_intelligence_score": 75.0,
+    "minimum_script_quality_score": 80.0
   }
 }

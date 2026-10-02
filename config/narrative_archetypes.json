@@ -1,0 +1,96 @@
+{
+  "archetypes": {
+    "DISASTER_INVESTIGATION": {
+      "name": "Disaster & Mystery Investigation",
+      "description": "Forensic reconstruction of an unexpected disappearance, accident, or catastrophic anomaly based on logs, telemetry, communications, and inquiry findings.",
+      "signal_keywords": [
+        "disappearance", "lost patrol", "flight 19", "bermuda", "titanic", "crash", "missing", "wreck",
+        "accident", "investigation", "inquiry", "vanished", "air disaster", "sonar", "flight recorder"
+      ],
+      "functional_beat_roles": {
+        "slot_1": "The Routine Baseline & The First Documented Anomaly",
+        "slot_2": "Context, Environmental Stress & Primary Physical Discrepancy",
+        "slot_3": "Critical Discovery, Real-Time Communications & Friction",
+        "slot_4": "Causal Chain, Physical Escalation & The Inevitable Crucible",
+        "slot_5": "Forensic Verdict, Elimination of Myths & Enduring Human Factors Lesson"
+      },
+      "forbidden_semantic_concepts": [
+        "manufacturing throughput", "assembly line", "industrial tooling", "automotive stamping",
+        "production throughput", "procurement registries", "factory tooling", "industrial capacity",
+        "logistical velocity", "mass production", "stamping presses"
+      ]
+    },
+    "ENGINEERING_PARADOX": {
+      "name": "Engineering Paradox & Design Tradeoff",
+      "description": "Exploration of counter-intuitive technical choices, zero-sum aerodynamic/mechanical compromises, and specialized platform architecture.",
+      "signal_keywords": [
+        "bomber", "b-17", "b-24", "sr-71", "blackbird", "concorde", "tradeoff", "aerodynamic",
+        "supersonic", "mach", "engine", "airframe", "payload", "wing", "fuel leak", "titanium"
+      ],
+      "functional_beat_roles": {
+        "slot_1": "The Public Rivalry / Standard Assumption vs The Physical Paradox",
+        "slot_2": "The Core Operational Dilemma & Zero-Sum Physical Tradeoff",
+        "slot_3": "The Unconventional Solution / Industrial Bottleneck",
+        "slot_4": "Operational Crucible & Combat / Flight Envelope Validation",
+        "slot_5": "The Strategic Architecture Verdict & Universal Engineering Framework"
+      },
+      "forbidden_semantic_concepts": [
+        "alien abduction", "paranormal void", "sea monster", "ghost patrol", "supernatural portal"
+      ]
+    },
+    "SYSTEMIC_FAILURE": {
+      "name": "Systemic Failure & Multi-Redundancy Breakdown",
+      "description": "Forensic analysis of how unforeseen physical, environmental, or logistical interactions overwhelmed multiple safety systems.",
+      "signal_keywords": [
+        "all 4 engines", "volcanic ash", "boeing 747", "blackout", "grid failure", "meltdown",
+        "chernobyl", "reactor", "subsea blowout", "containment breach", "cascading failure"
+      ],
+      "functional_beat_roles": {
+        "slot_1": "The Normal State & The Sudden Unprecedented Alarm",
+        "slot_2": "The Multi-System Redundancy Failure & Initial Diagnostic Confusion",
+        "slot_3": "The Invisible Environmental Contaminant / Hidden Mechanism",
+        "slot_4": "The Emergency Execution / Glide Descent & Engine Restart Crucible",
+        "slot_5": "The Systemic Forensic Takeaway & Permanent Regulatory/Technical Reform"
+      },
+      "forbidden_semantic_concepts": [
+        "wartime procurement rivalry", "military doctrine rivalry", "automotive stamping tooling"
+      ]
+    },
+    "HISTORICAL_DECISION": {
+      "name": "Historical Decision & Strategic Turning Point",
+      "description": "Examination of pivotal wartime or political choices made under severe fog of war and competing constraints.",
+      "signal_keywords": [
+        "glenn miller", "oppenheimer", "churchill", "battle of midway", "enigma", "manhattan project",
+        "d-day", "decision", "general", "commander", "admiral", "treaty", "intelligence coup"
+      ],
+      "functional_beat_roles": {
+        "slot_1": "The Popular Narrative vs The Documented Historical Turning Point",
+        "slot_2": "The Strategic Context & Competing Impossible Options",
+        "slot_3": "The Decisive Intelligence / Logistical Variable",
+        "slot_4": "Execution Under the Fog of War & Immediate Repercussions",
+        "slot_5": "The Historical Verdict & Legacy for Modern Strategic Doctrine"
+      },
+      "forbidden_semantic_concepts": [
+        "supernatural curse", "mythical curse"
+      ]
+    },
+    "SCIENTIFIC_DISCOVERY": {
+      "name": "Scientific Discovery & Paradigm Shift",
+      "description": "Investigation of how anomalous experimental data overturned entrenched scientific consensus.",
+      "signal_keywords": [
+        "quantum", "discovery", "einstein", "relativity", "penicillin", "dna", "telescope",
+        "particle", "nobel", "experiment", "anomaly", "laboratory", "hypothesis"
+      ],
+      "functional_beat_roles": {
+        "slot_1": "The Established Paradigm & The Irreconcilable Laboratory Anomaly",
+        "slot_2": "The Competing Hypotheses & Initial Peer Skepticism",
+        "slot_3": "The Decisive Experiment / Mathematical Proof",
+        "slot_4": "The Crucible of Peer Replication & Empirical Validation",
+        "slot_5": "The Modern Scientific Paradigm & Technological Legacy"
+      },
+      "forbidden_semantic_concepts": [
+        "bomber airframes", "combat radius", "island-hopping distances"
+      ]
+    }
+  }
+}

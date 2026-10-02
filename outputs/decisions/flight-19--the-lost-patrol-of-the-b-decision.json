@@ -1,38 +1,131 @@
 {
   "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "decision": "MAKE",
-  "topic_opportunity_score": 77.2,
-  "score": 77.2,
+  "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+  "score": 73.6,
   "confidence": 88.0,
-  "validation": "VALID",
+  "decision": "MAKE",
+  "recommended_format": "BOTH",
+  "timing_action": "EVERGREEN",
+  "production_effort": "LOW",
+  "primary_angle": "The documented reality behind Flight 19: The Lost Patrol of the Bermuda Triangle: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined Flight 19 Bermuda Triangle.",
+    "The tactical tradeoff: Why standard explanations of Flight 19 Bermuda Triangle fall short.",
+    "What the authenticated logs reveal about Flight 19 Bermuda Triangle."
+  ],
+  "viewer_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+  "content_gap_reason": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "reason": "Strong opportunity score (73.6) approved for standard production pipeline.",
   "scores": {
     "demand": 78.0,
     "curiosity": 89.0,
     "audience_fit": 86.0,
-    "competition_opportunity": 40.0,
-    "content_gap": 65.0,
-    "series_potential": 100.0,
-    "evidence_strength": 76.6,
-    "narrative_payoff_potential": 84.5,
-    "format_fit": 90.0,
-    "timing": 80.0,
-    "feasibility": 85.0,
-    "packaging": 90.0
+    "competition_opportunity": 15.0,
+    "content_gap": 70.0,
+    "series_potential": 90.0,
+    "evidence_strength": 88.0,
+    "narrative_payoff_potential": 83.6,
+    "format_fit": 80.0,
+    "timing": 60.0,
+    "feasibility": 89.2,
+    "packaging": 90.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 78.0,
+        "weight": 18.0,
+        "weighted_contribution": 14.04,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 88.0
+      },
+      "curiosity": {
+        "raw_score": 89.0,
+        "weight": 14.0,
+        "weighted_contribution": 12.46,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 88.0
+      },
+      "audience_fit": {
+        "raw_score": 86.0,
+        "weight": 13.0,
+        "weighted_contribution": 11.18,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 88.0
+      },
+      "competition_opportunity": {
+        "raw_score": 15.0,
+        "weight": 13.0,
+        "weighted_contribution": 1.95,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 88.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 88.0
+      },
+      "series_potential": {
+        "raw_score": 90.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 88.0
+      },
+      "evidence_strength": {
+        "raw_score": 88.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.04,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 88.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 83.6,
+        "weight": 6.0,
+        "weighted_contribution": 5.02,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 88.0
+      },
+      "format_fit": {
+        "raw_score": 80.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.2,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 88.0
+      },
+      "timing": {
+        "raw_score": 60.0,
+        "weight": 3.0,
+        "weighted_contribution": 1.8,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 88.0
+      },
+      "feasibility": {
+        "raw_score": 89.2,
+        "weight": 2.0,
+        "weighted_contribution": 1.78,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 88.0
+      },
+      "packaging": {
+        "raw_score": 90.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.9,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 88.0
+      }
+    }
   },
-  "topic_type": "Aviation Mystery / Human Factor",
-  "recommended_format": "BOTH",
-  "primary_angle": "The 45-minute radio transcript that reveals why no one spoke up.",
-  "alternative_angles": [
-    "Why Flight 19 Bermuda Triangle solved a crisis everyone ignored",
-    "The operational reality behind Flight 19 Bermuda Triangle",
-    "How design tradeoffs redefined Flight 19 Bermuda Triangle"
-  ],
-  "viewer_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
-  "content_gap_reason": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
-  "timing_action": "EVERGREEN",
-  "production_effort": "MEDIUM",
-  "risk_status": "CAUTION",
-  "reason": "Scored 77.2/100 across 12 dimensions with verified evidence.",
-  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
-  "handoff_agent": "Story Dev Agent"
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation Mystery / Human Factor"
 }

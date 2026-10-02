@@ -1,0 +1,59 @@
+{
+  "qa_matrix_weights": {
+    "QA-01_fact_coverage": 0.20,
+    "QA-02_open_loops": 0.075,
+    "QA-03_promise_delivery": 0.15,
+    "QA-04_scene_traceability": 0.15,
+    "QA-05_causal_integrity": 0.10,
+    "QA-06_drama_integrity": 0.10,
+    "QA-07_pacing_wpm": 0.05,
+    "QA-08_domain_consistency": 0.05,
+    "QA-09_template_contamination": 0.05,
+    "QA-10_retention_density": 0.05,
+    "QA-11_absolute_claims": 0.025
+  },
+  "critical_checks": [
+    "QA-01",
+    "QA-02",
+    "QA-03",
+    "QA-04",
+    "QA-05",
+    "QA-06",
+    "QA-08",
+    "QA-09"
+  ],
+  "pacing_parameters": {
+    "target_wpm": 145.0,
+    "min_wpm": 125.0,
+    "max_wpm": 170.0,
+    "max_scene1_hook_words": 100
+  },
+  "absolute_claim_keywords": [
+    "dominated", "proved", "failed", "revolutionized", "decisive",
+    "superior", "inferior", "inevitable", "impossible", "best", "worst",
+    "only", "first", "last", "completely", "never", "always",
+    "the reason", "the exact cause", "unprecedented"
+  ],
+  "causal_connector_words": [
+    "because", "therefore", "led to", "caused", "resulted in",
+    "forced", "enabled", "prevented", "decided", "determined",
+    "made them", "was the reason"
+  ],
+  "sensationalist_blacklist": [
+    "shocking", "insurmountable", "classified document reveals",
+    "secret plot", "forbidden truth", "mind-blowing miracle",
+    "dangerously incomplete", "magic vortex", "alien portal"
+  ],
+  "retention_function_categories": [
+    "NEW_QUESTION",
+    "NEW_EVIDENCE",
+    "CONSEQUENCE",
+    "REVEAL",
+    "ESCALATION",
+    "CONTRAST",
+    "VISUAL_CHANGE",
+    "EMOTIONAL_CHANGE",
+    "PAYOFF_SETUP",
+    "RESOLUTION"
+  ]
+}

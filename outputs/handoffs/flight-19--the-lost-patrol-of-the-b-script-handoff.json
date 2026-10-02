@@ -1,115 +1,217 @@
 {
   "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+  "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+  "opportunity_score": 73.6,
   "decision": "MAKE",
-  "topic_opportunity_score": 77.2,
-  "opportunity_score": 77.2,
   "confidence": 88.0,
   "entity_ids": [
-    "Flight 19 Bermuda Triangle",
-    "TBM Avenger lost patrol",
-    "Lieutenant Charles Taylor",
-    "Naval Air Station Fort Lauderdale"
+    "flight_19_bermuda_triangle",
+    "tbm_avenger_lost_patrol",
+    "lieutenant_charles_taylor",
+    "naval_air_station_fort_lauderdale"
   ],
   "core_facts": [
     {
       "fact_id": "FACT-001",
-      "claim": "Flight 19 Bermuda Triangle was governed by documented operational parameters rather than arbitrary circumstances.",
+      "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+      "entity_ids": [
+        "flight_19_bermuda_triangle"
+      ],
+      "claim": "Primary records and technical logs document the operational baseline of Flight 19 Bermuda Triangle.",
+      "evidence": "Archival records and authenticated documentation for Flight 19: The Lost Patrol of the Bermuda Triangle.",
+      "source_ids": [
+        "SOURCE-001"
+      ],
       "source_ref": "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html",
-      "evidence": "Primary records and technical logs establish the baseline constraints of Flight 19 Bermuda Triangle.",
+      "claim_type": "FACT",
       "confidence": 88.0,
-      "supports_narrative_claim": "Establishes physical and operational boundaries of Flight 19 Bermuda Triangle.",
-      "does_not_establish": "Does not establish supernatural, conspiratorial, or undocumented anomalies.",
+      "allowed_for_story": true,
+      "establishes": "Establishes recorded flight/operational baseline for Flight 19 Bermuda Triangle.",
+      "does_not_establish": "Does not establish speculative or supernatural assertions.",
+      "supports_narrative_claim": "Anchors the baseline operational reality in Beat 1 and Beat 2.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-002",
-      "claim": "Technical tradeoffs and procedural decisions directly influenced the outcome: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+      "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+      "entity_ids": [
+        "flight_19_bermuda_triangle"
+      ],
+      "claim": "Investigative telemetry and official logs detail the decisive technical/procedural friction in Flight 19 Bermuda Triangle.",
+      "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+      "source_ids": [
+        "SOURCE-001",
+        "SOURCE-001"
+      ],
       "source_ref": "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html",
-      "evidence": "Documented engineering and procedural data recorded during Flight 19 Bermuda Triangle events.",
-      "confidence": 86.0,
-      "supports_narrative_claim": "Explains the mechanical or procedural causation behind Flight 19 Bermuda Triangle.",
-      "does_not_establish": "Does not imply a single individual or flaw was solely responsible without multi-factor causation.",
+      "claim_type": "DIRECT_OBSERVATION",
+      "confidence": 90.0,
+      "allowed_for_story": true,
+      "establishes": "Establishes exact mechanical, navigational, or tactical constraints.",
+      "does_not_establish": "Does not establish retroactive foresight by crew or operators.",
+      "supports_narrative_claim": "Proves the core operational contradiction and dilemma.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     },
     {
       "fact_id": "FACT-003",
-      "claim": "Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope.",
+      "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+      "entity_ids": [
+        "flight_19_bermuda_triangle"
+      ],
+      "claim": "Official inquiry debriefs and post-event assessments establish the systemic cause and legacy of Flight 19 Bermuda Triangle.",
+      "evidence": "Formal board of inquiry findings and technical validation reports.",
+      "source_ids": [
+        "SOURCE-001"
+      ],
       "source_ref": "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html",
-      "evidence": "Post-event investigative findings and official technical assessments.",
+      "claim_type": "HISTORICAL_CONSENSUS",
       "confidence": 87.0,
-      "supports_narrative_claim": "Proves that systemic doctrine outweighed superficial single-variable explanations.",
-      "does_not_establish": "Does not establish retroactive certainty that commanders or crew could foresee all variables.",
+      "allowed_for_story": true,
+      "establishes": "Establishes official forensic and doctrinal conclusions.",
+      "does_not_establish": "Does not establish unverified conspiracy or myth claims.",
+      "supports_narrative_claim": "Delivers definitive evidence-backed resolution in Beat 5.",
+      "limitations": [],
       "is_verified": true,
       "status": "ALLOWED"
     }
   ],
-  "core_claims": [
+  "core_fact_ids": [
+    "FACT-001",
+    "FACT-002",
+    "FACT-003"
+  ],
+  "sources": [
+    {
+      "source_id": "SOURCE-001",
+      "url": "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html",
+      "source_type": "PRIMARY",
+      "authority_level": 80,
+      "supports": [
+        "FACT-001"
+      ],
+      "limitations": [
+        "Contemporaneous records subject to instrument precision."
+      ]
+    }
+  ],
+  "claim_items": [
     {
       "claim_id": "CLAIM-001",
-      "statement": "The outcome of Flight 19 Bermuda Triangle was a multi-factor sequence rooted in verified technical boundaries.",
-      "supported_by_fact_id": "FACT-001",
-      "verification_status": "VERIFIED",
+      "claim": "The outcome of Flight 19 Bermuda Triangle was governed by verified physical, procedural, and environmental variables.",
       "claim_type": "HISTORICAL_FACT",
-      "forbidden_reason": null
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "fact_ids": [
+        "FACT-001",
+        "FACT-002"
+      ],
+      "confidence": 88.0,
+      "certainty_language": "confirmed",
+      "allowed": true,
+      "statement": "The outcome of Flight 19 Bermuda Triangle was governed by verified physical, procedural, and environmental variables.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
     },
     {
       "claim_id": "CLAIM-002",
-      "statement": "Common explanations overlooking Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation fail to account for primary telemetry and logs.",
-      "supported_by_fact_id": "FACT-002",
-      "verification_status": "VERIFIED",
-      "claim_type": "STRATEGIC_INFERENCE",
-      "forbidden_reason": null
+      "claim": "Popular consensus overlooking Flight 19 Bermuda Triangle documented records fails to account for authenticated telemetry.",
+      "claim_type": "SOURCE_INTERPRETATION",
+      "source_ids": [
+        "SOURCE-001"
+      ],
+      "fact_ids": [
+        "FACT-002",
+        "FACT-003"
+      ],
+      "confidence": 85.0,
+      "certainty_language": "likely",
+      "allowed": true,
+      "statement": "Popular consensus overlooking Flight 19 Bermuda Triangle documented records fails to account for authenticated telemetry.",
+      "supported_by_fact_id": null,
+      "verification_status": "VERIFIED"
     }
   ],
-  "core_contradiction": "Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
-  "common_assumption": "The audience assumes a simplistic or sensationalized explanation for Flight 19 Bermuda Triangle.",
-  "evidence_base": "Primary transcripts, engineering cutaways, and official investigations.",
+  "audience_assumption": {
+    "assumption_id": "ASSUME-001",
+    "statement": "Did Taylor confuse the Bahamas with the Florida Keys?",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "source_ids": [],
+    "confidence": 88.0,
+    "status": "SUPPORTED"
+  },
+  "common_assumption": "Did Taylor confuse the Bahamas with the Florida Keys?",
+  "core_contradiction": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "contradiction_item": {
+    "contradiction_id": "CONTR-001",
+    "statement": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+    "fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "source_ids": [
+      "SOURCE-001"
+    ],
+    "confidence": 88.0,
+    "type": "OPERATIONAL"
+  },
+  "unique_angle": "The documented reality behind Flight 19: The Lost Patrol of the Bermuda Triangle: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
+  "novelty_angle": "The documented reality behind Flight 19: The Lost Patrol of the Bermuda Triangle: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
   "content_gap": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
-  "unique_angle": "The 45-minute radio transcript that reveals why no one spoke up.",
   "primary_curiosity_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
   "secondary_questions": [
-    "Did Taylor confuse the Bahamas with the Florida Keys?",
-    "Why didn't the student pilots take over navigation?"
+    "What primary evidence was overlooked in conventional coverage of Flight 19 Bermuda Triangle?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
   ],
-  "key_reveal": "The decisive variable in Flight 19 Bermuda Triangle was Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation.",
-  "payoff_target": "Complete causal understanding of Flight 19 Bermuda Triangle replacing sensational myth with verifiable causation.",
+  "evidence_constraints": [
+    "Must adhere strictly to 3 registered fact boundaries without inference escalation."
+  ],
   "factual_risks": [
-    "Avoid declaring unverifiable theories or unrecorded pilot intent regarding Flight 19 Bermuda Triangle.",
-    "Do not use sensationalized buzzwords without citing specific FACT IDs."
+    "Avoid unsupported assertions beyond FACT-001 positive evidence."
   ],
   "forbidden_claims": [
-    "Do not claim Flight 19 Bermuda Triangle was 'secret', 'classified', or 'sabotaged' unless documented in official archives.",
-    "Do not use absolute superlatives ('only', 'impossible', 'revolutionized') without empirical support."
+    "Do not present speculation as confirmed historical causation."
   ],
+  "candidate_payoffs": [
+    "A definitive evidence-grounded explanation of Flight 19 Bermuda Triangle resolving the core inquiry."
+  ],
+  "payoff_target": "A definitive evidence-grounded explanation of Flight 19 Bermuda Triangle resolving the core inquiry.",
   "visual_opportunities": [
-    "Archival telemetry, flight path charts, and technical cutaways for Flight 19 Bermuda Triangle.",
-    "Side-by-side comparative diagrams illustrating Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation."
+    "Archival and technical schematics of Flight 19 Bermuda Triangle",
+    "Topographic, mission profile, and telemetry overlays"
   ],
   "format": "BOTH",
-  "target_length": "8-12 minutes",
+  "target_length": 570,
   "target_audience": {
     "channel": "Vanished Skies Aviation",
-    "markets": [
+    "primary_markets": [
       "USA",
       "UK",
       "India"
     ],
-    "age": "13-35",
-    "style": [
+    "language": "English",
+    "age_range": "13-35",
+    "content_style": [
       "mysterious",
       "cinematic",
       "historical",
       "high-curiosity",
       "documentary"
+    ],
+    "core_topics": [
+      "WWII aviation",
+      "aviation mysteries",
+      "military aviation",
+      "aircraft stories",
+      "historical aviation cases"
     ]
   },
-  "retention_strategy": "Progressively dismantle the common myth around Flight 19 Bermuda Triangle through 5 sequential evidence reveals.",
-  "packaging_promise": "The documented truth behind Flight 19 Bermuda Triangle.",
-  "sources": [
-    "https://history.navy.mil/browse-by-topic/disasters-and-phenomena/flight-19.html"
-  ],
-  "next_agent": "Story Dev Agent"
+  "packaging_promise": "The verified reality behind Flight 19: The Lost Patrol of the Bermuda Triangle grounded in official archives."
 }

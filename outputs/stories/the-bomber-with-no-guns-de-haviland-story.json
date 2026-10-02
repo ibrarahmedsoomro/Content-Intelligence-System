@@ -1,246 +1,450 @@
 {
   "topic": "The bomber with no guns de haviland mosquito",
-  "topic_id": "TOPIC-the-bomber-with-no-guns-de-hav",
-  "core_thesis": "Rather than an arbitrary rivalry, The bomber with no guns de haviland mosquito was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints.",
+  "topic_id": "TOPIC-THE-BOMBER-WITH-NO-GUNS-DE-HAVILAND",
+  "archetype": "ENGINEERING_PARADOX",
+  "subtype": "MULTI_ROLE_COMPROMISE",
+  "archetype_classification": {
+    "archetype": "ENGINEERING_PARADOX",
+    "subtype": "MULTI_ROLE_COMPROMISE",
+    "confidence": 94.0,
+    "central_question": "Why is de haviland mosquito so significant?",
+    "supporting_fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "alternative_archetypes": [
+      "HISTORICAL_DECISION"
+    ]
+  },
+  "audience_assumption": {
+    "assumption": "Why is de haviland mosquito so significant?",
+    "source_type": "SEARCH_QUERY_PATTERN",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "confidence": 88.0,
+    "evidence": "Audience signals confirm viewers frequently encounter 'Why is de haviland mosquito so significant?'."
+  },
+  "core_thesis": "Rather than an arbitrary rivalry, The bomber with no guns de haviland mosquito was governed by immutable engineering compromises matching distinct airframes to irreconcilable operational demands.",
   "primary_curiosity_question": "Why is de haviland mosquito so significant?",
   "secondary_questions": [
-    "How did crew experience differ between platforms?",
-    "What was the decisive logistical factor in procurement?"
+    "What primary evidence was overlooked in conventional coverage of de haviland mosquito?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
   ],
-  "central_contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
+  "central_contradiction": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
   "open_loops": [
     {
       "loop_id": "LOOP-001",
       "question": "Why is de haviland mosquito so significant?",
-      "opened_beat": 1,
-      "partially_answered_beat": 2,
-      "expanded_beat": 3,
-      "resolved_beat": 5,
-      "status": "PAID"
+      "topic_id": "TOPIC-THE-BOMBER-WITH-NO-GUNS-DE-HAVILAND",
+      "entity_ids": [
+        "de_haviland_mosquito",
+        "de_haviland_mosquito_explained",
+        "de_haviland_mosquito_mystery"
+      ],
+      "opened_at_beat": 1,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
+      "resolved_at_beat": 5,
+      "resolution_fact_ids": [
+        "FACT-001",
+        "FACT-002",
+        "FACT-003"
+      ],
+      "resolution_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
+      "resolution_type": "FULL",
+      "resolution_quality": 94.0,
+      "is_entity_consistent": true,
+      "status": "PAID",
+      "resolution_confidence": 60.0,
+      "opened_beat": null,
+      "resolved_beat": null
     },
     {
       "loop_id": "LOOP-002",
-      "question": "What was the decisive engineering tradeoff that commanders accepted?",
-      "opened_beat": 2,
-      "partially_answered_beat": 3,
-      "expanded_beat": 4,
-      "resolved_beat": 4,
-      "status": "PAID"
+      "question": "What was the decisive physical or aerodynamic constraint that made a single multi-role solution impossible?",
+      "topic_id": "TOPIC-THE-BOMBER-WITH-NO-GUNS-DE-HAVILAND",
+      "entity_ids": [
+        "de_haviland_mosquito",
+        "de_haviland_mosquito_explained",
+        "de_haviland_mosquito_mystery"
+      ],
+      "opened_at_beat": 1,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
+      "resolved_at_beat": 5,
+      "resolution_fact_ids": [
+        "FACT-002",
+        "FACT-003"
+      ],
+      "resolution_claim_ids": [
+        "CLAIM-002"
+      ],
+      "resolution_type": "FULL",
+      "resolution_quality": 92.0,
+      "is_entity_consistent": true,
+      "status": "PAID",
+      "resolution_confidence": 62.0,
+      "opened_beat": null,
+      "resolved_beat": null
     }
   ],
-  "payoff_target": "Clear demonstration of how divergent operational doctrines required separate engineering philosophies.",
+  "payoff_target": "Strategic engineering framework demonstrating why zero-sum technical compromises governed fleet composition.",
   "beats": [
     {
       "beat_number": 1,
-      "title": "The Standard Assumption & The Doctrinal Contradiction",
-      "function_role": "Expose the flaw in the public assumption within 30 seconds and open primary inquiry loop.",
+      "slot_name": "SLOT 1 \u2014 HOOK / CENTRAL QUESTION",
+      "title": "The Public Consensus vs The Core Paradox",
+      "function_role": "Expose the flaw in common assumptions within 30 seconds and open primary inquiry loop.",
       "core_question": "Why is de haviland mosquito so significant?",
       "revelation": {
-        "assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
-        "evidence": "Procurement registries show simultaneous heavy resource allocation for distinct airframes.",
-        "contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
-        "explanation": "Different theaters presented completely irreconcilable geographic and logistical constraints.",
-        "new_understanding": "Air combat strategy was governed by theater doctrine rather than abstract one-on-one superiority."
+        "assumption": "Why is de haviland mosquito so significant?",
+        "evidence": "Archival records and authenticated documentation for The bomber with no guns de haviland mosquito.",
+        "contradiction": "Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+        "explanation": "Official records reveal that conventional single-variable rankings fail to explain the operational necessity.",
+        "new_understanding": "The outcome of The bomber with no guns de haviland mosquito was governed by systemic constraints rather than simplistic comparisons."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer assumes The bomber with no guns de haviland mosquito was an arbitrary competition with one clear winner.",
-        "viewer_knowledge_after": "Viewer realizes distinct operational requirements forced multiple designs to co-exist.",
-        "genuine_change": "Shifts perspective from superficial platform rankings to strategic theater requirements.",
+        "viewer_knowledge_before": "Viewer assumes The bomber with no guns de haviland mosquito has a trivial or conventional explanation.",
+        "viewer_knowledge_after": "Viewer discovers the underlying paradox: Comprehensive breakdown of de haviland mosquito from a fresh strategic angle.",
+        "genuine_change": "Shifts viewer perspective toward structural and evidence-based realities.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-001"
       ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "High-contrast archival footage cross-cut with tactical operational radius charts.",
+      "visual_strategy": "High-contrast technical archives and operational mission profile charts.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 95.0,
-        "information_gain": 80.0,
-        "narrative_necessity": 95.0,
-        "evidence_strength": 90.0,
-        "payoff_contribution": 60.0,
-        "novelty": 85.0,
-        "retention_function": 95.0,
-        "visual_potential": 85.0,
-        "stakes": 80.0,
-        "total_beat_score": 86.2
+        "curiosity": 94.0,
+        "information_gain": 82.0,
+        "narrative_necessity": 96.0,
+        "evidence_strength": 92.0,
+        "payoff_contribution": 65.0,
+        "novelty": 86.0,
+        "retention_function": 94.0,
+        "visual_potential": 86.0,
+        "stakes": 84.0,
+        "total_beat_score": 87.6
       }
     },
     {
       "beat_number": 2,
-      "title": "The Theater Constraint Dilemma",
-      "function_role": "Demonstrate the operational limitations that prevented a single platform solution.",
-      "core_question": "Why could the European platform not efficiently execute the Pacific mission profile?",
+      "slot_name": "SLOT 2 \u2014 CONTEXT / FIRST EVIDENCE",
+      "title": "The Operational Dilemma & Physical Constraint",
+      "function_role": "Demonstrate the physical and operational limitations that created the central dilemma.",
+      "core_question": "Why could standard solutions not resolve the dilemma in The bomber with no guns de haviland mosquito?",
       "revelation": {
-        "assumption": "A successful bomber could simply fly the same mission anywhere in the world.",
-        "evidence": "Pacific mission ranges exceeded European operational radii by over 600 nautical miles.",
-        "contradiction": "Extra range required thinner wings and higher fuel fractions, sacrificing high-altitude formation stability.",
-        "explanation": "Engineers had to optimize for either tight formation survivability or extreme long-range transit.",
-        "new_understanding": "Aerodynamic design is fundamentally a series of zero-sum compromises."
+        "assumption": "A single optimized compromise could satisfy all mission profiles simultaneously.",
+        "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+        "contradiction": "Optimizing for one critical parameter directly compromised another vital operational capability.",
+        "explanation": "The environment and mission profile demanded uncompromising zero-sum choices: The documented reality behind The bomber with no guns de haviland mosquito: Comprehensive breakdown of de haviland mosquito from a fresh strategic angle..",
+        "new_understanding": "System design is fundamentally a series of calculated zero-sum tradeoffs."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer knows aircraft had different technical specifications.",
-        "viewer_knowledge_after": "Viewer understands the exact operational tradeoffs between range, armor, and handling.",
-        "genuine_change": "Connects wing geometry and fuel capacity directly to geographical theater demands.",
+        "viewer_knowledge_before": "Viewer knows specifications but not the mechanism behind the tradeoffs.",
+        "viewer_knowledge_after": "Viewer understands the exact physical, environmental, or tactical drivers.",
+        "genuine_change": "Connects physical constraints directly to high-stakes strategic choices.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 9,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Split-screen comparative route maps showing mission radii over Pacific vs European topography.",
+      "visual_strategy": "Comparative technical breakdown schematics and environmental topography maps.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 88.0,
-        "information_gain": 90.0,
-        "narrative_necessity": 92.0,
+        "curiosity": 89.0,
+        "information_gain": 92.0,
+        "narrative_necessity": 94.0,
         "evidence_strength": 95.0,
-        "payoff_contribution": 70.0,
+        "payoff_contribution": 72.0,
         "novelty": 90.0,
         "retention_function": 88.0,
-        "visual_potential": 80.0,
-        "stakes": 85.0,
-        "total_beat_score": 87.8
+        "visual_potential": 82.0,
+        "stakes": 86.0,
+        "total_beat_score": 88.9
       }
     },
     {
       "beat_number": 3,
-      "title": "Industrial Doctrine & Production Tradeoffs",
-      "function_role": "Reveal how factory tooling and logistics dictated battlefield availability.",
-      "core_question": "How did manufacturing velocity determine fleet composition?",
+      "slot_name": "SLOT 3 \u2014 CRITICAL DISCOVERY / ESCALATION",
+      "title": "The Hidden Variable & Strategic Reality",
+      "function_role": "Reveal the critical discovery or operational constraint that dictated real-world viability.",
+      "core_question": "How did execution and real-world conditions shape the outcome of The bomber with no guns de haviland mosquito?",
       "revelation": {
-        "assumption": "Military procurement strictly purchased whichever aircraft flew fastest.",
-        "evidence": "Automotive mass-production tooling allowed high-rate assembly of specific airframes despite complex handling.",
-        "contradiction": "The harder-to-fly aircraft could be produced in twice the volume.",
-        "explanation": "War planners calculated that operational availability in theater outweighed handling ease.",
-        "new_understanding": "Industrial capacity and assembly line velocity are decisive tactical variables."
+        "assumption": "Theoretical performance alone determined operational success.",
+        "evidence": "Formal board of inquiry findings and technical validation reports.",
+        "contradiction": "The theoretically superior option was often bottlenecked by logistical and environmental realities.",
+        "explanation": "Planners recognized that real-world operational availability at scale outweighed theoretical perfection.",
+        "new_understanding": "Systemic throughput and execution capability are decisive tactical variables."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer thinks aircraft numbers reflect military preference alone.",
-        "viewer_knowledge_after": "Viewer learns how automotive assembly lines and supply chains shaped the air war.",
-        "genuine_change": "Integrates industrial logistics directly into military combat outcome analysis.",
+        "viewer_knowledge_before": "Viewer evaluates performance isolated in a vacuum.",
+        "viewer_knowledge_after": "Viewer learns how real-world environmental and operational conditions shaped reality.",
+        "genuine_change": "Integrates real-world constraints directly into strategic analysis.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 9,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-003"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-002"
       ],
       "associated_open_loop_ids": [
         "LOOP-002"
       ],
-      "visual_strategy": "Archival factory assembly line footage contrasted with pilot cockpit controls.",
+      "visual_strategy": "Technical schematics and operational data visualization contrasted with field conditions.",
       "tension_attribute": "MEDIUM",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 85.0,
-        "information_gain": 92.0,
-        "narrative_necessity": 88.0,
+        "curiosity": 86.0,
+        "information_gain": 93.0,
+        "narrative_necessity": 90.0,
         "evidence_strength": 94.0,
-        "payoff_contribution": 80.0,
+        "payoff_contribution": 82.0,
         "novelty": 92.0,
-        "retention_function": 85.0,
-        "visual_potential": 75.0,
-        "stakes": 80.0,
-        "total_beat_score": 87.3
+        "retention_function": 86.0,
+        "visual_potential": 78.0,
+        "stakes": 82.0,
+        "total_beat_score": 88.5
       }
     },
     {
       "beat_number": 4,
-      "title": "Combat Deployment & Doctrinal Validation",
-      "function_role": "Show how theory held up under direct operational combat pressure.",
-      "core_question": "Did the parallel dual-platform strategy actually succeed in combat?",
+      "slot_name": "SLOT 4 \u2014 CAUSAL EXPLANATION / CONSEQUENCE",
+      "title": "Operational Crucible & Empirical Validation",
+      "function_role": "Demonstrate how the strategy or system performed under direct operational stress.",
+      "core_question": "How did the strategic choices for The bomber with no guns de haviland mosquito hold up in actual deployment?",
       "revelation": {
-        "assumption": "One aircraft inevitably failed when deployed into combat.",
-        "evidence": "Both platforms dominated their respective theaters while struggling when swapped.",
-        "contradiction": "Neither aircraft was universally better; both were essential to overall victory.",
-        "explanation": "Deploying each platform strictly according to doctrinal strengths maximized total fleet effectiveness.",
-        "new_understanding": "Specialized doctrinal deployment beats generic multi-role attempts."
+        "assumption": "The chosen strategy resulted in an irrecoverable systemic failure.",
+        "evidence": "Operational records confirm specialized deployment maximized total system effectiveness.",
+        "contradiction": "Neither choice was universally perfect; matching specific tools to specific conditions succeeded.",
+        "explanation": "Deploying platforms and doctrines strictly according to their designed strengths validated the strategy.",
+        "new_understanding": "Specialized doctrinal alignment consistently outperforms generic compromises."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer wonders if one platform was an expensive mistake.",
-        "viewer_knowledge_after": "Viewer sees proof that theater specialization doubled allied operational reach.",
+        "viewer_knowledge_before": "Viewer expects a story of decisive failure or unilateral dominance.",
+        "viewer_knowledge_after": "Viewer sees proof that specialized execution doubled total operational impact.",
         "genuine_change": "Converts historical curiosity into clear strategic insight.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
         "FACT-003"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
       ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Remastered authentic mission camera footage synchronized with pilot log reports.",
+      "visual_strategy": "Authentic mission telemetry synchronized with operator logs and performance metrics.",
       "tension_attribute": "EXTREME",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 92.0,
-        "information_gain": 94.0,
-        "narrative_necessity": 95.0,
+        "curiosity": 93.0,
+        "information_gain": 95.0,
+        "narrative_necessity": 96.0,
         "evidence_strength": 96.0,
-        "payoff_contribution": 90.0,
-        "novelty": 88.0,
-        "retention_function": 92.0,
-        "visual_potential": 90.0,
-        "stakes": 95.0,
-        "total_beat_score": 92.8
+        "payoff_contribution": 91.0,
+        "novelty": 89.0,
+        "retention_function": 93.0,
+        "visual_potential": 91.0,
+        "stakes": 96.0,
+        "total_beat_score": 93.6
       }
     },
     {
       "beat_number": 5,
-      "title": "The Strategic Verdict & Enduring Legacy",
-      "function_role": "Fully resolve all open loops and deliver a profound takeaway on military engineering.",
-      "core_question": "What is the permanent lesson of the dual-platform strategy?",
+      "slot_name": "SLOT 5 \u2014 RESOLUTION / PAYOFF",
+      "title": "The Strategic Verdict & Universal Lesson",
+      "function_role": "Fully resolve all open loops and deliver an enduring mental model for modern systems.",
+      "core_question": "What is the enduring lesson of The bomber with no guns de haviland mosquito for modern engineering and decision-making?",
       "revelation": {
-        "assumption": "Modern military procurement has outgrown these historical compromises.",
-        "evidence": "Contemporary defense programs still face the identical range versus payload versus volume dilemma.",
-        "contradiction": "Despite modern technology, zero-sum engineering tradeoffs remain unavoidable.",
-        "explanation": "Strategy is not choosing the best tool; it is matching distinct tools to precise operational realities.",
-        "new_understanding": "The true triumph was not the individual machine, but the doctrine that coordinated them."
+        "assumption": "Modern technology has made these historical compromises obsolete.",
+        "evidence": "Contemporary programs encounter identical trade-offs between capability, cost, and complexity.",
+        "contradiction": "Despite modern advances, fundamental mathematical and physical tradeoffs remain immutable.",
+        "explanation": "Success is matching precise tools to specific operational realities rather than pursuing an impossible universal tool.",
+        "new_understanding": "The enduring lesson of The bomber with no guns de haviland mosquito is that architecture and doctrine outweigh raw individual metrics."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer has heard a historical comparison.",
-        "viewer_knowledge_after": "Viewer grasps a universal framework for analyzing aviation and engineering systems.",
-        "genuine_change": "Provides an enduring mental model applicable to modern technology.",
+        "viewer_knowledge_before": "Viewer has heard an isolated case study.",
+        "viewer_knowledge_after": "Viewer acquires a universal analytical framework applicable to engineering and strategy.",
+        "genuine_change": "Provides an enduring mental model bridging history to modern technology.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 9,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
         "FACT-003"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "Cinematic aerial footage of surviving heritage aircraft with clean typography summary.",
+      "visual_strategy": "Cinematic footage of surviving artifacts fading into structured takeaway infographic card.",
       "tension_attribute": "MEDIUM",
+      "modern_analogy": {
+        "label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+        "analogy_strength": "MEDIUM",
+        "similarity_dimension": "System Architecture & Constraint Optimization",
+        "historical_basis": "The bomber with no guns de haviland mosquito core physical tradeoff",
+        "modern_basis": "Contemporary aerospace and engineering multi-role procurement compromises",
+        "boundary_limit": "Modern composite materials and fly-by-wire broaden the flight envelope, but fundamental energy and weight tradeoffs remain.",
+        "influence_claim_supported": false
+      },
+      "modern_analogy_label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 80.0,
-        "information_gain": 85.0,
-        "narrative_necessity": 90.0,
-        "evidence_strength": 95.0,
+        "curiosity": 82.0,
+        "information_gain": 88.0,
+        "narrative_necessity": 92.0,
+        "evidence_strength": 94.0,
         "payoff_contribution": 98.0,
-        "novelty": 85.0,
-        "retention_function": 85.0,
+        "novelty": 87.0,
+        "retention_function": 88.0,
         "visual_potential": 85.0,
-        "stakes": 75.0,
-        "total_beat_score": 87.3
+        "stakes": 78.0,
+        "total_beat_score": 88.9
       }
     }
   ],
-  "overall_story_intelligence_score": 88.3,
+  "contamination_check": {
+    "contamination_detected": false,
+    "contaminated_terms": [],
+    "archetype_mismatch_flags": [],
+    "score": 0.0
+  },
+  "overall_story_intelligence_score": 81.5,
   "factual_confidence": 60.0,
+  "narrative_validity_passed": true,
   "drama_integrity_passed": true,
+  "entity_consistency_passed": true,
   "unresolved_loops_count": 0,
   "status": "COMPLETED"
 }

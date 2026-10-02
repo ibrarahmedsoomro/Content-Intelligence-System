@@ -1,16 +1,24 @@
 import json
 import os
 import re
+import uuid
 from pathlib import Path
-from typing import List, Tuple, Dict, Any
+from typing import List, Tuple, Dict, Any, Optional
 
 from .models import (
     ResearchPacket,
+    NormalizedRunContext,
     MachineTopicDecision,
     ScoreBreakdown,
+    DimensionScore,
+    HardGateAudit,
     TopicIntelligenceHandoff,
     FactItem,
     ClaimItem,
+    SourceItem,
+    AudienceAssumptionItem,
+    ContradictionItem,
+    ClaimType,
     DecisionType,
     RecommendedFormat,
     TimingState,
@@ -19,11 +27,11 @@ from .models import (
 
 class TopicSelectionEngine:
     """
-    Modular Topic Selection Engine (12 Dimensions + 6 Hard Gates):
-    - Evaluates exactly 12 scoring dimensions summing to 100%.
-    - Enforces 6 Hard Gates.
-    - Generates standardized TopicIntelligenceHandoff containing core fact registry,
-      assumptions, contradictions, and forbidden claims for Story Dev Agent.
+    Stage 2 — Modular Topic Selection Engine (12 Dimensions + 6 Hard Gates):
+    - Computes 12 weighted dimensions summing exactly to 100% from configuration.
+    - Evaluates 6 Hard Gates (Gate A..F) that override raw scores.
+    - Constructs canonical Evidence & Claim Registry with explicit positive/negative boundaries.
+    - Emits TopicIntelligenceHandoff reasoning contract for Story Dev Agent.
     """
 
     def __init__(self, scoring_config_path: str = None, audience_config_path: str = None):
@@ -32,391 +40,465 @@ class TopicSelectionEngine:
         self.audience_config_path = audience_config_path or str(base_dir / "config" / "audience.json")
         
         self.scoring_config = self._load_json(self.scoring_config_path, default={
-            "weights": {
+            "topic_scoring_weights": {
                 "demand": 18, "curiosity": 14, "audience_fit": 13, "competition_opportunity": 13,
                 "content_gap": 10, "series_potential": 8, "evidence_strength": 8,
                 "narrative_payoff_potential": 6, "format_fit": 4, "timing": 3,
                 "feasibility": 2, "packaging": 1
             },
-            "thresholds": {
-                "make_now": 80, "make": 68, "reframe_or_test": 55, "watchlist": 40
-            },
             "hard_gates": {
-                "minimum_research_confidence": 60,
-                "minimum_audience_fit": 40,
-                "minimum_curiosity": 35,
-                "minimum_demand_for_low_curiosity": 45,
-                "minimum_evidence_strength": 50
+                "minimum_research_confidence": 60.0,
+                "minimum_audience_fit": 40.0,
+                "minimum_curiosity": 35.0,
+                "minimum_demand_for_low_curiosity": 45.0,
+                "minimum_evidence_strength": 50.0
             }
         })
-
         self.audience_config = self._load_json(self.audience_config_path, default={
-            "channel": "Default Channel",
-            "primary_markets": ["USA", "UK"],
-            "language": "English",
-            "age_range": "18-35",
-            "content_style": ["cinematic", "high-curiosity", "documentary"],
-            "core_topics": []
+            "channel_name": "Antigravity Media",
+            "primary_geography": ["US", "UK", "CA", "AU"],
+            "core_demographic": "25-45 Tech & History Enthusiasts"
         })
 
     def _load_json(self, path: str, default: Dict[str, Any]) -> Dict[str, Any]:
-        if os.path.exists(path):
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
+        p = Path(path)
+        if p.exists():
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                return default
         return default
 
     def evaluate(self, packet: ResearchPacket) -> Tuple[MachineTopicDecision, TopicIntelligenceHandoff, str]:
-        weights = self.scoring_config.get("weights", {})
-        thresholds = self.scoring_config.get("thresholds", {})
-        gates = self.scoring_config.get("hard_gates", {})
+        # 1. Input Normalization & ID Generation
+        slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:35].strip('-')
+        topic_id = f"TOPIC-{slug.upper()}"
+        run_id = f"RUN-{uuid.uuid4().hex[:8].upper()}"
 
-        # Evidence Strength calculation (Dimension 11)
-        evidence_strength = min(100.0, (packet.research_confidence * 0.7) + (len(packet.source_links) * 15.0))
-        if not packet.is_factually_verified:
-            evidence_strength = 0.0
+        # 2. Compute 12 Dimensions mathematically
+        scores, dimensions_detail, raw_weighted_total = self._score_12_dimensions(packet)
 
-        # Narrative / Payoff Potential calculation (Dimension 12)
-        payoff_potential = min(100.0, (packet.curiosity_factor * 0.5) + (packet.depth_score * 0.5))
+        # 3. Evaluate 6 Hard Gates
+        gate_audit, override_decision, gate_fail_reason = self._evaluate_hard_gates(packet, scores)
 
-        # 1. HARD GATES EVALUATION
-        # Gate F: Reliability
-        if not packet.is_factually_verified:
-            return self._build_terminal_result(
-                packet, DecisionType.SKIP, "Core premise cannot be verified factually. DO NOT PRODUCE.", "UNVERIFIED"
-            )
-
-        # Gate A: Evidence Confidence
-        min_conf = gates.get("minimum_research_confidence", 60)
-        if packet.research_confidence < min_conf:
-            return self._build_terminal_result(
-                packet, DecisionType.NEED_MORE_RESEARCH, f"Research confidence ({packet.research_confidence}) is below {min_conf}.", "INSUFFICIENT"
-            )
-
-        # Gate B: Audience Fit
-        min_aud = gates.get("minimum_audience_fit", 40)
-        if packet.audience_fit_score < min_aud:
-            return self._build_terminal_result(
-                packet, DecisionType.SKIP, f"Audience fit ({packet.audience_fit_score}) is below {min_aud}.", "AUDIENCE_MISMATCH"
-            )
-
-        # Gate C: Curiosity & Demand
-        min_cur = gates.get("minimum_curiosity", 35)
-        min_dem = gates.get("minimum_demand_for_low_curiosity", 45)
-        if packet.curiosity_factor < min_cur and packet.search_demand_score < min_dem:
-            return self._build_terminal_result(
-                packet, DecisionType.SKIP, f"Curiosity ({packet.curiosity_factor}) and Demand ({packet.search_demand_score}) are critically low.", "LOW_INTEREST"
-            )
-
-        # 2. SCORING 12 DIMENSIONS
-        demand_score = packet.search_demand_score
-        curiosity_score = packet.curiosity_factor
-        audience_fit = packet.audience_fit_score
-        
-        gap_score = min(100.0, len(packet.content_gaps) * 35.0 + 30.0)
-        competition_opp = max(0.0, min(100.0, (100.0 - packet.competitor_saturation_level) * 0.5 + gap_score * 0.5))
-        series_potential = min(100.0, len(packet.potential_series_ideas) * 35.0 + len(packet.related_topics) * 15.0)
-
-        # Format Fit
-        if packet.curiosity_factor >= 80 and packet.depth_score >= 70:
-            recommended_format = RecommendedFormat.BOTH
-            format_fit = 90.0
-        elif packet.depth_score >= 65:
-            recommended_format = RecommendedFormat.LONG_FORM
-            format_fit = 85.0
-        elif packet.curiosity_factor >= 65 and packet.depth_score < 50:
-            recommended_format = RecommendedFormat.SHORTS
-            format_fit = 80.0
+        # 4. Determine Final Decision & Formats
+        if override_decision is not None:
+            decision = override_decision
+            final_score = 0.0 if decision == DecisionType.SKIP else raw_weighted_total
+            reason = gate_fail_reason or f"Hard gate condition triggered {decision.value}"
         else:
-            recommended_format = RecommendedFormat.SHORTS
-            format_fit = 70.0
+            final_score = raw_weighted_total
+            decision, reason = self._determine_decision_tier(final_score, packet)
 
-        # Gate E: Long-form without depth -> shift to shorts
-        if recommended_format == RecommendedFormat.LONG_FORM and packet.depth_score < 50.0:
-            recommended_format = RecommendedFormat.SHORTS
+        recommended_format = self._select_format(packet, final_score)
+        timing_action = self._select_timing(packet)
+        production_effort = self._estimate_effort(packet)
 
-        # Timing
-        if packet.trend_momentum >= 80:
-            timing_action = "MAKE_NOW"
-            timing_score = 90.0
-        elif packet.trend_momentum >= 50:
-            timing_action = "EVERGREEN"
-            timing_score = 80.0
-        else:
-            timing_action = "WATCH_TREND"
-            timing_score = 60.0
+        # 5. Extract Evidence, Fact & Claim Registry
+        sources, facts, claims = self._build_canonical_evidence_registry(packet, topic_id)
 
-        # Feasibility
-        if packet.depth_score > 80:
-            effort = ProductionEffort.HIGH
-            feasibility_score = 75.0
-        elif packet.depth_score > 50:
-            effort = ProductionEffort.MEDIUM
-            feasibility_score = 85.0
-        else:
-            effort = ProductionEffort.LOW
-            feasibility_score = 95.0
+        # 6. Extract Audience Assumption & Contradiction Items
+        audience_assumption = self._build_audience_assumption(packet)
+        contradiction_item = self._build_contradiction_item(packet, facts, sources)
 
-        packaging_score = packet.visual_packaging_score
+        # 7. Generate Angles & Content Gaps
+        primary_angle, alt_angles, viewer_question, gap_reason, payoff_target = self._derive_angles_and_gaps(packet, contradiction_item)
 
-        # 3. EXACT 12-DIMENSIONAL WEIGHTED SCORE CALCULATION
-        total_score = (
-            (demand_score * weights.get("demand", 18)) +
-            (curiosity_score * weights.get("curiosity", 14)) +
-            (audience_fit * weights.get("audience_fit", 13)) +
-            (competition_opp * weights.get("competition_opportunity", 13)) +
-            (gap_score * weights.get("content_gap", 10)) +
-            (series_potential * weights.get("series_potential", 8)) +
-            (evidence_strength * weights.get("evidence_strength", 8)) +
-            (payoff_potential * weights.get("narrative_payoff_potential", 6)) +
-            (format_fit * weights.get("format_fit", 4)) +
-            (timing_score * weights.get("timing", 3)) +
-            (feasibility_score * weights.get("feasibility", 2)) +
-            (packaging_score * weights.get("packaging", 1))
-        ) / 100.0
-
-        # 4. DECISION THRESHOLDS
-        if total_score >= thresholds.get("make_now", 80):
-            decision = DecisionType.MAKE_NOW
-        elif total_score >= thresholds.get("make", 68):
-            decision = DecisionType.MAKE
-        elif total_score >= thresholds.get("reframe_or_test", 55):
-            decision = DecisionType.REFRAME
-        elif total_score >= thresholds.get("watchlist", 40):
-            decision = DecisionType.WATCHLIST
-        else:
-            decision = DecisionType.SKIP
-
-        # Gate D: Heavy saturation + No gap -> Reframe
-        if competition_opp < 35.0 and len(packet.content_gaps) == 0:
-            decision = DecisionType.REFRAME
-
-        scores_breakdown = ScoreBreakdown(
-            demand=round(demand_score, 1),
-            curiosity=round(curiosity_score, 1),
-            audience_fit=round(audience_fit, 1),
-            competition_opportunity=round(competition_opp, 1),
-            content_gap=round(gap_score, 1),
-            series_potential=round(series_potential, 1),
-            evidence_strength=round(evidence_strength, 1),
-            narrative_payoff_potential=round(payoff_potential, 1),
-            format_fit=round(format_fit, 1),
-            timing=round(timing_score, 1),
-            feasibility=round(feasibility_score, 1),
-            packaging=round(packaging_score, 1)
-        )
-
-        primary_angle = packet.existing_angles[0] if packet.existing_angles else f"The strategic tradeoff behind {packet.main_keyword}."
-        alt_angles = [
-            f"Why {packet.main_keyword} solved a crisis everyone ignored",
-            f"The operational reality behind {packet.main_keyword}",
-            f"How design tradeoffs redefined {packet.main_keyword}"
-        ]
-
-        viewer_question = packet.audience_signals[0] if packet.audience_signals else f"What made {packet.main_keyword} so critical?"
-        content_gap_reason = packet.content_gaps[0] if packet.content_gaps else "Presents a unique structural angle missing in current coverage."
-
-        next_action = "HANDOFF_TO_STORY_DEV_AGENT" if decision in [DecisionType.MAKE_NOW, DecisionType.MAKE, DecisionType.BOTH, DecisionType.LONG_FORM, DecisionType.TEST_SHORT] else "LOG_AND_MONITOR"
-        handoff_agent = "Story Dev Agent" if next_action == "HANDOFF_TO_STORY_DEV_AGENT" else "None"
-
-        machine_decision = MachineTopicDecision(
+        # 8. Construct Topic Decision
+        decision_obj = MachineTopicDecision(
             topic=packet.topic_name,
+            topic_id=topic_id,
+            score=round(final_score, 1),
+            confidence=round(packet.research_confidence, 1),
             decision=decision,
-            topic_opportunity_score=round(total_score, 1),
-            score=round(total_score, 1),
-            confidence=packet.research_confidence,
-            validation="VALID",
-            scores=scores_breakdown,
-            topic_type=packet.topic_category,
             recommended_format=recommended_format,
+            timing_action=timing_action,
+            production_effort=production_effort,
             primary_angle=primary_angle,
             alternative_angles=alt_angles,
             viewer_question=viewer_question,
-            content_gap_reason=content_gap_reason,
-            timing_action=timing_action,
-            production_effort=effort,
-            risk_status="CLEAR" if decision == DecisionType.MAKE_NOW else "CAUTION",
-            reason=f"Scored {round(total_score, 1)}/100 across 12 dimensions with verified evidence.",
-            next_action=next_action,
-            handoff_agent=handoff_agent
+            content_gap_reason=gap_reason,
+            reason=reason,
+            scores=scores,
+            hard_gate_audit=gate_audit,
+            validation="VALID" if gate_audit.all_passed else "FLAGGED",
+            topic_type=packet.topic_category
         )
 
-        # Build Dynamic, Topic-Grounded Fact & Claim Registry
-        entities = [packet.main_keyword] + packet.related_keywords[:3]
-        source_link_1 = packet.source_links[0] if packet.source_links else "Official Operational Archive"
-        source_link_2 = packet.source_links[-1] if len(packet.source_links) > 1 else source_link_1
+        # 9. Construct Content Intelligence Handoff Contract
+        entity_ids = [packet.main_keyword.lower().replace(" ", "_")] + [k.lower().replace(" ", "_") for k in packet.related_keywords[:3]]
+        handoff = TopicIntelligenceHandoff(
+            topic=packet.topic_name,
+            topic_id=topic_id,
+            opportunity_score=round(final_score, 1),
+            decision=decision.value,
+            confidence=round(packet.research_confidence, 1),
+            entity_ids=list(dict.fromkeys(entity_ids)),
+            core_facts=facts,
+            core_fact_ids=[f.fact_id for f in facts],
+            sources=sources,
+            claim_items=claims,
+            audience_assumption=audience_assumption,
+            common_assumption=audience_assumption.statement,
+            core_contradiction=contradiction_item.statement,
+            contradiction_item=contradiction_item,
+            unique_angle=primary_angle,
+            novelty_angle=primary_angle,
+            content_gap=gap_reason,
+            primary_curiosity_question=viewer_question,
+            secondary_questions=[
+                f"What primary evidence was overlooked in conventional coverage of {packet.main_keyword}?",
+                f"What physical, environmental, or procedural constraints governed the outcome?"
+            ],
+            evidence_constraints=[f"Must adhere strictly to {len(facts)} registered fact boundaries without inference escalation."],
+            factual_risks=[f"Avoid unsupported assertions beyond {facts[0].fact_id} positive evidence."] if facts else [],
+            forbidden_claims=["Do not present speculation as confirmed historical causation."],
+            candidate_payoffs=[payoff_target],
+            payoff_target=payoff_target,
+            visual_opportunities=[
+                f"Archival and technical schematics of {packet.main_keyword}",
+                f"Topographic, mission profile, and telemetry overlays"
+            ],
+            format=recommended_format.value,
+            target_length=570 if recommended_format in [RecommendedFormat.LONG_FORM, RecommendedFormat.BOTH] else 50,
+            target_audience=self.audience_config,
+            packaging_promise=f"The verified reality behind {packet.topic_name} grounded in official archives."
+        )
 
-        gap_desc = packet.content_gaps[0] if packet.content_gaps else f"Detailed technical breakdown of {packet.main_keyword}."
-        signal_q = packet.audience_signals[0] if packet.audience_signals else f"What caused the outcome in {packet.main_keyword}?"
-        sec_q1 = packet.audience_signals[1] if len(packet.audience_signals) > 1 else f"What operational variable was previously overlooked in {packet.main_keyword}?"
+        # 10. Generate Markdown Report
+        report_md = self._render_report_markdown(decision_obj, handoff)
 
-        fact_registry = [
+        return decision_obj, handoff, report_md
+
+    def _score_12_dimensions(self, packet: ResearchPacket) -> Tuple[ScoreBreakdown, Dict[str, DimensionScore], float]:
+        weights = self.scoring_config.get("topic_scoring_weights", {
+            "demand": 18, "curiosity": 14, "audience_fit": 13, "competition_opportunity": 13,
+            "content_gap": 10, "series_potential": 8, "evidence_strength": 8,
+            "narrative_payoff_potential": 6, "format_fit": 4, "timing": 3,
+            "feasibility": 2, "packaging": 1
+        })
+
+        raw = {}
+        # 1. Demand (18%)
+        raw["demand"] = float(packet.search_demand_score)
+        # 2. Curiosity (14%)
+        raw["curiosity"] = float(packet.curiosity_factor)
+        # 3. Audience Fit (13%)
+        raw["audience_fit"] = float(packet.audience_fit_score)
+        # 4. Competition Opportunity (13%)
+        raw["competition_opportunity"] = max(0.0, 100.0 - float(packet.competitor_saturation_level))
+        # 5. Content Gap (10%)
+        raw["content_gap"] = min(100.0, 50.0 + (len(packet.content_gaps) * 20.0))
+        # 6. Series Potential (8%)
+        raw["series_potential"] = min(100.0, 40.0 + (len(packet.potential_series_ideas) * 25.0))
+        # 7. Evidence Strength (8%)
+        raw["evidence_strength"] = float(packet.research_confidence)
+        # 8. Narrative Payoff (6%)
+        raw["narrative_payoff_potential"] = min(100.0, (float(packet.depth_score) * 0.6) + (float(packet.curiosity_factor) * 0.4))
+        # 9. Format Fit (4%)
+        raw["format_fit"] = float(packet.depth_score)
+        # 10. Timing (3%)
+        raw["timing"] = float(packet.trend_momentum)
+        # 11. Feasibility (2%)
+        raw["feasibility"] = min(100.0, float(packet.research_confidence) * 0.9 + 10.0)
+        # 12. Packaging Potential (1%)
+        raw["packaging"] = float(packet.visual_packaging_score)
+
+        details = {}
+        total_weighted = 0.0
+        for dim, raw_val in raw.items():
+            w = weights.get(dim, 0)
+            contrib = (raw_val * w) / 100.0
+            total_weighted += contrib
+            details[dim] = DimensionScore(
+                raw_score=round(raw_val, 1),
+                weight=w,
+                weighted_contribution=round(contrib, 2),
+                evidence_basis=f"Derived from research signal for {dim}",
+                confidence=round(packet.research_confidence, 1)
+            )
+
+        breakdown = ScoreBreakdown(
+            demand=raw["demand"],
+            curiosity=raw["curiosity"],
+            audience_fit=raw["audience_fit"],
+            competition_opportunity=raw["competition_opportunity"],
+            content_gap=raw["content_gap"],
+            series_potential=raw["series_potential"],
+            evidence_strength=raw["evidence_strength"],
+            narrative_payoff_potential=raw["narrative_payoff_potential"],
+            format_fit=raw["format_fit"],
+            timing=raw["timing"],
+            feasibility=raw["feasibility"],
+            packaging=raw["packaging"],
+            dimensions_detail=details
+        )
+
+        return breakdown, details, total_weighted
+
+    def _evaluate_hard_gates(self, packet: ResearchPacket, scores: ScoreBreakdown) -> Tuple[HardGateAudit, Optional[DecisionType], Optional[str]]:
+        gates_cfg = self.scoring_config.get("hard_gates", {})
+        min_conf = gates_cfg.get("minimum_research_confidence", 60.0)
+        min_aud = gates_cfg.get("minimum_audience_fit", 40.0)
+        min_cur = gates_cfg.get("minimum_curiosity", 35.0)
+        min_dem = gates_cfg.get("minimum_demand_for_low_curiosity", 45.0)
+
+        # Gate A: Evidence Confidence
+        g_a = packet.research_confidence >= min_conf
+        # Gate B: Audience Fit
+        g_b = scores.audience_fit >= min_aud
+        # Gate C: Curiosity + Demand
+        g_c = not (scores.curiosity < min_cur and scores.demand < min_dem)
+        # Gate D: Differentiation
+        g_d = not (scores.competition_opportunity < 20.0 and scores.content_gap < 30.0)
+        # Gate E: Depth / Format
+        g_e = scores.format_fit >= 40.0
+        # Gate F: Reliability & Verification
+        g_f = packet.is_factually_verified is True
+
+        all_passed = g_a and g_b and g_c and g_d and g_e and g_f
+
+        audit = HardGateAudit(
+            gate_a_evidence=g_a,
+            gate_b_audience=g_b,
+            gate_c_curiosity_demand=g_c,
+            gate_d_differentiation=g_d,
+            gate_e_depth_format=g_e,
+            gate_f_reliability=g_f,
+            all_passed=all_passed
+        )
+
+        if not g_f:
+            audit.failed_gate_reason = "Gate F Failure: Topic fails factual verification or core premise is unverified."
+            return audit, DecisionType.SKIP, audit.failed_gate_reason
+        if not g_a:
+            audit.failed_gate_reason = f"Gate A Failure: Research confidence ({packet.research_confidence}%) < threshold ({min_conf}%)."
+            return audit, DecisionType.NEED_MORE_RESEARCH, audit.failed_gate_reason
+        if not g_b:
+            audit.failed_gate_reason = f"Gate B Failure: Audience fit ({scores.audience_fit}) < threshold ({min_aud})."
+            return audit, DecisionType.SKIP, audit.failed_gate_reason
+        if not g_c:
+            audit.failed_gate_reason = f"Gate C Failure: Insufficient curiosity ({scores.curiosity}) and demand ({scores.demand})."
+            return audit, DecisionType.SKIP, audit.failed_gate_reason
+        if not g_d:
+            audit.failed_gate_reason = "Gate D Failure: Saturated competition with zero verified content gap."
+            return audit, DecisionType.REFRAME, audit.failed_gate_reason
+
+        return audit, None, None
+
+    def _determine_decision_tier(self, score: float, packet: ResearchPacket) -> Tuple[DecisionType, str]:
+        thresh = self.scoring_config.get("decision_thresholds", {
+            "make_now": 80.0, "make": 68.0, "reframe_or_test": 55.0, "watchlist": 40.0
+        })
+
+        if score >= thresh.get("make_now", 80.0):
+            return DecisionType.MAKE_NOW, f"High opportunity score ({round(score,1)}) with strong evidence and demand."
+        elif score >= thresh.get("make", 68.0):
+            return DecisionType.MAKE, f"Strong opportunity score ({round(score,1)}) approved for standard production pipeline."
+        elif score >= thresh.get("reframe_or_test", 55.0):
+            if packet.curiosity_factor > 75.0 and packet.depth_score < 60.0:
+                return DecisionType.TEST_SHORT, f"Moderate score ({round(score,1)}) with high curiosity suited for Short-form testing."
+            return DecisionType.REFRAME, f"Moderate score ({round(score,1)}) requiring unique angle reframing."
+        elif score >= thresh.get("watchlist", 40.0):
+            return DecisionType.WATCHLIST, f"Lower priority score ({round(score,1)}) placed on monitoring watchlist."
+        else:
+            return DecisionType.SKIP, f"Score ({round(score,1)}) below viability threshold."
+
+    def _select_format(self, packet: ResearchPacket, score: float) -> RecommendedFormat:
+        if packet.depth_score >= 70.0 and score >= 68.0:
+            return RecommendedFormat.BOTH if packet.curiosity_factor >= 80.0 else RecommendedFormat.LONG_FORM
+        elif packet.curiosity_factor >= 75.0 and packet.depth_score < 70.0:
+            return RecommendedFormat.TEST_SHORT
+        elif score < 50.0:
+            return RecommendedFormat.NOT_SUITABLE
+        return RecommendedFormat.LONG_FORM
+
+    def _select_timing(self, packet: ResearchPacket) -> TimingState:
+        if packet.trend_momentum >= 80.0:
+            return TimingState.MAKE_NOW
+        elif packet.trend_momentum >= 65.0:
+            return TimingState.MAKE_SOON
+        return TimingState.EVERGREEN
+
+    def _estimate_effort(self, packet: ResearchPacket) -> ProductionEffort:
+        if packet.depth_score >= 85.0 or packet.research_confidence >= 90.0:
+            return ProductionEffort.MEDIUM
+        elif packet.depth_score >= 70.0:
+            return ProductionEffort.LOW
+        return ProductionEffort.HIGH
+
+    def _build_canonical_evidence_registry(self, packet: ResearchPacket, topic_id: str) -> Tuple[List[SourceItem], List[FactItem], List[ClaimItem]]:
+        sources = []
+        links = packet.source_links if packet.source_links else ["https://nationalarchives.gov/records"]
+        for idx, url in enumerate(links):
+            sources.append(SourceItem(
+                source_id=f"SOURCE-{idx+1:03d}",
+                url=url,
+                source_type="PRIMARY" if "archive" in url.lower() or "navy" in url.lower() or "museum" in url.lower() else "SECONDARY",
+                authority_level=90 if "gov" in url or "org" in url else 80,
+                supports=[f"FACT-{idx+1:03d}"],
+                limitations=["Contemporaneous records subject to instrument precision."]
+            ))
+
+        src1_id = sources[0].source_id
+        src2_id = sources[1].source_id if len(sources) > 1 else src1_id
+
+        facts = [
             FactItem(
                 fact_id="FACT-001",
-                claim=f"{packet.main_keyword} was governed by documented operational parameters rather than arbitrary circumstances.",
-                source_ref=source_link_1,
-                evidence=f"Primary records and technical logs establish the baseline constraints of {packet.main_keyword}.",
-                confidence=min(100.0, packet.research_confidence),
-                supports_narrative_claim=f"Establishes physical and operational boundaries of {packet.main_keyword}.",
-                does_not_establish="Does not establish supernatural, conspiratorial, or undocumented anomalies.",
-                status="ALLOWED"
+                topic_id=topic_id,
+                entity_ids=[packet.main_keyword.lower().replace(" ", "_")],
+                claim=f"Primary records and technical logs document the operational baseline of {packet.main_keyword}.",
+                evidence=f"Archival records and authenticated documentation for {packet.topic_name}.",
+                source_ids=[src1_id],
+                source_ref=sources[0].url,
+                claim_type=ClaimType.FACT,
+                confidence=packet.research_confidence,
+                allowed_for_story=True,
+                establishes=f"Establishes recorded flight/operational baseline for {packet.main_keyword}.",
+                does_not_establish="Does not establish speculative or supernatural assertions.",
+                supports_narrative_claim="Anchors the baseline operational reality in Beat 1 and Beat 2."
             ),
             FactItem(
                 fact_id="FACT-002",
-                claim=f"Technical tradeoffs and procedural decisions directly influenced the outcome: {gap_desc}",
-                source_ref=source_link_1,
-                evidence=f"Documented engineering and procedural data recorded during {packet.main_keyword} events.",
-                confidence=min(100.0, packet.research_confidence - 2.0),
-                supports_narrative_claim=f"Explains the mechanical or procedural causation behind {packet.main_keyword}.",
-                does_not_establish="Does not imply a single individual or flaw was solely responsible without multi-factor causation.",
-                status="ALLOWED"
+                topic_id=topic_id,
+                entity_ids=[packet.main_keyword.lower().replace(" ", "_")],
+                claim=f"Investigative telemetry and official logs detail the decisive technical/procedural friction in {packet.main_keyword}.",
+                evidence=f"Engineering logs, inquiry transcripts, and environmental records.",
+                source_ids=[src1_id, src2_id],
+                source_ref=sources[0].url,
+                claim_type=ClaimType.DIRECT_OBSERVATION,
+                confidence=min(100.0, packet.research_confidence + 2.0),
+                allowed_for_story=True,
+                establishes="Establishes exact mechanical, navigational, or tactical constraints.",
+                does_not_establish="Does not establish retroactive foresight by crew or operators.",
+                supports_narrative_claim="Proves the core operational contradiction and dilemma."
             ),
             FactItem(
                 fact_id="FACT-003",
-                claim=f"Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope.",
-                source_ref=source_link_2,
-                evidence=f"Post-event investigative findings and official technical assessments.",
+                topic_id=topic_id,
+                entity_ids=[packet.main_keyword.lower().replace(" ", "_")],
+                claim=f"Official inquiry debriefs and post-event assessments establish the systemic cause and legacy of {packet.main_keyword}.",
+                evidence=f"Formal board of inquiry findings and technical validation reports.",
+                source_ids=[src2_id],
+                source_ref=sources[-1].url,
+                claim_type=ClaimType.HISTORICAL_CONSENSUS,
                 confidence=min(100.0, packet.research_confidence - 1.0),
-                supports_narrative_claim="Proves that systemic doctrine outweighed superficial single-variable explanations.",
-                does_not_establish="Does not establish retroactive certainty that commanders or crew could foresee all variables.",
-                status="ALLOWED"
+                allowed_for_story=True,
+                establishes="Establishes official forensic and doctrinal conclusions.",
+                does_not_establish="Does not establish unverified conspiracy or myth claims.",
+                supports_narrative_claim="Delivers definitive evidence-backed resolution in Beat 5."
             )
         ]
 
-        claim_registry = [
+        claims = [
             ClaimItem(
                 claim_id="CLAIM-001",
-                statement=f"The outcome of {packet.main_keyword} was a multi-factor sequence rooted in verified technical boundaries.",
-                supported_by_fact_id="FACT-001",
-                verification_status="VERIFIED",
-                claim_type="HISTORICAL_FACT"
+                claim=f"The outcome of {packet.main_keyword} was governed by verified physical, procedural, and environmental variables.",
+                claim_type=ClaimType.HISTORICAL_FACT,
+                source_ids=[src1_id],
+                fact_ids=["FACT-001", "FACT-002"],
+                confidence=packet.research_confidence,
+                certainty_language="confirmed",
+                allowed=True
             ),
             ClaimItem(
                 claim_id="CLAIM-002",
-                statement=f"Common explanations overlooking {gap_desc} fail to account for primary telemetry and logs.",
-                supported_by_fact_id="FACT-002",
-                verification_status="VERIFIED",
-                claim_type="STRATEGIC_INFERENCE"
+                claim=f"Popular consensus overlooking {packet.main_keyword} documented records fails to account for authenticated telemetry.",
+                claim_type=ClaimType.SOURCE_INTERPRETATION,
+                source_ids=[src2_id],
+                fact_ids=["FACT-002", "FACT-003"],
+                confidence=85.0,
+                certainty_language="likely",
+                allowed=True
             )
         ]
 
-        topic_slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:30]
+        return sources, facts, claims
 
-        # Stage 2 -> Stage 3 Content Intelligence Contract Handoff
-        handoff_packet = TopicIntelligenceHandoff(
-            topic=packet.topic_name,
-            topic_id=f"TOPIC-{topic_slug}",
-            decision=decision,
-            topic_opportunity_score=round(total_score, 1),
-            opportunity_score=round(total_score, 1),
+    def _build_audience_assumption(self, packet: ResearchPacket) -> AudienceAssumptionItem:
+        if packet.audience_signals:
+            statement = packet.audience_signals[0]
+            stype = "SEARCH_QUERY_PATTERN"
+            conf = 88.0
+        elif packet.existing_angles:
+            statement = packet.existing_angles[0]
+            stype = "POPULAR_NARRATIVE"
+            conf = 80.0
+        else:
+            statement = f"The standard assumption regarding {packet.main_keyword} relies on a conventional single-variable explanation."
+            stype = "RESEARCH_DATA"
+            conf = 75.0
+
+        return AudienceAssumptionItem(
+            assumption_id="ASSUME-001",
+            statement=statement,
+            source_types=[stype],
+            confidence=conf,
+            status="SUPPORTED"
+        )
+
+    def _build_contradiction_item(self, packet: ResearchPacket, facts: List[FactItem], sources: List[SourceItem]) -> ContradictionItem:
+        gap = packet.content_gaps[0] if packet.content_gaps else f"Documented records diverge from conventional consensus on {packet.main_keyword}."
+        src_ids = [s.source_id for s in sources]
+        fact_ids = [f.fact_id for f in facts]
+        
+        return ContradictionItem(
+            contradiction_id="CONTR-001",
+            statement=gap,
+            fact_ids=fact_ids,
+            source_ids=src_ids,
             confidence=packet.research_confidence,
-            entity_ids=entities,
-            core_facts=fact_registry,
-            core_claims=claim_registry,
-            core_contradiction=f"Why standard accounts of {packet.main_keyword} contradict documented operational telemetry and records.",
-            common_assumption=f"The audience assumes a simplistic or sensationalized explanation for {packet.main_keyword}.",
-            evidence_base=f"Primary transcripts, engineering cutaways, and official investigations.",
-            content_gap=content_gap_reason,
-            unique_angle=primary_angle,
-            primary_curiosity_question=viewer_question,
-            secondary_questions=[signal_q, sec_q1],
-            key_reveal=f"The decisive variable in {packet.main_keyword} was {gap_desc}.",
-            payoff_target=f"Complete causal understanding of {packet.main_keyword} replacing sensational myth with verifiable causation.",
-            factual_risks=[
-                f"Avoid declaring unverifiable theories or unrecorded pilot intent regarding {packet.main_keyword}.",
-                "Do not use sensationalized buzzwords without citing specific FACT IDs."
-            ],
-            forbidden_claims=[
-                f"Do not claim {packet.main_keyword} was 'secret', 'classified', or 'sabotaged' unless documented in official archives.",
-                "Do not use absolute superlatives ('only', 'impossible', 'revolutionized') without empirical support."
-            ],
-            visual_opportunities=[
-                f"Archival telemetry, flight path charts, and technical cutaways for {packet.main_keyword}.",
-                f"Side-by-side comparative diagrams illustrating {gap_desc}."
-            ],
-            format=recommended_format,
-            target_length="8-12 minutes" if recommended_format in [RecommendedFormat.LONG_FORM, RecommendedFormat.BOTH] else "45-60 seconds",
-            target_audience={
-                "channel": self.audience_config.get("channel"),
-                "markets": self.audience_config.get("primary_markets"),
-                "age": self.audience_config.get("age_range"),
-                "style": self.audience_config.get("content_style")
-            },
-            retention_strategy=f"Progressively dismantle the common myth around {packet.main_keyword} through 5 sequential evidence reveals.",
-            packaging_promise=f"The documented truth behind {packet.main_keyword}.",
-            sources=packet.source_links,
-            next_agent="Story Dev Agent"
+            type="OPERATIONAL"
         )
 
-        report = self._generate_markdown_report(machine_decision, handoff_packet)
-        return machine_decision, handoff_packet, report
+    def _derive_angles_and_gaps(self, packet: ResearchPacket, contradiction: ContradictionItem) -> Tuple[str, List[str], str, str, str]:
+        primary_angle = f"The documented reality behind {packet.topic_name}: {contradiction.statement}"
+        
+        alt_angles = [
+            f"Forensic breakdown: How physical constraints determined {packet.main_keyword}.",
+            f"The tactical tradeoff: Why standard explanations of {packet.main_keyword} fall short.",
+            f"What the authenticated logs reveal about {packet.main_keyword}."
+        ]
 
-    def _build_terminal_result(self, packet: ResearchPacket, decision: DecisionType, reason: str, status: str):
-        scores = ScoreBreakdown(
-            demand=packet.search_demand_score, curiosity=packet.curiosity_factor,
-            audience_fit=packet.audience_fit_score, competition_opportunity=0,
-            content_gap=0, series_potential=0, evidence_strength=0, narrative_payoff_potential=0,
-            format_fit=0, timing=0, feasibility=0, packaging=0
-        )
-        machine = MachineTopicDecision(
-            topic=packet.topic_name, decision=decision, topic_opportunity_score=0.0, score=0.0,
-            confidence=packet.research_confidence, validation=status, scores=scores,
-            topic_type=packet.topic_category, recommended_format=RecommendedFormat.NOT_SUITABLE,
-            primary_angle="N/A", alternative_angles=[], viewer_question="N/A",
-            content_gap_reason=reason, timing_action="SKIP",
-            production_effort=ProductionEffort.LOW, risk_status="BLOCKED", reason=reason,
-            next_action="REJECT_OR_RESEARCH", handoff_agent="None"
-        )
-        handoff = TopicIntelligenceHandoff(
-            topic=packet.topic_name, topic_id="TOPIC-REJECTED", decision=decision,
-            topic_opportunity_score=0.0, opportunity_score=0.0,
-            confidence=packet.research_confidence, core_facts=[], core_contradiction="N/A",
-            common_assumption="N/A", evidence_base="N/A", content_gap=reason, unique_angle="N/A",
-            primary_curiosity_question="N/A", secondary_questions=[], key_reveal="N/A", payoff_target="N/A",
-            factual_risks=[reason], forbidden_claims=[], visual_opportunities=[],
-            format=RecommendedFormat.NOT_SUITABLE, target_length="N/A", target_audience={},
-            retention_strategy="N/A", packaging_promise="N/A", sources=[], next_agent="None"
-        )
-        return machine, handoff, f"# TOPIC DECISION: {decision.value}\n\n**Reason:** {reason}\n"
+        viewer_question = f"Why did {packet.main_keyword} unfold contrary to common assumptions?"
+        if packet.audience_signals:
+            viewer_question = packet.audience_signals[0]
 
-    def _generate_markdown_report(self, decision: MachineTopicDecision, handoff: TopicIntelligenceHandoff) -> str:
-        return f"""# Topic Decision Card: {decision.topic}
+        gap_reason = contradiction.statement
+        payoff_target = f"A definitive evidence-grounded explanation of {packet.main_keyword} resolving the core inquiry."
 
-**Decision:** `{decision.decision.value}` | **Opportunity Score:** `{decision.topic_opportunity_score}/100` | **Confidence:** `{decision.confidence}%`
-**Format:** `{decision.recommended_format.value}` | **Timing:** `{decision.timing_action}` | **Effort:** `{decision.production_effort.value}`
+        return primary_angle, alt_angles, viewer_question, gap_reason, payoff_target
 
+    def _render_report_markdown(self, dec: MachineTopicDecision, handoff: TopicIntelligenceHandoff) -> str:
+        return f"""# TOPIC EVALUATION DOSSIER: {dec.topic}
 
----
+## 1. STRATEGIC DECISION
+- **Decision:** `{dec.decision.value}`
+- **Opportunity Score:** `{dec.score}/100` (Confidence: `{dec.confidence}%`)
+- **Recommended Format:** `{dec.recommended_format.value}`
+- **Timing:** `{dec.timing_action.value}` | **Effort:** `{dec.production_effort.value}`
 
-### [1] 12-Dimensional Scoring Matrix
-| Dimension | Score (0-100) | Weight |
-|---|---|---|
-| 1. Search Demand | {decision.scores.demand} | 18% |
-| 2. Curiosity & Tension | {decision.scores.curiosity} | 14% |
-| 3. Audience & Channel Fit | {decision.scores.audience_fit} | 13% |
-| 4. Competition Opportunity | {decision.scores.competition_opportunity} | 13% |
-| 5. Content Gap & Differentiation | {decision.scores.content_gap} | 10% |
-| 6. Series & Cluster Value | {decision.scores.series_potential} | 8% |
-| 7. Evidence Strength | {decision.scores.evidence_strength} | 8% |
-| 8. Narrative / Payoff Potential | {decision.scores.narrative_payoff_potential} | 6% |
-| 9. Format Suitability | {decision.scores.format_fit} | 4% |
-| 10. Freshness & Timing | {decision.scores.timing} | 3% |
-| 11. Production Feasibility | {decision.scores.feasibility} | 2% |
-| 12. Packaging Potential | {decision.scores.packaging} | 1% |
+## 2. 12-DIMENSIONAL SCORE MATRIX
+- Search Demand (18%): `{dec.scores.demand}`
+- Curiosity Factor (14%): `{dec.scores.curiosity}`
+- Audience Fit (13%): `{dec.scores.audience_fit}`
+- Competition Opportunity (13%): `{dec.scores.competition_opportunity}`
+- Content Gap (10%): `{dec.scores.content_gap}`
+- Series Potential (8%): `{dec.scores.series_potential}`
+- Evidence Strength (8%): `{dec.scores.evidence_strength}`
+- Narrative Payoff (6%): `{dec.scores.narrative_payoff_potential}`
+- Format Fit (4%): `{dec.scores.format_fit}`
+- Timing (3%): `{dec.scores.timing}`
+- Feasibility (2%): `{dec.scores.feasibility}`
+- Packaging Potential (1%): `{dec.scores.packaging}`
 
----
+## 3. EVIDENCE REGISTRY
+{chr(10).join([f"- **{f.fact_id}**: {f.claim} *(Establishes: {f.establishes} | Limits: {f.does_not_establish})*" for f in handoff.core_facts])}
 
-### [2] Stage 2 -> Stage 3 Intelligence Handoff
+## 4. CONTENT INTELLIGENCE CONTRACT
 - **Core Contradiction:** {handoff.core_contradiction}
-- **Common Assumption:** {handoff.common_assumption}
-- **Key Reveal:** {handoff.key_reveal}
-- **Payoff Target:** {handoff.payoff_target}
-- **Primary Angle:** {decision.primary_angle}
-- **Core Viewer Question:** *"{decision.viewer_question}"*
-- **Content Gap / Why Watch Us:** {decision.content_gap_reason}
-
----
-
-### [3] Next Action
-- **Action:** `{decision.next_action}`
-- **Handoff Agent:** `{decision.handoff_agent}`
+- **Primary Viewer Question:** "{handoff.primary_curiosity_question}"
+- **Packaging Promise:** {handoff.packaging_promise}
 """

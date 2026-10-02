@@ -1,38 +1,131 @@
 {
   "topic": "Glenn Miller ",
-  "decision": "MAKE",
-  "topic_opportunity_score": 71.1,
-  "score": 71.1,
+  "topic_id": "TOPIC-GLENN-MILLER",
+  "score": 73.2,
   "confidence": 92.0,
-  "validation": "VALID",
+  "decision": "MAKE",
+  "recommended_format": "BOTH",
+  "timing_action": "MAKE_SOON",
+  "production_effort": "MEDIUM",
+  "primary_angle": "The documented reality behind Glenn Miller : Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined Glenn Miller.",
+    "The tactical tradeoff: Why standard explanations of Glenn Miller fall short.",
+    "What the authenticated logs reveal about Glenn Miller."
+  ],
+  "viewer_question": "Why is Glenn Miller so significant?",
+  "content_gap_reason": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
+  "reason": "Strong opportunity score (73.2) approved for standard production pipeline.",
   "scores": {
     "demand": 60.0,
     "curiosity": 90.0,
     "audience_fit": 85.0,
-    "competition_opportunity": 57.5,
-    "content_gap": 65.0,
-    "series_potential": 35.0,
-    "evidence_strength": 79.4,
-    "narrative_payoff_potential": 82.5,
-    "format_fit": 90.0,
-    "timing": 80.0,
-    "feasibility": 85.0,
-    "packaging": 85.0
+    "competition_opportunity": 50.0,
+    "content_gap": 70.0,
+    "series_potential": 65.0,
+    "evidence_strength": 92.0,
+    "narrative_payoff_potential": 81.0,
+    "format_fit": 75.0,
+    "timing": 70.0,
+    "feasibility": 92.8,
+    "packaging": 85.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 60.0,
+        "weight": 18.0,
+        "weighted_contribution": 10.8,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 92.0
+      },
+      "curiosity": {
+        "raw_score": 90.0,
+        "weight": 14.0,
+        "weighted_contribution": 12.6,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 92.0
+      },
+      "audience_fit": {
+        "raw_score": 85.0,
+        "weight": 13.0,
+        "weighted_contribution": 11.05,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 92.0
+      },
+      "competition_opportunity": {
+        "raw_score": 50.0,
+        "weight": 13.0,
+        "weighted_contribution": 6.5,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 92.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 92.0
+      },
+      "series_potential": {
+        "raw_score": 65.0,
+        "weight": 8.0,
+        "weighted_contribution": 5.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 92.0
+      },
+      "evidence_strength": {
+        "raw_score": 92.0,
+        "weight": 8.0,
+        "weighted_contribution": 7.36,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 92.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 81.0,
+        "weight": 6.0,
+        "weighted_contribution": 4.86,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 92.0
+      },
+      "format_fit": {
+        "raw_score": 75.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.0,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 92.0
+      },
+      "timing": {
+        "raw_score": 70.0,
+        "weight": 3.0,
+        "weighted_contribution": 2.1,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 92.0
+      },
+      "feasibility": {
+        "raw_score": 92.8,
+        "weight": 2.0,
+        "weighted_contribution": 1.86,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 92.0
+      },
+      "packaging": {
+        "raw_score": 85.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.85,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 92.0
+      }
+    }
   },
-  "topic_type": "Aviation History",
-  "recommended_format": "BOTH",
-  "primary_angle": "The untold story behind Glenn Miller.",
-  "alternative_angles": [
-    "Why Glenn Miller solved a crisis everyone ignored",
-    "The operational reality behind Glenn Miller",
-    "How design tradeoffs redefined Glenn Miller"
-  ],
-  "viewer_question": "Why is Glenn Miller so significant?",
-  "content_gap_reason": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
-  "timing_action": "EVERGREEN",
-  "production_effort": "MEDIUM",
-  "risk_status": "CAUTION",
-  "reason": "Scored 71.1/100 across 12 dimensions with verified evidence.",
-  "next_action": "HANDOFF_TO_STORY_DEV_AGENT",
-  "handoff_agent": "Story Dev Agent"
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation History"
 }

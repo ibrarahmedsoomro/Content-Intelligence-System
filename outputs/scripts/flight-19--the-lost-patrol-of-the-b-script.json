@@ -1,18 +1,18 @@
 {
   "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+  "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
   "format": "LONG_FORM_DOCUMENTARY",
-  "estimated_duration": "9 Minutes 30 Seconds",
-  "total_word_count": 243,
-  "calculated_wpm": 25.6,
-  "hook_opening": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records..",
+  "estimated_duration": "3 Minutes 12 Seconds",
+  "total_word_count": 460,
+  "calculated_wpm": 145.0,
+  "hook_opening": "For decades, accounts of Flight 19: The Lost Patrol of the Bermuda Triangle have repeated a familiar premise: Did Taylor confuse the Bahamas with the Florida Keys?. Yet verified archives and contemporaneous records document a fundamental contradiction: Contemporaneous military records document routine departures encountering rapid instrument and weather friction.. The primary inquiry is not the folklore, but rather: Did Taylor confuse the Bahamas with the Florida Keys?",
   "scenes": [
     {
       "scene_id": "SCENE-001",
       "scene_number": 1,
       "associated_beat_id": 1,
       "timestamp_estimate": "0:00 - 0:45",
-      "section_title": "The Public Assumption & The Core Contradiction",
+      "section_title": "The Legend vs The Logged Departure",
       "supporting_fact_ids": [
         "FACT-001"
       ],
@@ -20,17 +20,18 @@
         "LOOP-001"
       ],
       "payoff_contribution": "PARTIAL",
-      "visual_direction": "[VISUAL: High-resolution authentic archival/technical footage of Flight 19: The Lost Patrol of the Bermuda Triangle. Camera zooms into navigation charts and operational records with key discrepancy highlighted in cyan.]",
-      "audio_sfx": "[AUDIO: Low ambient engine drone, analog radio tuning tone fading into subdued cinematic strings.]",
-      "voiceover_script": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle have relied on a common assumption. Yet official procurement and mission records reveal a fundamental contradiction: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records..",
-      "retention_hook": "Challenges common consensus with documented procurement reality in the first 30 seconds."
+      "visual_direction": "[VISUAL: High-contrast navigation charts and authentic meteorological isobar weather maps from the event date.]",
+      "audio_sfx": "[AUDIO: Atmospheric score tuned to HIGH tension]",
+      "voiceover_script": "For decades, accounts of Flight 19: The Lost Patrol of the Bermuda Triangle have repeated a familiar premise: Did Taylor confuse the Bahamas with the Florida Keys?. Yet verified archives and contemporaneous records document a fundamental contradiction: Contemporaneous military records document routine departures encountering rapid instrument and weather friction.. The primary inquiry is not the folklore, but rather: Did Taylor confuse the Bahamas with the Florida Keys?",
+      "retention_hook": "Challenges common public consensus with primary evidence in first 30 seconds.",
+      "retention_category": "CONTRAST"
     },
     {
       "scene_id": "SCENE-002",
       "scene_number": 2,
       "associated_beat_id": 2,
       "timestamp_estimate": "0:45 - 2:30",
-      "section_title": "The Core Mechanism & Operational Tradeoff",
+      "section_title": "Instrument Divergence & Spatial Disorientation",
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002"
@@ -40,35 +41,38 @@
         "LOOP-002"
       ],
       "payoff_contribution": "EXPANDED",
-      "visual_direction": "[VISUAL: Side-by-side technical schematics illustrating the physical and environmental constraints: Technical tradeoffs and procedural decisions directly influenced the outcome: Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation.]",
-      "audio_sfx": "[AUDIO: Driving electronic pulse with subtle mechanical clicking elements.]",
-      "voiceover_script": "The fundamental driver was operational divergence. Flight 19 Bermuda Triangle was governed by documented operational parameters rather than arbitrary circumstances. To satisfy extreme mission profiles, engineers had to accept uncompromising tradeoffs: The 45-minute radio transcript that reveals why no one spoke up.. Every optimization in range or capability carried an exact, measurable cost.",
-      "retention_hook": "Visual proof connecting physical design parameters directly to mission demands."
+      "visual_direction": "[VISUAL: Cockpit instrument animations illustrating compass gyroscopic drift contrasted with actual flight heading.]",
+      "audio_sfx": "[AUDIO: Atmospheric score tuned to HIGH tension]",
+      "voiceover_script": "To understand how the situation developed, we have to look at the primary evidence and operational baseline. Engineering logs, inquiry transcripts, and environmental records. What initially appeared to be a routine situation quickly encountered physical and procedural friction. When primary compasses failed, flight leadership became convinced they were over the wrong body of water, flying opposite to safety. This created an escalating sensory and procedural dilemma: Spatial disorientation in bad weather can cause experienced pilots to actively reject correct heading cues. When baseline instruments and environmental cues diverged, standard operational assumptions began to crumble.",
+      "retention_hook": "Exposes the initial discrepancy and sensory/operational mechanism.",
+      "retention_category": "NEW_EVIDENCE"
     },
     {
       "scene_id": "SCENE-003",
       "scene_number": 3,
       "associated_beat_id": 3,
       "timestamp_estimate": "2:30 - 5:15",
-      "section_title": "Systemic Tooling & Execution Velocity",
+      "section_title": "The Radio Transcripts & Command Hierarchy",
       "supporting_fact_ids": [
+        "FACT-002",
         "FACT-003"
       ],
       "open_loop_ids": [
         "LOOP-002"
       ],
       "payoff_contribution": "EXPANDED",
-      "visual_direction": "[VISUAL: Archival production line schematics and throughput analytics charts showing manufacturing velocity and supply constraints.]",
-      "audio_sfx": "[AUDIO: Rhythmic industrial percussion, subtle metallic clinks.]",
-      "voiceover_script": "Beyond isolated performance metrics, real-world execution was dictated by industrial throughput. Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle was an intentional doctrine balancing distinct constraints: The 45-minute radio transcript that reveals why no one spoke up.. Systemic factors (environmental, doctrinal, or logistical) determined the operational envelope. Planners recognized that operational availability at scale often superseded marginal technical advantages.",
-      "retention_hook": "Presents industrial throughput data that completely reshapes viewer understanding."
+      "visual_direction": "[VISUAL: Synchronized audio waveform visualization over authenticated transcript logs and shore direction-finding vectors.]",
+      "audio_sfx": "[AUDIO: Atmospheric score tuned to EXTREME tension]",
+      "voiceover_script": "The critical turning point came when investigators analyzed authenticated recorded logs and communications. Formal board of inquiry findings and technical validation reports. Behind the official debriefs lies a compelling human and procedural record: Rigid military hierarchy and deteriorating radio range prevented junior pilots from overruling their disoriented commander. This evidence completely overturns standard assumptions: Social and procedural hierarchy can amplify a single navigational error into a multi-aircraft disaster. The transcripts demonstrate that the event was not sudden or inexplicable, but a continuous chain of compounded friction.",
+      "retention_hook": "Presents authenticated data that completely overturns standard theories.",
+      "retention_category": "REVEAL"
     },
     {
       "scene_id": "SCENE-004",
       "scene_number": 4,
       "associated_beat_id": 4,
       "timestamp_estimate": "5:15 - 7:45",
-      "section_title": "Operational Crucible & Validation",
+      "section_title": "Fuel Exhaustion & Forced Ditching",
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
@@ -79,17 +83,18 @@
         "LOOP-002"
       ],
       "payoff_contribution": "EXPANDED",
-      "visual_direction": "[VISUAL: Authentic operational mission telemetry synchronized with operator debrief logs and combat performance data.]",
-      "audio_sfx": "[AUDIO: Heavy resonant atmospheric swell with authentic radio communications.]",
-      "voiceover_script": "When deployed strictly according to their doctrinal roles, the strategy delivered decisive results. By refusing to compromise on specialized mission requirements, total operational effectiveness was maximized across every critical theater.",
-      "retention_hook": "Validates doctrinal success using recorded mission outcome statistics."
+      "visual_direction": "[VISUAL: Dark sea state visualization synchronized with meteorological isobar weather maps.]",
+      "audio_sfx": "[AUDIO: Atmospheric score tuned to EXTREME tension]",
+      "voiceover_script": "Under the extreme physical and environmental realities of the event, the outcome reached its inevitable crucible. Naval records confirm the aircraft operated until fuel exhaustion in rough seas. As conditions deteriorated, the margin for error dropped to zero. With fuel exhausted far off the continental shelf, the aircraft ditched into heavy waves in total darkness. The forensic conclusion is inescapable: The loss was the inescapable physical result of fuel exhaustion in remote oceanic waters during adverse weather. The physical constraints of time, fuel, and environment dictated the final outcome regardless of subjective hope.",
+      "retention_hook": "Validates the causal chain using physical and operational evidence.",
+      "retention_category": "ESCALATION"
     },
     {
       "scene_id": "SCENE-005",
       "scene_number": 5,
       "associated_beat_id": 5,
       "timestamp_estimate": "7:45 - 9:30",
-      "section_title": "The Strategic Takeaway & Modern Systems",
+      "section_title": "The Documented Findings & Modern Aviation Safety",
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
@@ -99,31 +104,59 @@
         "LOOP-001"
       ],
       "payoff_contribution": "RESOLVED",
-      "visual_direction": "[VISUAL: Cinematic footage of surviving engineering artifacts fading into a clean structural infographic takeaway card. Modern comparison badge displayed: MODERN ANALOGY \u2014 NOT HISTORICAL FACT.]",
-      "audio_sfx": "[AUDIO: Warm resonant string resolve, gentle wind ambience.]",
-      "voiceover_script": "Looking back, Flight 19: The Lost Patrol of the Bermuda Triangle was never about declaring a single victorious design. It was a masterclass in strategic doctrine\u2014recognizing that complex global challenges cannot be solved with a one-size-fits-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
-      "retention_hook": "Delivers complete resolution to LOOP-001 with an enduring strategic lesson."
+      "visual_direction": "[VISUAL: Historical Naval Court of Inquiry records transitioning to modern cockpit navigation displays.]",
+      "audio_sfx": "[AUDIO: Atmospheric score tuned to MEDIUM tension]",
+      "voiceover_script": "Looking back at the complete factual record, Flight 19: The Lost Patrol of the Bermuda Triangle was never about sensational folklore or arbitrary chance. Flight 19: The Lost Patrol of the Bermuda Triangle demonstrated that instrument failure combined with rigid communication hierarchy can overwhelm capable crews. The enduring takeaway is clear: Flight 19: The Lost Patrol of the Bermuda Triangle became a foundational historical case study for modern Crew Resource Management (CRM) and mandatory dual avionics. This directly connects to modern safety doctrine: Spatial Disorientation & Cockpit Communication Hierarchy (Modern Crew Resource Management (CRM) protocols and mandatory redundant GPS navigation cross-checks). By separating proven evidence from mythology, we gain not just historical truth, but an enduring framework for complex decision-making.",
+      "retention_hook": "Delivers complete resolution of LOOP-001 with an enduring universal takeaway.",
+      "retention_category": "RESOLUTION"
     }
   ],
-  "pacing_notes": "Maintain steady 25.6 WPM delivery. Visual cuts synchronized every 4-5 seconds with informational density. Ground every statement in registered facts.",
+  "pacing_notes": "Maintain steady 145.0 WPM narration tempo. Visual cuts synchronized every 4-5 seconds with informational density. Ground every statement in registered facts.",
   "qa_report": {
     "fact_coverage_rate": 100.0,
+    "fact_accuracy_rate": 100.0,
     "unresolved_loops": 0,
-    "promise_match_score": 95.5,
+    "promise_match_score": 97.5,
     "drama_integrity_score": 100.0,
     "traceability_rate": 100.0,
-    "pacing_wpm": 25.6,
+    "pacing_wpm": 145.0,
     "retention_hook_density": 100.0,
-    "script_quality_score": 99.3,
+    "script_quality_score": 99.6,
+    "causal_claims_detected": 1,
+    "supported_causal_claims": 1,
+    "overstated_causal_claims": 0,
+    "causal_audit_items": [
+      {
+        "cause": "Operational / environmental factor linked by 'prevented'",
+        "effect": "Narrative transition in script",
+        "supporting_fact_ids": [
+          "FACT-002",
+          "FACT-003"
+        ],
+        "supporting_source_ids": [
+          "SOURCE-001"
+        ],
+        "certainty_supported": true,
+        "certainty_used_in_script": "DIRECT_FACT",
+        "status": "PASS"
+      }
+    ],
+    "topic_domain_match": true,
+    "entity_match": true,
+    "lexical_contamination": false,
+    "semantic_contamination": false,
+    "information_gain_score": 90.0,
+    "semantic_repetition_ratio": 0.0,
+    "retention_functions_count": 5,
     "checks": [
       {
         "check_id": "QA-01",
-        "name": "Fact Coverage Rate",
+        "name": "Factual Accuracy & Coverage",
         "category": "Factuality & Evidence",
         "status": "PASS",
-        "calculated_value": "100.0%",
-        "threshold": ">= 80.0%",
-        "details": "3 of 3 registered core facts cited across script scenes.",
+        "calculated_value": "Cov: 100.0%, Acc: 100.0%",
+        "threshold": "Cov >= 80%, Acc >= 90%",
+        "details": "3 of 3 facts cited; 5/5 scenes verified accurate.",
         "is_critical": true
       },
       {
@@ -133,7 +166,7 @@
         "status": "PASS",
         "calculated_value": "0 Unpaid Loops",
         "threshold": "0 Unpaid Loops",
-        "details": "All 2 inquiry loops (LOOP-001, LOOP-002) verified PAID in resolving beats.",
+        "details": "All 2 inquiry loops (LOOP-001, LOOP-002) verified PAID with evidence.",
         "is_critical": true
       },
       {
@@ -141,7 +174,7 @@
         "name": "Promise -> Delivery Alignment",
         "category": "Viewer Fulfillment",
         "status": "PASS",
-        "calculated_value": "95.5%",
+        "calculated_value": "97.5%",
         "threshold": ">= 80.0%",
         "details": "Ending scene cleanly delivers on initial thesis and curiosity promise.",
         "is_critical": true
@@ -158,62 +191,62 @@
       },
       {
         "check_id": "QA-05",
+        "name": "Causal Integrity Audit",
+        "category": "Causal Rigor",
+        "status": "PASS",
+        "calculated_value": "100.0% (1/1 supported)",
+        "threshold": "100% Causal Grounding",
+        "details": "All 1 causal transitions verified against registered evidence.",
+        "is_critical": true
+      },
+      {
+        "check_id": "QA-06",
         "name": "Drama Integrity Check",
         "category": "Substance & Tone",
         "status": "PASS",
         "calculated_value": "100.0%",
         "threshold": "100.0%",
-        "details": "Zero sensationalized clickbait phrases found in voiceover script.",
+        "details": "Zero sensationalized clickbait phrases found in script.",
         "is_critical": true
       },
       {
-        "check_id": "QA-06",
+        "check_id": "QA-07",
         "name": "Voiceover Pacing & WPM",
         "category": "Production Delivery",
-        "status": "WARN",
-        "calculated_value": "25.6 WPM",
-        "threshold": "130 - 165 WPM",
-        "details": "Total 243 words delivered at standard documentary narration tempo.",
-        "is_critical": false
-      },
-      {
-        "check_id": "QA-07",
-        "name": "Initial Hook Timing",
-        "category": "Audience Retention",
         "status": "PASS",
-        "calculated_value": "43 words in Scene 1",
-        "threshold": "<= 90 words (~35s)",
-        "details": "Core contradiction and inquiry loop opened within opening 30 seconds.",
+        "calculated_value": "145.0 WPM (67 hook words)",
+        "threshold": "125-170 WPM, Hook <=100w",
+        "details": "Total 460 words delivered at standard documentary narration tempo.",
         "is_critical": false
       },
       {
         "check_id": "QA-08",
-        "name": "Loop Entity Consistency",
+        "name": "Narrative Domain & Entity Consistency",
         "category": "Domain Integrity",
         "status": "PASS",
-        "calculated_value": "100% Consistent",
-        "threshold": "100% Topic Entities",
-        "details": "All open loops exclusively query verified entities for this topic without cross-topic contamination.",
+        "calculated_value": "100% Domain & Entity Match",
+        "threshold": "100% Topic Domain",
+        "details": "Story and script strictly belong to DISASTER_INVESTIGATION domain without cross-topic template leakage.",
         "is_critical": true
       },
       {
         "check_id": "QA-09",
-        "name": "Modern Analogy Explicit Labeling",
+        "name": "Template Contamination Detector",
         "category": "Historical Rigor",
         "status": "PASS",
-        "calculated_value": "Labeled",
-        "threshold": "Explicit Label Required",
-        "details": "Beat 5 modern systems comparison explicitly tagged with 'MODERN ANALOGY \u2014 NOT HISTORICAL FACT'.",
-        "is_critical": false
+        "calculated_value": "0% Contamination",
+        "threshold": "0% Contamination",
+        "details": "Zero inherited concepts from forbidden archetype templates detected.",
+        "is_critical": true
       },
       {
         "check_id": "QA-10",
-        "name": "Retention Hook Density",
+        "name": "Information Gain & Retention Density",
         "category": "Audience Retention",
         "status": "PASS",
-        "calculated_value": "100.0%",
+        "calculated_value": "100.0% (5 retention functions)",
         "threshold": "100.0%",
-        "details": "All 5 scenes specify an explicit visual/narrative pattern-break retention hook.",
+        "details": "All 5 scenes specify an explicit visual/narrative pattern-break retention function.",
         "is_critical": false
       },
       {
@@ -228,12 +261,12 @@
       }
     ],
     "promise_delivery": {
-      "title_promise": "The documented truth behind Flight 19 Bermuda Triangle.",
-      "hook_promise": "For decades, discussions surrounding Flight 19: The Lost Patrol of the Bermuda Triangle ha...",
-      "story_promise": "Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle...",
-      "script_delivery": "Script delivers detailed physical mechanisms and industrial throughput facts in scenes 2-4.",
-      "ending_payoff": "-all tool. The real engineering triumph was matching specific machines to exact operational demands.",
-      "promise_match_score": 95.5,
+      "title_promise": "The verified reality behind Flight 19: The Lost Patrol of the Bermuda Triangle grounded in official archives.",
+      "hook_promise": "For decades, accounts of Flight 19: The Lost Patrol of the Bermuda Triangle have repeated ...",
+      "story_promise": "Rather than a supernatural occurrence or inexplicable void, the documented loss in Flight 19: The Lo...",
+      "script_delivery": "Script delivers evidence-grounded breakdown across scenes 2-4 reflecting DISASTER_INVESTIGATION domain.",
+      "ending_payoff": "mythology, we gain not just historical truth, but an enduring framework for complex decision-making.",
+      "promise_match_score": 97.5,
       "status": "PASS"
     },
     "drama_integrity_check": true,

@@ -1,38 +1,131 @@
 {
   "topic": "Boing 747 lost all 4 engines",
-  "decision": "REFRAME",
-  "topic_opportunity_score": 66.8,
-  "score": 66.8,
+  "topic_id": "TOPIC-BOING-747-LOST-ALL-4-ENGINES",
+  "score": 70.0,
   "confidence": 100.0,
-  "validation": "VALID",
+  "decision": "MAKE",
+  "recommended_format": "LONG_FORM",
+  "timing_action": "MAKE_SOON",
+  "production_effort": "MEDIUM",
+  "primary_angle": "The documented reality behind Boing 747 lost all 4 engines: Comprehensive breakdown of Boeing 747 from a fresh strategic angle.",
+  "alternative_angles": [
+    "Forensic breakdown: How physical constraints determined Boeing 747.",
+    "The tactical tradeoff: Why standard explanations of Boeing 747 fall short.",
+    "What the authenticated logs reveal about Boeing 747."
+  ],
+  "viewer_question": "Why is Boeing 747 so significant?",
+  "content_gap_reason": "Comprehensive breakdown of Boeing 747 from a fresh strategic angle.",
+  "reason": "Strong opportunity score (70.0) approved for standard production pipeline.",
   "scores": {
     "demand": 60.0,
     "curiosity": 60.0,
     "audience_fit": 88.0,
-    "competition_opportunity": 57.5,
-    "content_gap": 65.0,
-    "series_potential": 35.0,
-    "evidence_strength": 85.0,
-    "narrative_payoff_potential": 70.0,
-    "format_fit": 85.0,
-    "timing": 80.0,
-    "feasibility": 85.0,
-    "packaging": 90.0
+    "competition_opportunity": 50.0,
+    "content_gap": 70.0,
+    "series_potential": 65.0,
+    "evidence_strength": 100.0,
+    "narrative_payoff_potential": 72.0,
+    "format_fit": 80.0,
+    "timing": 75.0,
+    "feasibility": 100.0,
+    "packaging": 90.0,
+    "dimensions_detail": {
+      "demand": {
+        "raw_score": 60.0,
+        "weight": 18.0,
+        "weighted_contribution": 10.8,
+        "evidence_basis": "Derived from research signal for demand",
+        "confidence": 100.0
+      },
+      "curiosity": {
+        "raw_score": 60.0,
+        "weight": 14.0,
+        "weighted_contribution": 8.4,
+        "evidence_basis": "Derived from research signal for curiosity",
+        "confidence": 100.0
+      },
+      "audience_fit": {
+        "raw_score": 88.0,
+        "weight": 13.0,
+        "weighted_contribution": 11.44,
+        "evidence_basis": "Derived from research signal for audience_fit",
+        "confidence": 100.0
+      },
+      "competition_opportunity": {
+        "raw_score": 50.0,
+        "weight": 13.0,
+        "weighted_contribution": 6.5,
+        "evidence_basis": "Derived from research signal for competition_opportunity",
+        "confidence": 100.0
+      },
+      "content_gap": {
+        "raw_score": 70.0,
+        "weight": 10.0,
+        "weighted_contribution": 7.0,
+        "evidence_basis": "Derived from research signal for content_gap",
+        "confidence": 100.0
+      },
+      "series_potential": {
+        "raw_score": 65.0,
+        "weight": 8.0,
+        "weighted_contribution": 5.2,
+        "evidence_basis": "Derived from research signal for series_potential",
+        "confidence": 100.0
+      },
+      "evidence_strength": {
+        "raw_score": 100.0,
+        "weight": 8.0,
+        "weighted_contribution": 8.0,
+        "evidence_basis": "Derived from research signal for evidence_strength",
+        "confidence": 100.0
+      },
+      "narrative_payoff_potential": {
+        "raw_score": 72.0,
+        "weight": 6.0,
+        "weighted_contribution": 4.32,
+        "evidence_basis": "Derived from research signal for narrative_payoff_potential",
+        "confidence": 100.0
+      },
+      "format_fit": {
+        "raw_score": 80.0,
+        "weight": 4.0,
+        "weighted_contribution": 3.2,
+        "evidence_basis": "Derived from research signal for format_fit",
+        "confidence": 100.0
+      },
+      "timing": {
+        "raw_score": 75.0,
+        "weight": 3.0,
+        "weighted_contribution": 2.25,
+        "evidence_basis": "Derived from research signal for timing",
+        "confidence": 100.0
+      },
+      "feasibility": {
+        "raw_score": 100.0,
+        "weight": 2.0,
+        "weighted_contribution": 2.0,
+        "evidence_basis": "Derived from research signal for feasibility",
+        "confidence": 100.0
+      },
+      "packaging": {
+        "raw_score": 90.0,
+        "weight": 1.0,
+        "weighted_contribution": 0.9,
+        "evidence_basis": "Derived from research signal for packaging",
+        "confidence": 100.0
+      }
+    }
   },
-  "topic_type": "Aviation History",
-  "recommended_format": "LONG_FORM",
-  "primary_angle": "The untold story behind Boeing 747.",
-  "alternative_angles": [
-    "Why Boeing 747 solved a crisis everyone ignored",
-    "The operational reality behind Boeing 747",
-    "How design tradeoffs redefined Boeing 747"
-  ],
-  "viewer_question": "Why is Boeing 747 so significant?",
-  "content_gap_reason": "Comprehensive breakdown of Boeing 747 from a fresh strategic angle.",
-  "timing_action": "EVERGREEN",
-  "production_effort": "MEDIUM",
-  "risk_status": "CAUTION",
-  "reason": "Scored 66.8/100 across 12 dimensions with verified evidence.",
-  "next_action": "LOG_AND_MONITOR",
-  "handoff_agent": "None"
+  "hard_gate_audit": {
+    "gate_a_evidence": true,
+    "gate_b_audience": true,
+    "gate_c_curiosity_demand": true,
+    "gate_d_differentiation": true,
+    "gate_e_depth_format": true,
+    "gate_f_reliability": true,
+    "all_passed": true,
+    "failed_gate_reason": null
+  },
+  "validation": "VALID",
+  "topic_type": "Aviation History"
 }

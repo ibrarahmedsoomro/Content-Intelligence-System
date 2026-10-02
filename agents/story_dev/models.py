@@ -8,6 +8,22 @@ class TensionLevel(str, Enum):
     HIGH = "HIGH"
     EXTREME = "EXTREME"
 
+class StoryArchetype(str, Enum):
+    DISASTER_INVESTIGATION = "DISASTER_INVESTIGATION"   # e.g., Flight 19, Titanic, Air accidents, Disappearances
+    ENGINEERING_PARADOX = "ENGINEERING_PARADOX"         # e.g., WWII Bombers, SR-71, Concorde
+    SCIENTIFIC_DISCOVERY = "SCIENTIFIC_DISCOVERY"       # e.g., Quantum physics, Penicillin, DNA
+    HISTORICAL_DECISION = "HISTORICAL_DECISION"         # e.g., Battle of Midway, Enigma, Strategic choices
+    SYSTEMIC_FAILURE = "SYSTEMIC_FAILURE"               # e.g., Boeing 747 volcanic ash, Grid blackout
+    GENERAL_DOCUMENTARY = "GENERAL_DOCUMENTARY"
+
+class ArchetypeClassificationResult(BaseModel):
+    archetype: StoryArchetype
+    subtype: Optional[str] = None  # e.g. DISAPPEARANCE, ACCIDENT, MISSING_PATROL, SEARCH_AND_RECOVERY, MULTI_ROLE_COMPROMISE, DOCTRINAL_CHOICE
+    confidence: float = 90.0
+    central_question: str = ""
+    supporting_fact_ids: List[str] = Field(default_factory=list)
+    alternative_archetypes: List[str] = Field(default_factory=list)
+
 class RevelationStructure(BaseModel):
     assumption: str
     evidence: str
@@ -21,6 +37,22 @@ class InformationGainMetric(BaseModel):
     genuine_change: str
     gain_level: str = "HIGH"  # LOW / MEDIUM / HIGH
 
+class AudienceAssumptionEvidence(BaseModel):
+    assumption: str
+    source_type: str = "POPULAR_NARRATIVE"  # SEARCH_QUERY_PATTERN / COMMENTS / COMPETITOR_TITLES / POPULAR_NARRATIVE / RESEARCH_DATA
+    source_types: List[str] = Field(default_factory=lambda: ["POPULAR_NARRATIVE", "SEARCH_QUERY_PATTERN"])
+    confidence: float = 85.0
+    evidence: str
+
+class ModernAnalogyMetadata(BaseModel):
+    label: str = "MODERN ANALOGY — NOT HISTORICAL FACT"
+    analogy_strength: str = "MEDIUM"  # LOW / MEDIUM / HIGH
+    similarity_dimension: str
+    historical_basis: str
+    modern_basis: str
+    boundary_limit: str
+    influence_claim_supported: bool = False
+
 class OpenLoopItem(BaseModel):
     loop_id: str
     question: str
@@ -31,9 +63,12 @@ class OpenLoopItem(BaseModel):
     expanded_beat: Optional[int] = None
     resolved_at_beat: int = 5
     resolution_fact_ids: List[str] = Field(default_factory=list)
-    resolution_quality: float = 90.0 # 0-100
+    resolution_claim_ids: List[str] = Field(default_factory=list)
+    resolution_type: str = "FULL"  # FULL / PARTIAL / PROBABILISTIC / CONTESTED / UNRESOLVED
+    resolution_quality: float = 90.0  # 0-100
     is_entity_consistent: bool = True
     status: str = "PAID"  # OPEN / EXPANDED / PAID / UNPAID / INVALID
+    resolution_confidence: float = 85.0
     
     # Backward compatibility aliases
     opened_beat: Optional[int] = None
@@ -70,30 +105,54 @@ class DependencyAuditCriteria(BaseModel):
     makes_later_beat_confusing: bool = True
     is_filler: bool = False
 
+class NarrativeValidityGateResult(BaseModel):
+    derives_from_verified_facts: bool = True
+    answers_real_question: bool = True
+    advances_thesis: bool = True
+    narrative_domain_consistency: bool = True
+    template_contamination_free: bool = True
+    bounded_claims: bool = True
+    is_valid: bool = True
+    rejection_reasons: List[str] = Field(default_factory=list)
+
+class TemplateContaminationCheckResult(BaseModel):
+    contamination_detected: bool = False
+    contaminated_terms: List[str] = Field(default_factory=list)
+    archetype_mismatch_flags: List[str] = Field(default_factory=list)
+    score: float = 0.0  # 0 = clean
+
 class StoryBeatIntelligence(BaseModel):
     beat_number: int
+    slot_name: str = "SLOT"  # e.g. "SLOT 1: Hook & Central Question"
     title: str
     function_role: str
     core_question: str
     revelation: RevelationStructure
     information_gain: InformationGainMetric
-    narrative_dependency_score: int = Field(ge=0, le=10) # 0=unnecessary/filler, 9-10=essential
+    narrative_dependency_score: int = Field(ge=0, le=10)  # 0=filler, 9-10=essential
     dependency_audit: Optional[DependencyAuditCriteria] = None
     supporting_fact_ids: List[str] = Field(default_factory=list)
+    supporting_claim_ids: List[str] = Field(default_factory=list)
     associated_open_loop_ids: List[str] = Field(default_factory=list)
     visual_strategy: str
     tension_attribute: TensionLevel = TensionLevel.MEDIUM
-    modern_analogy_label: Optional[str] = None # e.g. "MODERN ANALOGY — NOT HISTORICAL FACT"
+    modern_analogy: Optional[ModernAnalogyMetadata] = None
+    modern_analogy_label: Optional[str] = None
+    validity_gate: Optional[NarrativeValidityGateResult] = None
     beat_score: BeatScoreBreakdown
 
 class StoryIntelligenceBlueprint(BaseModel):
     """
     Stage 3 Story Intelligence Blueprint:
-    Replaces shallow generic templates with a rigorous 100-point beat intelligence model,
-    open-loop tracking, narrative dependency verification, and information gain diffs.
+    Replaces generic fixed templates with dynamic evidence-derived story reasoning,
+    archetype classification, template contamination detection, and narrative validity gates.
     """
     topic: str
     topic_id: str
+    archetype: StoryArchetype = StoryArchetype.GENERAL_DOCUMENTARY
+    subtype: Optional[str] = None
+    archetype_classification: Optional[ArchetypeClassificationResult] = None
+    audience_assumption: Optional[AudienceAssumptionEvidence] = None
     core_thesis: str
     primary_curiosity_question: str
     secondary_questions: List[str] = Field(default_factory=list)
@@ -102,10 +161,11 @@ class StoryIntelligenceBlueprint(BaseModel):
     payoff_target: str
     beats: List[StoryBeatIntelligence] = Field(default_factory=list)
     
+    contamination_check: TemplateContaminationCheckResult = Field(default_factory=TemplateContaminationCheckResult)
     overall_story_intelligence_score: float
     factual_confidence: float
+    narrative_validity_passed: bool = True
     drama_integrity_passed: bool = True
     entity_consistency_passed: bool = True
     unresolved_loops_count: int = 0
     status: str = "COMPLETED"
-

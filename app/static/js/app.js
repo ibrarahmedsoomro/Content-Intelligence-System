@@ -329,6 +329,41 @@ function renderStoryUI(story, handoff, pipelineData) {
     const hookEl = document.getElementById('story-hook-text');
     if (hookEl) hookEl.innerText = `Target: ${story.payoff_target || 'Resolve primary contradiction'}`;
 
+    // Render Archetype & Contamination Status Banner
+    const storyBanner = document.getElementById('story-archetype-banner');
+    if (storyBanner) {
+      const arch = story.archetype || 'GENERAL_DOCUMENTARY';
+      const isContaminated = story.contamination_check ? story.contamination_check.contamination_detected : false;
+      const contamScore = story.contamination_check ? story.contamination_check.score : 0;
+      const assump = story.audience_assumption || {};
+
+      storyBanner.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.35); border:1px solid var(--border-subtle); border-radius:10px; padding:0.85rem 1.25rem; margin-bottom:1.25rem;">
+          <div style="display:flex; gap:1.25rem; align-items:center;">
+            <div>
+              <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">Story Archetype:</span>
+              <div style="font-weight:700; color:var(--purple-glow); font-size:0.9rem;">🏛️ ${arch}</div>
+            </div>
+            <div style="border-left:1px solid var(--border-subtle); padding-left:1.25rem;">
+              <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">Template Contamination:</span>
+              <div style="font-weight:700; color:${isContaminated ? 'var(--rose-glow)' : 'var(--emerald-glow)'}; font-size:0.9rem;">
+                ${isContaminated ? `⚠️ ${contamScore}% Contamination` : '✓ 0% Contamination (Clean)'}
+              </div>
+            </div>
+            <div style="border-left:1px solid var(--border-subtle); padding-left:1.25rem;">
+              <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">Audience Assumption Source:</span>
+              <div style="font-weight:700; color:var(--cyan-glow); font-size:0.85rem;">
+                ${assump.source_type || 'POPULAR_NARRATIVE'} (${assump.confidence || 85}%)
+              </div>
+            </div>
+          </div>
+          <span class="badge-decision" style="font-size:0.75rem; padding:0.25rem 0.8rem; background:rgba(6,182,212,0.15); color:var(--cyan-glow); border:1px solid var(--cyan-glow); margin:0;">
+            Story Intelligence: ${story.overall_story_intelligence_score}/100
+          </span>
+        </div>
+      `;
+    }
+
     // Render Open Loops Tracker Table with Entity Consistency & Payment Badges
     const loopsContainer = document.getElementById('story-loops-container');
     if (loopsContainer && story.open_loops) {
@@ -346,7 +381,7 @@ function renderStoryUI(story, handoff, pipelineData) {
             <strong style="color:var(--cyan-glow); font-family:var(--font-mono);">${l.loop_id}:</strong> 
             <span style="color:#cbd5e1; margin-left:0.3rem;">${l.question}</span>
             <div style="font-size:0.7rem; color:var(--text-muted); margin-top:0.2rem;">
-              <span style="color:var(--emerald-glow);">Entity Verified: ${isConsistent ? '✓ Consistent' : '✗ Contaminated'}</span> | 
+              <span style="color:var(--emerald-glow);">Domain Verified: ${isConsistent ? '✓ Consistent' : '✗ Contaminated'}</span> | 
               <span>Resolution Facts: [${resFacts || 'FACT-001'}]</span>
             </div>
           </div>
@@ -376,20 +411,16 @@ function renderStoryUI(story, handoff, pipelineData) {
         const infoGain = b.information_gain || {};
         const factIds = b.supporting_fact_ids || [];
         const loopIds = b.associated_open_loop_ids || [];
-        const analogyLabel = b.modern_analogy_label;
+        const analogy = b.modern_analogy;
 
         card.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border-subtle);">
             <div>
+              <div style="font-size:0.7rem; font-family:var(--font-mono); color:var(--cyan-glow); text-transform:uppercase;">${b.slot_name || `BEAT #${b.beat_number}`}</div>
               <span style="font-weight:700; color:#fff; font-size:1rem;">Beat #${b.beat_number}: ${b.title}</span>
-              <div style="font-size:0.75rem; color:var(--text-muted);">${b.function_role || ''}</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.1rem;">${b.function_role || ''}</div>
             </div>
             <div style="display:flex; gap:0.5rem; align-items:center;">
-              ${analogyLabel ? `
-                <span class="badge-decision" style="font-size:0.68rem; padding:0.15rem 0.5rem; background:rgba(244,63,94,0.2); color:var(--rose-glow); border:1px solid var(--rose-glow); margin:0;">
-                  🏷️ ${analogyLabel}
-                </span>
-              ` : ''}
               <span class="badge-decision" style="font-size:0.75rem; padding:0.2rem 0.7rem; background:rgba(6,182,212,0.15); color:var(--cyan-glow); border:1px solid var(--cyan-glow); margin:0;">
                 ⚡ Beat Intelligence: ${totalBeatScore}/100
               </span>
@@ -405,13 +436,30 @@ function renderStoryUI(story, handoff, pipelineData) {
               Structured Revelation Flow (Assumption ➔ Evidence ➔ Contradiction ➔ New Understanding)
             </div>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem; font-size:0.82rem;">
-              <div><span style="color:var(--rose-glow); font-weight:700;">Common Assumption:</span> ${rev.assumption || 'Standard public view'}</div>
+              <div><span style="color:var(--rose-glow); font-weight:700;">Premise / Assumption:</span> ${rev.assumption || 'Standard public view'}</div>
               <div><span style="color:var(--emerald-glow); font-weight:700;">Grounding Evidence:</span> ${rev.evidence || 'Documented records'}</div>
+            </div>
+            <div style="font-size:0.82rem; color:#f59e0b; margin-top:0.4rem;">
+              <strong>Documented Contradiction:</strong> ${rev.contradiction || ''}
             </div>
             <div style="font-size:0.85rem; color:#38bdf8; margin-top:0.4rem; padding-top:0.4rem; border-top:1px dashed var(--border-subtle);">
               <strong>New Viewer Understanding:</strong> ${rev.new_understanding || 'Deeper strategic insight'}
             </div>
           </div>
+
+          <!-- Modern Analogy Metadata if present -->
+          ${analogy ? `
+            <div style="background:rgba(244,63,94,0.08); border:1px solid rgba(244,63,94,0.25); border-radius:8px; padding:0.75rem; margin-bottom:0.75rem; font-size:0.75rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+                <strong style="color:var(--rose-glow);">🏷️ ${analogy.label} (${analogy.analogy_strength} Rigor)</strong>
+                <span style="color:var(--text-muted);">${analogy.similarity_dimension}</span>
+              </div>
+              <div style="color:#cbd5e1; line-height:1.4;">
+                <div><strong>Modern Analogy:</strong> ${analogy.modern_basis}</div>
+                <div style="color:#94a3b8; font-size:0.7rem; margin-top:0.2rem;"><strong>Boundary Limitation:</strong> ${analogy.boundary_limit}</div>
+              </div>
+            </div>
+          ` : ''}
 
           <!-- Information Gain Metric -->
           <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); padding:0.6rem 0.85rem; border-radius:6px; font-size:0.78rem; margin-bottom:0.5rem;">
@@ -628,8 +676,8 @@ function renderPackagingUI(pkg) {
       tagsContainer.innerHTML = '';
       pkg.tags.forEach(tag => {
         const tagSpan = document.createElement('span');
-        tagSpan.style.cssText = 'background:rgba(255,255,255,0.06); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.72rem; color:#94a3b8; border:1px solid var(--border-subtle);';
-        tagSpan.innerText = `#${tag}`;
+        tagSpan.style.cssText = 'background:rgba(255,255,255,0.06); padding:0.25rem 0.6rem; border-radius:4px; font-size:0.75rem; color:#e2e8f0; border:1px solid var(--border-subtle); font-family:var(--font-mono);';
+        tagSpan.innerText = tag;
         tagsContainer.appendChild(tagSpan);
       });
     }

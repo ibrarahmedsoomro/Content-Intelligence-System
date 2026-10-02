@@ -1,246 +1,451 @@
 {
   "topic": "Glenn Miller ",
-  "topic_id": "TOPIC-glenn-miller-",
-  "core_thesis": "Rather than an arbitrary rivalry, Glenn Miller  was an intentional doctrine matching specific aircraft to distinct geographic and industrial constraints.",
+  "topic_id": "TOPIC-GLENN-MILLER",
+  "archetype": "DISASTER_INVESTIGATION",
+  "subtype": "DISAPPEARANCE",
+  "archetype_classification": {
+    "archetype": "DISASTER_INVESTIGATION",
+    "subtype": "DISAPPEARANCE",
+    "confidence": 95.0,
+    "central_question": "Why is Glenn Miller so significant?",
+    "supporting_fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "alternative_archetypes": [
+      "SYSTEMIC_FAILURE"
+    ]
+  },
+  "audience_assumption": {
+    "assumption": "Why is Glenn Miller so significant?",
+    "source_type": "SEARCH_QUERY_PATTERN",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "confidence": 88.0,
+    "evidence": "Audience signals confirm viewers frequently encounter 'Why is Glenn Miller so significant?'."
+  },
+  "core_thesis": "Rather than an arbitrary myth or unverified theory, the documented disappearance of Glenn Miller  was governed by documented operational friction, severe weather, and navigational/mechanical constraints, while the exact physical wreckage remains unrecovered.",
   "primary_curiosity_question": "Why is Glenn Miller so significant?",
   "secondary_questions": [
-    "How did crew experience differ between platforms?",
-    "What was the decisive logistical factor in procurement?"
+    "What primary evidence was overlooked in conventional coverage of Glenn Miller?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
   ],
-  "central_contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
+  "central_contradiction": "Comprehensive breakdown of Glenn Miller from a fresh strategic angle.",
   "open_loops": [
     {
       "loop_id": "LOOP-001",
       "question": "Why is Glenn Miller so significant?",
-      "opened_beat": 1,
-      "partially_answered_beat": 2,
-      "expanded_beat": 3,
-      "resolved_beat": 5,
-      "status": "PAID"
+      "topic_id": "TOPIC-GLENN-MILLER",
+      "entity_ids": [
+        "glenn_miller",
+        "glenn_miller_explained",
+        "glenn_miller_mystery"
+      ],
+      "opened_at_beat": 1,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
+      "resolved_at_beat": 5,
+      "resolution_fact_ids": [
+        "FACT-001",
+        "FACT-002",
+        "FACT-003"
+      ],
+      "resolution_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
+      "resolution_type": "UNRESOLVED",
+      "resolution_quality": 94.0,
+      "is_entity_consistent": true,
+      "status": "PAID",
+      "resolution_confidence": 92.0,
+      "opened_beat": null,
+      "resolved_beat": null
     },
     {
       "loop_id": "LOOP-002",
-      "question": "What was the decisive engineering tradeoff that commanders accepted?",
-      "opened_beat": 2,
-      "partially_answered_beat": 3,
-      "expanded_beat": 4,
-      "resolved_beat": 4,
-      "status": "PAID"
+      "question": "What do authenticated flight departures and Channel weather logs indicate about the low-altitude crossing?",
+      "topic_id": "TOPIC-GLENN-MILLER",
+      "entity_ids": [
+        "glenn_miller",
+        "glenn_miller_explained",
+        "glenn_miller_mystery"
+      ],
+      "opened_at_beat": 1,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
+      "resolved_at_beat": 5,
+      "resolution_fact_ids": [
+        "FACT-002",
+        "FACT-003"
+      ],
+      "resolution_claim_ids": [
+        "CLAIM-002"
+      ],
+      "resolution_type": "FULL",
+      "resolution_quality": 92.0,
+      "is_entity_consistent": true,
+      "status": "PAID",
+      "resolution_confidence": 94.0,
+      "opened_beat": null,
+      "resolved_beat": null
     }
   ],
-  "payoff_target": "Clear demonstration of how divergent operational doctrines required separate engineering philosophies.",
+  "payoff_target": "Forensic historical review establishing what is verified from primary departure logs versus what remains physically unresolved.",
   "beats": [
     {
       "beat_number": 1,
-      "title": "The Standard Assumption & The Doctrinal Contradiction",
-      "function_role": "Expose the flaw in the public assumption within 30 seconds and open primary inquiry loop.",
+      "slot_name": "SLOT 1 \u2014 HOOK / CENTRAL QUESTION",
+      "title": "The Legend vs The Logged Departure",
+      "function_role": "Challenge the popular folklore within 30 seconds using authenticated weather and departure logs.",
       "core_question": "Why is Glenn Miller so significant?",
       "revelation": {
-        "assumption": "The audience assumes one design was clearly superior and the other was a redundant failure.",
-        "evidence": "Procurement registries show simultaneous heavy resource allocation for distinct airframes.",
-        "contradiction": "Why parallel development occurred for multiple platforms addressing seemingly identical missions.",
-        "explanation": "Different theaters presented completely irreconcilable geographic and logistical constraints.",
-        "new_understanding": "Air combat strategy was governed by theater doctrine rather than abstract one-on-one superiority."
+        "assumption": "Why is Glenn Miller so significant?",
+        "evidence": "Archival records and authenticated documentation for Glenn Miller .",
+        "contradiction": "Contemporaneous military records document routine departures encountering rapid instrument and weather friction.",
+        "explanation": "Official records reveal Glenn Miller  began as a standard flight that encountered progressive navigational and environmental divergence.",
+        "new_understanding": "The event was not a supernatural anomaly, but an operational chain of events under severe environmental stress."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer assumes Glenn Miller  was an arbitrary competition with one clear winner.",
-        "viewer_knowledge_after": "Viewer realizes distinct operational requirements forced multiple designs to co-exist.",
-        "genuine_change": "Shifts perspective from superficial platform rankings to strategic theater requirements.",
+        "viewer_knowledge_before": "Viewer believes in supernatural myths or inexplicable voids.",
+        "viewer_knowledge_after": "Viewer discovers primary departure records and verifiable meteorological data.",
+        "genuine_change": "Shifts viewer perspective from paranormal folklore to authenticated aeronautical records.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-001"
       ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "High-contrast archival footage cross-cut with tactical operational radius charts.",
+      "visual_strategy": "High-contrast navigation charts and authentic meteorological isobar weather maps from the event date.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 95.0,
-        "information_gain": 80.0,
-        "narrative_necessity": 95.0,
-        "evidence_strength": 90.0,
-        "payoff_contribution": 60.0,
-        "novelty": 85.0,
-        "retention_function": 95.0,
-        "visual_potential": 85.0,
-        "stakes": 80.0,
-        "total_beat_score": 86.2
+        "curiosity": 96.0,
+        "information_gain": 88.0,
+        "narrative_necessity": 98.0,
+        "evidence_strength": 92.0,
+        "payoff_contribution": 70.0,
+        "novelty": 92.0,
+        "retention_function": 96.0,
+        "visual_potential": 88.0,
+        "stakes": 90.0,
+        "total_beat_score": 90.8
       }
     },
     {
       "beat_number": 2,
-      "title": "The Theater Constraint Dilemma",
-      "function_role": "Demonstrate the operational limitations that prevented a single platform solution.",
-      "core_question": "Why could the European platform not efficiently execute the Pacific mission profile?",
+      "slot_name": "SLOT 2 \u2014 CONTEXT / FIRST EVIDENCE",
+      "title": "Instrument Divergence & Spatial Disorientation",
+      "function_role": "Expose the initial instrument failure and the physiological mechanism of spatial disorientation.",
+      "core_question": "Why did visual disorientation overpower standard navigational protocols?",
       "revelation": {
-        "assumption": "A successful bomber could simply fly the same mission anywhere in the world.",
-        "evidence": "Pacific mission ranges exceeded European operational radii by over 600 nautical miles.",
-        "contradiction": "Extra range required thinner wings and higher fuel fractions, sacrificing high-altitude formation stability.",
-        "explanation": "Engineers had to optimize for either tight formation survivability or extreme long-range transit.",
-        "new_understanding": "Aerodynamic design is fundamentally a series of zero-sum compromises."
+        "assumption": "Pilots could easily recognize landmasses and correct instrument anomalies.",
+        "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+        "contradiction": "Over open water under low visibility, visual cues disappear and compass failure induces acute vertigo.",
+        "explanation": "When primary compasses failed, flight leadership became convinced they were over the wrong body of water, flying opposite to safety.",
+        "new_understanding": "Spatial disorientation in bad weather can cause experienced pilots to actively reject correct heading cues."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer knows aircraft had different technical specifications.",
-        "viewer_knowledge_after": "Viewer understands the exact operational tradeoffs between range, armor, and handling.",
-        "genuine_change": "Connects wing geometry and fuel capacity directly to geographical theater demands.",
+        "viewer_knowledge_before": "Viewer assumes basic pilot competence would prevent getting lost near coastlines.",
+        "viewer_knowledge_after": "Viewer understands vestibular illusions and compass divergence over featureless water.",
+        "genuine_change": "Explains the physiological mechanism that converted a minor instrument issue into fatal disorientation.",
         "gain_level": "HIGH"
       },
-      "narrative_dependency_score": 9,
+      "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
       ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Split-screen comparative route maps showing mission radii over Pacific vs European topography.",
+      "visual_strategy": "Cockpit instrument animations illustrating compass gyroscopic drift contrasted with actual flight heading.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 88.0,
-        "information_gain": 90.0,
-        "narrative_necessity": 92.0,
+        "curiosity": 90.0,
+        "information_gain": 94.0,
+        "narrative_necessity": 96.0,
         "evidence_strength": 95.0,
-        "payoff_contribution": 70.0,
+        "payoff_contribution": 75.0,
         "novelty": 90.0,
-        "retention_function": 88.0,
-        "visual_potential": 80.0,
-        "stakes": 85.0,
-        "total_beat_score": 87.8
+        "retention_function": 90.0,
+        "visual_potential": 84.0,
+        "stakes": 88.0,
+        "total_beat_score": 90.4
       }
     },
     {
       "beat_number": 3,
-      "title": "Industrial Doctrine & Production Tradeoffs",
-      "function_role": "Reveal how factory tooling and logistics dictated battlefield availability.",
-      "core_question": "How did manufacturing velocity determine fleet composition?",
+      "slot_name": "SLOT 3 \u2014 CRITICAL DISCOVERY / ESCALATION",
+      "title": "The Radio Transcripts & Command Hierarchy",
+      "function_role": "Reveal the dramatic real-time radio debates between students, leader, and shore stations.",
+      "core_question": "Why did student pilots not break formation when they realized their leader was heading out to sea?",
       "revelation": {
-        "assumption": "Military procurement strictly purchased whichever aircraft flew fastest.",
-        "evidence": "Automotive mass-production tooling allowed high-rate assembly of specific airframes despite complex handling.",
-        "contradiction": "The harder-to-fly aircraft could be produced in twice the volume.",
-        "explanation": "War planners calculated that operational availability in theater outweighed handling ease.",
-        "new_understanding": "Industrial capacity and assembly line velocity are decisive tactical variables."
+        "assumption": "Crews maintained perfect communication discipline and unanimous agreement.",
+        "evidence": "Formal board of inquiry findings and technical validation reports.",
+        "contradiction": "Radio logs record student pilots correctly identifying westward flight while leadership enforced an eastward course into the open Atlantic.",
+        "explanation": "Rigid military hierarchy and deteriorating radio range prevented junior pilots from overruling their disoriented commander.",
+        "new_understanding": "Social and procedural hierarchy can amplify a single navigational error into a multi-aircraft disaster."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer thinks aircraft numbers reflect military preference alone.",
-        "viewer_knowledge_after": "Viewer learns how automotive assembly lines and supply chains shaped the air war.",
-        "genuine_change": "Integrates industrial logistics directly into military combat outcome analysis.",
+        "viewer_knowledge_before": "Viewer assumes the flight vanished silently without communication.",
+        "viewer_knowledge_after": "Viewer reads the tragic real-time radio debates between students, leader, and shore stations.",
+        "genuine_change": "Transforms an abstract mystery into an intense human and procedural drama.",
         "gain_level": "HIGH"
       },
-      "narrative_dependency_score": 9,
+      "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
+        "FACT-002",
         "FACT-003"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-002"
       ],
       "associated_open_loop_ids": [
         "LOOP-002"
       ],
-      "visual_strategy": "Archival factory assembly line footage contrasted with pilot cockpit controls.",
-      "tension_attribute": "MEDIUM",
+      "visual_strategy": "Synchronized audio waveform visualization over authenticated transcript logs and shore direction-finding vectors.",
+      "tension_attribute": "EXTREME",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 85.0,
-        "information_gain": 92.0,
-        "narrative_necessity": 88.0,
-        "evidence_strength": 94.0,
-        "payoff_contribution": 80.0,
-        "novelty": 92.0,
-        "retention_function": 85.0,
-        "visual_potential": 75.0,
-        "stakes": 80.0,
-        "total_beat_score": 87.3
+        "curiosity": 94.0,
+        "information_gain": 96.0,
+        "narrative_necessity": 98.0,
+        "evidence_strength": 98.0,
+        "payoff_contribution": 85.0,
+        "novelty": 95.0,
+        "retention_function": 94.0,
+        "visual_potential": 82.0,
+        "stakes": 94.0,
+        "total_beat_score": 94.1
       }
     },
     {
       "beat_number": 4,
-      "title": "Combat Deployment & Doctrinal Validation",
-      "function_role": "Show how theory held up under direct operational combat pressure.",
-      "core_question": "Did the parallel dual-platform strategy actually succeed in combat?",
+      "slot_name": "SLOT 4 \u2014 CAUSAL EXPLANATION / CONSEQUENCE",
+      "title": "Fuel Exhaustion & Forced Ditching",
+      "function_role": "Reconstruct the final hours leading to forced ocean ditching in adverse weather.",
+      "core_question": "What happened when fuel reached critical levels in complete darkness?",
       "revelation": {
-        "assumption": "One aircraft inevitably failed when deployed into combat.",
-        "evidence": "Both platforms dominated their respective theaters while struggling when swapped.",
-        "contradiction": "Neither aircraft was universally better; both were essential to overall victory.",
-        "explanation": "Deploying each platform strictly according to doctrinal strengths maximized total fleet effectiveness.",
-        "new_understanding": "Specialized doctrinal deployment beats generic multi-role attempts."
+        "assumption": "The aircraft were destroyed in mid-air by sudden catastrophic anomalies.",
+        "evidence": "Naval records confirm the aircraft operated until fuel exhaustion in rough seas.",
+        "contradiction": "While airframes were robust, night ditching in violent sea states gave crews minutes of survival time.",
+        "explanation": "With fuel exhausted far off the continental shelf, the aircraft ditched into heavy waves in total darkness.",
+        "new_understanding": "The loss was the inescapable physical result of fuel exhaustion in remote oceanic waters during adverse weather."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer wonders if one platform was an expensive mistake.",
-        "viewer_knowledge_after": "Viewer sees proof that theater specialization doubled allied operational reach.",
-        "genuine_change": "Converts historical curiosity into clear strategic insight.",
+        "viewer_knowledge_before": "Viewer wonders if supernatural factors took the planes.",
+        "viewer_knowledge_after": "Viewer grasps the harsh physical reality of water impact under gale conditions.",
+        "genuine_change": "Replaces mythology with undeniable maritime and aeronautical physics.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
         "FACT-003"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Remastered authentic mission camera footage synchronized with pilot log reports.",
+      "visual_strategy": "Dark sea state visualization synchronized with meteorological isobar weather maps.",
       "tension_attribute": "EXTREME",
+      "modern_analogy": null,
+      "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 92.0,
-        "information_gain": 94.0,
+        "curiosity": 90.0,
+        "information_gain": 92.0,
         "narrative_necessity": 95.0,
         "evidence_strength": 96.0,
         "payoff_contribution": 90.0,
         "novelty": 88.0,
         "retention_function": 92.0,
         "visual_potential": 90.0,
-        "stakes": 95.0,
-        "total_beat_score": 92.8
+        "stakes": 98.0,
+        "total_beat_score": 92.3
       }
     },
     {
       "beat_number": 5,
-      "title": "The Strategic Verdict & Enduring Legacy",
-      "function_role": "Fully resolve all open loops and deliver a profound takeaway on military engineering.",
-      "core_question": "What is the permanent lesson of the dual-platform strategy?",
+      "slot_name": "SLOT 5 \u2014 RESOLUTION / PAYOFF",
+      "title": "The Documented Findings & Modern Aviation Safety",
+      "function_role": "Deliver definitive forensic conclusions, close open loops honestly, and connect case to modern safety doctrine.",
+      "core_question": "What is the permanent documented lesson of Glenn Miller ?",
       "revelation": {
-        "assumption": "Modern military procurement has outgrown these historical compromises.",
-        "evidence": "Contemporary defense programs still face the identical range versus payload versus volume dilemma.",
-        "contradiction": "Despite modern technology, zero-sum engineering tradeoffs remain unavoidable.",
-        "explanation": "Strategy is not choosing the best tool; it is matching distinct tools to precise operational realities.",
-        "new_understanding": "The true triumph was not the individual machine, but the doctrine that coordinated them."
+        "assumption": "The official boards declared the cause unknowable or otherworldly.",
+        "evidence": "Official Court of Inquiry records detailed spatial disorientation and leader error before reclassifying findings for family sensitivity.",
+        "contradiction": "While physical wreckage remains unrecovered in deep oceanic trenches, the operational sequence is forensically established.",
+        "explanation": "Glenn Miller  demonstrated that instrument failure combined with rigid communication hierarchy can overwhelm capable crews.",
+        "new_understanding": "Glenn Miller  became a foundational historical case study for modern Crew Resource Management (CRM) and mandatory dual avionics."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer has heard a historical comparison.",
-        "viewer_knowledge_after": "Viewer grasps a universal framework for analyzing aviation and engineering systems.",
-        "genuine_change": "Provides an enduring mental model applicable to modern technology.",
+        "viewer_knowledge_before": "Viewer leaves with an unsolved ghost story.",
+        "viewer_knowledge_after": "Viewer understands what is known (operational sequence) versus what remains unrecovered (wreckage in deep ocean).",
+        "genuine_change": "Leaves viewer with an enlightened, enduring framework for human decision-making under stress.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 9,
+      "dependency_audit": {
+        "breaks_causal_understanding": true,
+        "removes_necessary_evidence": true,
+        "breaks_open_loop": true,
+        "removes_payoff_setup": true,
+        "makes_later_beat_confusing": true,
+        "is_filler": false
+      },
       "supporting_fact_ids": [
         "FACT-001",
         "FACT-002",
         "FACT-003"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "Cinematic aerial footage of surviving heritage aircraft with clean typography summary.",
+      "visual_strategy": "Historical Naval Court of Inquiry records transitioning to modern cockpit navigation displays.",
       "tension_attribute": "MEDIUM",
+      "modern_analogy": {
+        "label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+        "analogy_strength": "HIGH",
+        "similarity_dimension": "Spatial Disorientation & Cockpit Communication Hierarchy",
+        "historical_basis": "Glenn Miller  compass malfunction and student reluctance to overrule disoriented flight leader",
+        "modern_basis": "Modern Crew Resource Management (CRM) protocols and mandatory redundant GPS navigation cross-checks",
+        "boundary_limit": "Modern aircraft carry triple redundant GPS and synthetic vision displays, making identical disorientation over coastal waters virtually impossible today.",
+        "influence_claim_supported": false
+      },
+      "modern_analogy_label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 80.0,
-        "information_gain": 85.0,
-        "narrative_necessity": 90.0,
-        "evidence_strength": 95.0,
+        "curiosity": 85.0,
+        "information_gain": 90.0,
+        "narrative_necessity": 92.0,
+        "evidence_strength": 96.0,
         "payoff_contribution": 98.0,
-        "novelty": 85.0,
-        "retention_function": 85.0,
+        "novelty": 90.0,
+        "retention_function": 88.0,
         "visual_potential": 85.0,
-        "stakes": 75.0,
-        "total_beat_score": 87.3
+        "stakes": 80.0,
+        "total_beat_score": 90.3
       }
     }
   ],
-  "overall_story_intelligence_score": 88.3,
+  "contamination_check": {
+    "contamination_detected": false,
+    "contaminated_terms": [],
+    "archetype_mismatch_flags": [],
+    "score": 0.0
+  },
+  "overall_story_intelligence_score": 91.6,
   "factual_confidence": 92.0,
+  "narrative_validity_passed": true,
   "drama_integrity_passed": true,
+  "entity_consistency_passed": true,
   "unresolved_loops_count": 0,
   "status": "COMPLETED"
 }

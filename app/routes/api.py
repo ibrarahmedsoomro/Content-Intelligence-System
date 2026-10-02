@@ -143,12 +143,12 @@ def evaluate_single_topic(packet: ResearchPacket):
 @router.post("/pipeline/run-full")
 def run_full_pipeline(packet: ResearchPacket):
     """
-    End-to-End Execution across all 5 Agent Stages:
-    1. Research (Ingested)
-    2. Topic Selection (12 Dimensions + 6 Hard Gates)
-    3. Story Dev (Beat Intelligence Score + Open Loops + Info Gain Diffs)
-    4. Script Agent (Traceable Scenes + QA Promise Delivery Audit)
-    5. Packaging Agent (CTR Formulas + AI Prompts + SEO)
+    Executes Stages 2 → 3 → 4 → 5 from the Ingested Stage 1 Research Packet:
+    - Stage 1: Research Packet (Ingested input)
+    - Stage 2: Topic Selection Engine (12 Dimensions + 6 Hard Gates)
+    - Stage 3: Story Dev Agent (Archetype + Beat Intelligence + Open Loops)
+    - Stage 4: Traceable Script Agent (Scenes + 11-Check QA Audit Matrix)
+    - Stage 5: Packaging & SEO Agent (CTR Formulas + Prompts + SEO)
     """
     slug = re.sub(r'[^a-zA-Z0-9]', '-', packet.topic_name.lower())[:35]
 
@@ -258,18 +258,36 @@ def evaluate_batch_topics():
 
 @router.get("/export/{topic_slug}/markdown", response_class=PlainTextResponse)
 def export_topic_markdown(topic_slug: str):
-    slug = re.sub(r'[^a-zA-Z0-9]', '-', topic_slug.lower())[:35]
-    dec_file = OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json"
-    story_file = OUTPUTS_STORIES_DIR / f"{slug}-story.json"
-    script_file = OUTPUTS_SCRIPTS_DIR / f"{slug}-script.json"
-    pkg_file = OUTPUTS_PACKAGES_DIR / f"{slug}-packaging.json"
-
-    if not dec_file.exists():
-        raise HTTPException(status_code=404, detail="Topic outputs not found.")
-
-    with open(dec_file, "r", encoding="utf-8") as f:
-        dec = json.load(f)
+    clean_target = re.sub(r'[^a-zA-Z0-9]', '', topic_slug.lower())
     
+    # Locate decision file by slug or fuzzy match
+    target_slug = None
+    dec = None
+    for fpath in OUTPUTS_DECISIONS_DIR.glob("*-decision.json"):
+        curr_slug = fpath.name.replace("-decision.json", "")
+        clean_curr = re.sub(r'[^a-zA-Z0-9]', '', curr_slug.lower())
+        if clean_curr in clean_target or clean_target in clean_curr:
+            target_slug = curr_slug
+            with open(fpath, "r", encoding="utf-8") as f:
+                dec = json.load(f)
+            break
+
+    if not dec or not target_slug:
+        # Fallback to direct path
+        slug = re.sub(r'[^a-zA-Z0-9]', '-', topic_slug.lower())[:35]
+        dec_file = OUTPUTS_DECISIONS_DIR / f"{slug}-decision.json"
+        if dec_file.exists():
+            target_slug = slug
+            with open(dec_file, "r", encoding="utf-8") as f:
+                dec = json.load(f)
+
+    if not dec or not target_slug:
+        raise HTTPException(status_code=404, detail=f"Topic outputs not found for: {topic_slug}")
+
+    story_file = OUTPUTS_STORIES_DIR / f"{target_slug}-story.json"
+    script_file = OUTPUTS_SCRIPTS_DIR / f"{target_slug}-script.json"
+    pkg_file = OUTPUTS_PACKAGES_DIR / f"{target_slug}-packaging.json"
+
     story = json.load(open(story_file, "r", encoding="utf-8")) if story_file.exists() else {}
     script = json.load(open(script_file, "r", encoding="utf-8")) if script_file.exists() else {}
     pkg = json.load(open(pkg_file, "r", encoding="utf-8")) if pkg_file.exists() else {}
@@ -349,5 +367,13 @@ def export_topic_markdown(topic_slug: str):
 ```
 {pkg.get('seo_description', '')}
 ```
+
+### High-Ranking YouTube Tags (Comma-Separated for Studio):
+```
+{', '.join(pkg.get('youtube_tags', []))}
+```
+
+### Pinned Audience Retention Comment:
+> {pkg.get('pinned_comment', '')}
 """
     return PlainTextResponse(content=md, media_type="text/markdown")

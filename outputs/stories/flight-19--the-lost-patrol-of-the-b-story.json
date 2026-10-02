@@ -1,82 +1,119 @@
 {
   "topic": "Flight 19: The Lost Patrol of the Bermuda Triangle",
-  "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
-  "core_thesis": "Rather than a simple rivalry or isolated anomaly, Flight 19: The Lost Patrol of the Bermuda Triangle was an intentional doctrine balancing distinct constraints: The 45-minute radio transcript that reveals why no one spoke up..",
+  "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
+  "archetype": "DISASTER_INVESTIGATION",
+  "subtype": "MISSING_PATROL",
+  "archetype_classification": {
+    "archetype": "DISASTER_INVESTIGATION",
+    "subtype": "MISSING_PATROL",
+    "confidence": 95.0,
+    "central_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
+    "supporting_fact_ids": [
+      "FACT-001",
+      "FACT-002",
+      "FACT-003"
+    ],
+    "alternative_archetypes": [
+      "SYSTEMIC_FAILURE"
+    ]
+  },
+  "audience_assumption": {
+    "assumption": "Did Taylor confuse the Bahamas with the Florida Keys?",
+    "source_type": "SEARCH_QUERY_PATTERN",
+    "source_types": [
+      "SEARCH_QUERY_PATTERN"
+    ],
+    "confidence": 88.0,
+    "evidence": "Audience signals confirm viewers frequently encounter 'Did Taylor confuse the Bahamas with the Florida Keys?'."
+  },
+  "core_thesis": "Rather than a supernatural occurrence or inexplicable void, the documented loss in Flight 19: The Lost Patrol of the Bermuda Triangle was a cascading operational breakdown driven by compass failure, severe spatial disorientation, and radio communication friction under adverse weather.",
   "primary_curiosity_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
   "secondary_questions": [
-    "Did Taylor confuse the Bahamas with the Florida Keys?",
-    "Why didn't the student pilots take over navigation?"
+    "What primary evidence was overlooked in conventional coverage of Flight 19 Bermuda Triangle?",
+    "What physical, environmental, or procedural constraints governed the outcome?"
   ],
-  "central_contradiction": "Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
+  "central_contradiction": "Radio transcripts analysis and psychological breakdown of military hierarchy during spatial disorientation",
   "open_loops": [
     {
       "loop_id": "LOOP-001",
       "question": "Did Taylor confuse the Bahamas with the Florida Keys?",
-      "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+      "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
       "entity_ids": [
-        "Flight 19 Bermuda Triangle",
-        "TBM Avenger lost patrol",
-        "Lieutenant Charles Taylor",
-        "Naval Air Station Fort Lauderdale"
+        "flight_19_bermuda_triangle",
+        "tbm_avenger_lost_patrol",
+        "lieutenant_charles_taylor",
+        "naval_air_station_fort_lauderdale"
       ],
       "opened_at_beat": 1,
-      "partially_answered_beat": 2,
-      "expanded_beat": 3,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
       "resolved_at_beat": 5,
       "resolution_fact_ids": [
         "FACT-001",
         "FACT-002",
         "FACT-003"
       ],
+      "resolution_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
+      "resolution_type": "UNRESOLVED",
       "resolution_quality": 94.0,
       "is_entity_consistent": true,
       "status": "PAID",
-      "opened_beat": 1,
-      "resolved_beat": 5
+      "resolution_confidence": 88.0,
+      "opened_beat": null,
+      "resolved_beat": null
     },
     {
       "loop_id": "LOOP-002",
-      "question": "What was the decisive structural or operational constraint governing Flight 19: The Lost Patrol of the Bermuda Triangle?",
-      "topic_id": "TOPIC-flight-19--the-lost-patrol-of-",
+      "question": "What do the recorded flight transmissions reveal about the leader's navigation dilemma and the student pilots' hesitation?",
+      "topic_id": "TOPIC-FLIGHT-19--THE-LOST-PATROL-OF-THE-B",
       "entity_ids": [
-        "Flight 19 Bermuda Triangle",
-        "TBM Avenger lost patrol",
-        "Lieutenant Charles Taylor",
-        "Naval Air Station Fort Lauderdale"
+        "flight_19_bermuda_triangle",
+        "tbm_avenger_lost_patrol",
+        "lieutenant_charles_taylor",
+        "naval_air_station_fort_lauderdale"
       ],
-      "opened_at_beat": 2,
-      "partially_answered_beat": 3,
-      "expanded_beat": 4,
-      "resolved_at_beat": 4,
+      "opened_at_beat": 1,
+      "partially_answered_beat": null,
+      "expanded_beat": null,
+      "resolved_at_beat": 5,
       "resolution_fact_ids": [
         "FACT-002",
         "FACT-003"
       ],
+      "resolution_claim_ids": [
+        "CLAIM-002"
+      ],
+      "resolution_type": "FULL",
       "resolution_quality": 92.0,
       "is_entity_consistent": true,
       "status": "PAID",
-      "opened_beat": 2,
-      "resolved_beat": 4
+      "resolution_confidence": 90.0,
+      "opened_beat": null,
+      "resolved_beat": null
     }
   ],
-  "payoff_target": "Complete causal understanding of Flight 19 Bermuda Triangle replacing sensational myth with verifiable causation.",
+  "payoff_target": "Forensic reconstruction based on official Board of Inquiry records dispelling folklore with verified navigational physics.",
   "beats": [
     {
       "beat_number": 1,
-      "title": "The Public Assumption & The Core Contradiction",
-      "function_role": "Expose the flaw in the public assumption within 30 seconds and open primary inquiry loop.",
+      "slot_name": "SLOT 1 \u2014 HOOK / CENTRAL QUESTION",
+      "title": "The Legend vs The Logged Departure",
+      "function_role": "Challenge the popular folklore within 30 seconds using authenticated weather and departure logs.",
       "core_question": "Did Taylor confuse the Bahamas with the Florida Keys?",
       "revelation": {
-        "assumption": "The audience assumes a simplistic or sensationalized explanation for Flight 19 Bermuda Triangle.",
-        "evidence": "Primary records and technical logs establish the baseline constraints of Flight 19 Bermuda Triangle.",
-        "contradiction": "Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
-        "explanation": "Operational requirements created irreconcilable constraints that conventional assumptions fail to account for.",
-        "new_understanding": "The reality of Flight 19: The Lost Patrol of the Bermuda Triangle was governed by systemic necessity rather than simplistic comparisons."
+        "assumption": "Did Taylor confuse the Bahamas with the Florida Keys?",
+        "evidence": "Archival records and authenticated documentation for Flight 19: The Lost Patrol of the Bermuda Triangle.",
+        "contradiction": "Contemporaneous military records document routine departures encountering rapid instrument and weather friction.",
+        "explanation": "Official records reveal Flight 19: The Lost Patrol of the Bermuda Triangle began as a standard flight that encountered progressive navigational and environmental divergence.",
+        "new_understanding": "The event was not a supernatural anomaly, but an operational chain of events under severe environmental stress."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer assumes Flight 19: The Lost Patrol of the Bermuda Triangle was an arbitrary competition or standard development with one obvious explanation.",
-        "viewer_knowledge_after": "Viewer discovers the underlying paradox: Why standard accounts of Flight 19 Bermuda Triangle contradict documented operational telemetry and records.",
-        "genuine_change": "Shifts perspective from superficial narrative to structural and operational realities.",
+        "viewer_knowledge_before": "Viewer believes in supernatural myths or inexplicable voids.",
+        "viewer_knowledge_after": "Viewer discovers primary departure records and verifiable meteorological data.",
+        "genuine_change": "Shifts viewer perspective from paranormal folklore to authenticated aeronautical records.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
@@ -91,44 +128,59 @@
       "supporting_fact_ids": [
         "FACT-001"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "High-contrast authentic archival/technical imagery cross-cut with tactical operational charts.",
+      "visual_strategy": "High-contrast navigation charts and authentic meteorological isobar weather maps from the event date.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
       "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 94.0,
-        "information_gain": 82.0,
-        "narrative_necessity": 96.0,
+        "curiosity": 96.0,
+        "information_gain": 88.0,
+        "narrative_necessity": 98.0,
         "evidence_strength": 92.0,
-        "payoff_contribution": 65.0,
-        "novelty": 86.0,
-        "retention_function": 94.0,
-        "visual_potential": 86.0,
-        "stakes": 84.0,
-        "total_beat_score": 87.6
+        "payoff_contribution": 70.0,
+        "novelty": 92.0,
+        "retention_function": 96.0,
+        "visual_potential": 88.0,
+        "stakes": 90.0,
+        "total_beat_score": 90.8
       }
     },
     {
       "beat_number": 2,
-      "title": "The Operational Constraint Dilemma",
-      "function_role": "Demonstrate the physical and operational limitations that created the central tradeoff.",
-      "core_question": "Why did standard approaches fail to solve the operational dilemma in Flight 19: The Lost Patrol of the Bermuda Triangle?",
+      "slot_name": "SLOT 2 \u2014 CONTEXT / FIRST EVIDENCE",
+      "title": "Instrument Divergence & Spatial Disorientation",
+      "function_role": "Expose the initial instrument failure and the physiological mechanism of spatial disorientation.",
+      "core_question": "Why did visual disorientation overpower standard navigational protocols?",
       "revelation": {
-        "assumption": "A single optimized solution could satisfy all operational demands simultaneously.",
-        "evidence": "Documented engineering and procedural data recorded during Flight 19 Bermuda Triangle events.",
-        "contradiction": "Optimizing for one critical parameter directly compromised another vital capability.",
-        "explanation": "The environment and mission profile demanded uncompromising zero-sum design choices: The 45-minute radio transcript that reveals why no one spoke up..",
-        "new_understanding": "System design is fundamentally a series of calculated zero-sum tradeoffs."
+        "assumption": "Pilots could easily recognize landmasses and correct instrument anomalies.",
+        "evidence": "Engineering logs, inquiry transcripts, and environmental records.",
+        "contradiction": "Over open water under low visibility, visual cues disappear and compass failure induces acute vertigo.",
+        "explanation": "When primary compasses failed, flight leadership became convinced they were over the wrong body of water, flying opposite to safety.",
+        "new_understanding": "Spatial disorientation in bad weather can cause experienced pilots to actively reject correct heading cues."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer knows specifications but not why those exact trade-offs were chosen.",
-        "viewer_knowledge_after": "Viewer understands the exact physical, environmental, and tactical mechanisms driving the outcome.",
-        "genuine_change": "Connects physical constraints directly to high-stakes strategic decisions.",
+        "viewer_knowledge_before": "Viewer assumes basic pilot competence would prevent getting lost near coastlines.",
+        "viewer_knowledge_after": "Viewer understands vestibular illusions and compass divergence over featureless water.",
+        "genuine_change": "Explains the physiological mechanism that converted a minor instrument issue into fatal disorientation.",
         "gain_level": "HIGH"
       },
-      "narrative_dependency_score": 9,
+      "narrative_dependency_score": 10,
       "dependency_audit": {
         "breaks_causal_understanding": true,
         "removes_necessary_evidence": true,
@@ -141,45 +193,61 @@
         "FACT-001",
         "FACT-002"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Comparative technical breakdown diagrams and environmental radius mapping.",
+      "visual_strategy": "Cockpit instrument animations illustrating compass gyroscopic drift contrasted with actual flight heading.",
       "tension_attribute": "HIGH",
+      "modern_analogy": null,
       "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 89.0,
-        "information_gain": 92.0,
-        "narrative_necessity": 94.0,
+        "curiosity": 90.0,
+        "information_gain": 94.0,
+        "narrative_necessity": 96.0,
         "evidence_strength": 95.0,
-        "payoff_contribution": 72.0,
+        "payoff_contribution": 75.0,
         "novelty": 90.0,
-        "retention_function": 88.0,
-        "visual_potential": 82.0,
-        "stakes": 86.0,
-        "total_beat_score": 88.9
+        "retention_function": 90.0,
+        "visual_potential": 84.0,
+        "stakes": 88.0,
+        "total_beat_score": 90.4
       }
     },
     {
       "beat_number": 3,
-      "title": "Systemic & Logistical Realities",
-      "function_role": "Reveal how manufacturing, logistics, and systemic throughput determined real-world viability.",
-      "core_question": "How did execution and throughput limitations shape the final outcome of Flight 19: The Lost Patrol of the Bermuda Triangle?",
+      "slot_name": "SLOT 3 \u2014 CRITICAL DISCOVERY / ESCALATION",
+      "title": "The Radio Transcripts & Command Hierarchy",
+      "function_role": "Reveal the dramatic real-time radio debates between students, leader, and shore stations.",
+      "core_question": "Why did student pilots not break formation when they realized their leader was heading out to sea?",
       "revelation": {
-        "assumption": "Theoretical performance alone determined operational success.",
-        "evidence": "Post-event investigative findings and official technical assessments.",
-        "contradiction": "The theoretically superior option was often bottlenecked by logistical and production realities.",
-        "explanation": "Planners recognized that operational availability at scale outweighed marginal performance advantages.",
-        "new_understanding": "Industrial capacity and logistical velocity are decisive tactical variables."
+        "assumption": "Crews maintained perfect communication discipline and unanimous agreement.",
+        "evidence": "Formal board of inquiry findings and technical validation reports.",
+        "contradiction": "Radio logs record student pilots correctly identifying westward flight while leadership enforced an eastward course into the open Atlantic.",
+        "explanation": "Rigid military hierarchy and deteriorating radio range prevented junior pilots from overruling their disoriented commander.",
+        "new_understanding": "Social and procedural hierarchy can amplify a single navigational error into a multi-aircraft disaster."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer evaluates performance isolated in a vacuum.",
-        "viewer_knowledge_after": "Viewer learns how real-world supply lines, tooling, and execution velocity shaped reality.",
-        "genuine_change": "Integrates industrial throughput into strategic analysis.",
+        "viewer_knowledge_before": "Viewer assumes the flight vanished silently without communication.",
+        "viewer_knowledge_after": "Viewer reads the tragic real-time radio debates between students, leader, and shore stations.",
+        "genuine_change": "Transforms an abstract mystery into an intense human and procedural drama.",
         "gain_level": "HIGH"
       },
-      "narrative_dependency_score": 9,
+      "narrative_dependency_score": 10,
       "dependency_audit": {
         "breaks_causal_understanding": true,
         "removes_necessary_evidence": true,
@@ -189,43 +257,59 @@
         "is_filler": false
       },
       "supporting_fact_ids": [
+        "FACT-002",
         "FACT-003"
+      ],
+      "supporting_claim_ids": [
+        "CLAIM-002"
       ],
       "associated_open_loop_ids": [
         "LOOP-002"
       ],
-      "visual_strategy": "Factory tooling schematics and production data visualization contrasted with field conditions.",
-      "tension_attribute": "MEDIUM",
+      "visual_strategy": "Synchronized audio waveform visualization over authenticated transcript logs and shore direction-finding vectors.",
+      "tension_attribute": "EXTREME",
+      "modern_analogy": null,
       "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 86.0,
-        "information_gain": 93.0,
-        "narrative_necessity": 90.0,
-        "evidence_strength": 94.0,
-        "payoff_contribution": 82.0,
-        "novelty": 92.0,
-        "retention_function": 86.0,
-        "visual_potential": 78.0,
-        "stakes": 82.0,
-        "total_beat_score": 88.5
+        "curiosity": 94.0,
+        "information_gain": 96.0,
+        "narrative_necessity": 98.0,
+        "evidence_strength": 98.0,
+        "payoff_contribution": 85.0,
+        "novelty": 95.0,
+        "retention_function": 94.0,
+        "visual_potential": 82.0,
+        "stakes": 94.0,
+        "total_beat_score": 94.1
       }
     },
     {
       "beat_number": 4,
-      "title": "Operational Crucible & Doctrinal Validation",
-      "function_role": "Demonstrate how the strategy performed under direct real-world pressure.",
-      "core_question": "How did the strategic choices for Flight 19: The Lost Patrol of the Bermuda Triangle hold up in actual operational deployment?",
+      "slot_name": "SLOT 4 \u2014 CAUSAL EXPLANATION / CONSEQUENCE",
+      "title": "Fuel Exhaustion & Forced Ditching",
+      "function_role": "Reconstruct the final hours leading to forced ocean ditching in adverse weather.",
+      "core_question": "What happened when fuel reached critical levels in complete darkness?",
       "revelation": {
-        "assumption": "The chosen strategy resulted in an irrecoverable systemic failure.",
-        "evidence": "Operational records confirm specialized deployment maximized total system effectiveness.",
-        "contradiction": "Neither choice was universally perfect; matching specific tools to specific conditions succeeded.",
-        "explanation": "Deploying platforms and doctrines strictly according to their designed strengths validated the strategy.",
-        "new_understanding": "Specialized doctrinal alignment consistently outperforms generic compromises."
+        "assumption": "The aircraft were destroyed in mid-air by sudden catastrophic anomalies.",
+        "evidence": "Naval records confirm the aircraft operated until fuel exhaustion in rough seas.",
+        "contradiction": "While airframes were robust, night ditching in violent sea states gave crews minutes of survival time.",
+        "explanation": "With fuel exhausted far off the continental shelf, the aircraft ditched into heavy waves in total darkness.",
+        "new_understanding": "The loss was the inescapable physical result of fuel exhaustion in remote oceanic waters during adverse weather."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer expects a story of decisive failure or unilateral dominance.",
-        "viewer_knowledge_after": "Viewer sees proof that specialized execution doubled total operational impact.",
-        "genuine_change": "Converts historical curiosity into clear strategic doctrine.",
+        "viewer_knowledge_before": "Viewer wonders if supernatural factors took the planes.",
+        "viewer_knowledge_after": "Viewer grasps the harsh physical reality of water impact under gale conditions.",
+        "genuine_change": "Replaces mythology with undeniable maritime and aeronautical physics.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 10,
@@ -242,42 +326,58 @@
         "FACT-002",
         "FACT-003"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001",
         "LOOP-002"
       ],
-      "visual_strategy": "Remastered authentic mission records and telemetry synchronized with operator debrief logs.",
+      "visual_strategy": "Dark sea state visualization synchronized with meteorological isobar weather maps.",
       "tension_attribute": "EXTREME",
+      "modern_analogy": null,
       "modern_analogy_label": null,
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 93.0,
-        "information_gain": 95.0,
-        "narrative_necessity": 96.0,
+        "curiosity": 90.0,
+        "information_gain": 92.0,
+        "narrative_necessity": 95.0,
         "evidence_strength": 96.0,
-        "payoff_contribution": 91.0,
-        "novelty": 89.0,
-        "retention_function": 93.0,
-        "visual_potential": 91.0,
-        "stakes": 96.0,
-        "total_beat_score": 93.6
+        "payoff_contribution": 90.0,
+        "novelty": 88.0,
+        "retention_function": 92.0,
+        "visual_potential": 90.0,
+        "stakes": 98.0,
+        "total_beat_score": 92.3
       }
     },
     {
       "beat_number": 5,
-      "title": "The Strategic Verdict & Enduring Legacy",
-      "function_role": "Fully resolve all open loops and deliver an enduring mental model for modern systems.",
-      "core_question": "What is the enduring lesson of Flight 19: The Lost Patrol of the Bermuda Triangle for modern engineering and decision-making?",
+      "slot_name": "SLOT 5 \u2014 RESOLUTION / PAYOFF",
+      "title": "The Documented Findings & Modern Aviation Safety",
+      "function_role": "Deliver definitive forensic conclusions, close open loops honestly, and connect case to modern safety doctrine.",
+      "core_question": "What is the permanent documented lesson of Flight 19: The Lost Patrol of the Bermuda Triangle?",
       "revelation": {
-        "assumption": "Modern technology and advanced systems have made these historical compromises obsolete.",
-        "evidence": "Contemporary programs encounter identical trade-offs between range, payload, cost, and complexity.",
-        "contradiction": "Despite modern tools, fundamental engineering tradeoffs remain mathematically immutable.",
-        "explanation": "Success is not finding an ideal tool, but aligning precise tools with specific operational realities.",
-        "new_understanding": "The enduring lesson of Flight 19: The Lost Patrol of the Bermuda Triangle is that doctrine and architecture outweigh raw individual metrics."
+        "assumption": "The official boards declared the cause unknowable or otherworldly.",
+        "evidence": "Official Court of Inquiry records detailed spatial disorientation and leader error before reclassifying findings for family sensitivity.",
+        "contradiction": "While physical wreckage remains unrecovered in deep oceanic trenches, the operational sequence is forensically established.",
+        "explanation": "Flight 19: The Lost Patrol of the Bermuda Triangle demonstrated that instrument failure combined with rigid communication hierarchy can overwhelm capable crews.",
+        "new_understanding": "Flight 19: The Lost Patrol of the Bermuda Triangle became a foundational historical case study for modern Crew Resource Management (CRM) and mandatory dual avionics."
       },
       "information_gain": {
-        "viewer_knowledge_before": "Viewer has heard a fascinating isolated case study.",
-        "viewer_knowledge_after": "Viewer acquires a universal analytical framework applicable to engineering and strategy.",
-        "genuine_change": "Provides an enduring mental model that bridges historical case studies to modern technology.",
+        "viewer_knowledge_before": "Viewer leaves with an unsolved ghost story.",
+        "viewer_knowledge_after": "Viewer understands what is known (operational sequence) versus what remains unrecovered (wreckage in deep ocean).",
+        "genuine_change": "Leaves viewer with an enlightened, enduring framework for human decision-making under stress.",
         "gain_level": "HIGH"
       },
       "narrative_dependency_score": 9,
@@ -294,28 +394,58 @@
         "FACT-002",
         "FACT-003"
       ],
+      "supporting_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002"
+      ],
       "associated_open_loop_ids": [
         "LOOP-001"
       ],
-      "visual_strategy": "Cinematic footage of surviving artifacts concluding with structured summary infographic card.",
+      "visual_strategy": "Historical Naval Court of Inquiry records transitioning to modern cockpit navigation displays.",
       "tension_attribute": "MEDIUM",
+      "modern_analogy": {
+        "label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+        "analogy_strength": "HIGH",
+        "similarity_dimension": "Spatial Disorientation & Cockpit Communication Hierarchy",
+        "historical_basis": "Flight 19: The Lost Patrol of the Bermuda Triangle compass malfunction and student reluctance to overrule disoriented flight leader",
+        "modern_basis": "Modern Crew Resource Management (CRM) protocols and mandatory redundant GPS navigation cross-checks",
+        "boundary_limit": "Modern aircraft carry triple redundant GPS and synthetic vision displays, making identical disorientation over coastal waters virtually impossible today.",
+        "influence_claim_supported": false
+      },
       "modern_analogy_label": "MODERN ANALOGY \u2014 NOT HISTORICAL FACT",
+      "validity_gate": {
+        "derives_from_verified_facts": true,
+        "answers_real_question": true,
+        "advances_thesis": true,
+        "narrative_domain_consistency": true,
+        "template_contamination_free": true,
+        "bounded_claims": true,
+        "is_valid": true,
+        "rejection_reasons": []
+      },
       "beat_score": {
-        "curiosity": 82.0,
-        "information_gain": 88.0,
+        "curiosity": 85.0,
+        "information_gain": 90.0,
         "narrative_necessity": 92.0,
-        "evidence_strength": 94.0,
+        "evidence_strength": 96.0,
         "payoff_contribution": 98.0,
-        "novelty": 87.0,
+        "novelty": 90.0,
         "retention_function": 88.0,
         "visual_potential": 85.0,
-        "stakes": 78.0,
-        "total_beat_score": 88.9
+        "stakes": 80.0,
+        "total_beat_score": 90.3
       }
     }
   ],
-  "overall_story_intelligence_score": 89.5,
+  "contamination_check": {
+    "contamination_detected": false,
+    "contaminated_terms": [],
+    "archetype_mismatch_flags": [],
+    "score": 0.0
+  },
+  "overall_story_intelligence_score": 91.6,
   "factual_confidence": 88.0,
+  "narrative_validity_passed": true,
   "drama_integrity_passed": true,
   "entity_consistency_passed": true,
   "unresolved_loops_count": 0,
